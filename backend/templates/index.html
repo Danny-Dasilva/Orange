@@ -1,0 +1,84 @@
+<html>
+    <head>
+       
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
+
+    </head>
+    <body>
+        <style>
+            #slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    -webkit-transform: rotate(270deg);
+    width: 250px;
+    height: 10px;
+  position:absolute;
+    top:50%;
+    left:50%;
+    left:30px;
+    top:300px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+</style>
+
+
+        <FORM action="test" method="post" id="form">
+            <P>
+                <input type="range" id="slider" value="0.5" min="0.0" max="1.0" step="0.01" />
+            </FORM>
+
+            <select id="dropdown">
+                <option value="test1">test1</option>
+                <option value="test2">test2</option>
+                <option value="test3">test3</option>
+                <option value="test4">test4</option>
+              </select>
+
+
+              <input type = "button" id = "mybutton" value = "Click Here" />
+
+
+              
+            
+    </body>
+</html>
+
+
+<script>
+$(document).ready(function(){
+    $('#dropdown').on('change', function() {
+        var dropdown = this.value
+        $.ajax({
+        type : 'POST',
+        url : "/dropdown",
+        contentType: 'application/json;charset=UTF-8',
+        data: JSON.stringify ({"dropdown" : dropdown}),
+    });
+
+    });
+});
+
+$(document).on('input', '#slider', function() {
+    $('#slider_value').html( $(this).val() );
+    var clicked = $(this).val() 
+   
+    $.ajax({
+        type : 'POST',
+        url : "/test",
+        contentType: 'application/json;charset=UTF-8',
+        data: JSON.stringify ({"data" : clicked}),
+    });
+});
+
+$(function() { $("#mybutton").click(function (event) { $.getJSON('/button', { },
+    function(data) { }); return false; }); });
+
+</script>

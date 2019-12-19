@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <title> Orange : OpenCV and Ai processing made easy</title>
+        <link rel="icon" type="image/png" href="assets/images/orange-fav.png" />
+
+        <!--Core CSS -->
+        <link rel="stylesheet" href="assets/css/orange-bulma.css">
+        <link rel="stylesheet" href="assets/css/orange-core.css">
+        
+        <!-- Fonts -->
+        <link href="../fonts.googleapis.com/cssc19e.css?family=Alegreya+Sans+SC:100,400" rel="stylesheet">
+        <link href="../fonts.googleapis.com/csse379.css?family=Raleway:300,400,500" rel="stylesheet">
+        
+        <!-- plugins -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/js/slick/slick.css">
+        <link rel="stylesheet" href="assets/js/slick/slick-theme.css">
+        <link rel="stylesheet" href="assets/js/webuipopover/jquery.webui-popover.min.css">
+        <link rel="stylesheet" href="assets/js/izitoast/css/iziToast.min.css">
+        <link rel="stylesheet" href="assets/js/zoom/zoom.css">
+        <link rel="stylesheet" href="assets/js/jpcard/card.css">
+        <link rel="stylesheet" href="assets/css/chosen/chosen.css">
+        <link rel="stylesheet" href="assets/css/icons.min.css">
+
+    </head>
+    <body>
+        
+        <!-- Pageloader -->
+        <div class="pageloader"></div>
+        <div class="infraloader is-active"></div>
+        <nav class="navbar mobile-navbar is-hidden-desktop is-hidden-tablet" aria-label="main navigation">
+            <!-- Brand -->
+            <div class="navbar-brand">
+                <a class="navbar>-item" href="home.html">
+                    <img src="assets/images/logo/orange-icon.svg" alt="">
+                </a>
+        
+                <!-- Sidebar mode toggler icon -->
+                <a id="sidebar-mode" class="navbar-item is-icon is-sidebar-toggler" href="javascript:void(0);">
+                    <i data-feather="sidebar"></i>
+                </a>
+        
+             
+            </div>
+         
+        </nav>
+        <!-- Main Sidebar-->
+        <div class="main-sidebar">
+            <div class="sidebar-brand">
+                <a href="orange_index.html"><img src="assets/images/logo/orange-icon.svg" alt=""></a>
+            </div>
+            <div class="sidebar-inner">
+                <ul class="icon-menu">
+                    <!-- Shop sidebar trigger -->
+                  
+                    <li>
+                        <a href="orange-cv2.html" ><i data-feather="video" ></i></a>
+                    </li>
+                    
+
+
+
+                    <li>
+                        <a href="orange-ai.html" ><i data-feather="eye"  ></i></a>
+                    </li>
+                    
+
+                    <li>
+                        <a  id="open-filters" href="orange-settings.html" ><i data-feather="settings" class="main_color"  ></i></a>
+                    </li>
+
+                    
+                    
+                    <!-- Search trigger -->
+                 
+                <!-- User account -->
+                
+            </div>
+        </div>
+        <!-- /Main Sidebar-->
+        
+    
+        
+       
+        
+        <!-- Main wrapper -->
+        <div class="shop-wrapper">
+        
+            <!-- Search overlay -->
+            <div class="search-overlay"></div>
+            
+            <!-- Search input -->
+            <div class="search-input-wrapper is-desktop is-hidden">
+                <div class="field">
+                    <div class="control">
+                        <input type="text" name="search" autofocus required>
+                        <span id="clear-search" role="button"><i data-feather="x"></i></span>
+                        <span class="search-help">Enter a search</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Main section -->
+            <div class="section">
+                <!-- Container -->
+                <div class="container">
+        
+                    <!-- Account Layout -->
+                    <div class="columns account-header">
+                        <div class="column is-11 is-offset-1 is-tablet-landscape-padded">
+                            <!-- Title -->
+                            <div class="account-title">
+                                <h2>Settings</h2>
+                                <img class="brand-filigrane" src="assets/images/logo/orange-grey.svg" alt="">
+                            </div>
+        
+                             <!-- Account tabs -->
+                             <div class="tabs-wrapper underline-tabs animated-tabs">
+                                <div class="tabs">
+                                    <ul>
+                                        <li class="is-active" data-tab="t1"><a>Network Settings</a></li>
+                                        
+                                    </ul>
+                                </div>
+                                <div id="t1" class="navtab-content is-active">
+                                    
+                                
+                                 
+                                     
+
+                                        <!-- Chosen select -->
+                                        <div class="flat-card is-auto is-element-details has-overflow">
+                                                <div class="columns is-gapless is-vcentered">
+                                                    <div class="column is-7 is-component">
+                                                        <div class="inner">
+            
+  
+    
+                                                      <div class="columns">
+                                                            <div class="column  is-3">
+                                                                    <label  class="dropdown" >Team Number </label>
+                                                            </div>
+                                                            <div class="column is-half "  >
+                                                                    <input class="input is-minimal is-rounded" type="text" placeholder="">
+                                                            </div>
+                                                          </div>
+
+                                                          <br>
+
+                                                          <div class="columns">
+                                                            <div class="column  is-3">
+                                                                    <label  class="dropdown" >IP Address Assignment:<label>
+                                                                    </div>
+                                                            <div class="column is-half "  >
+
+                                                                    <div class="field">
+                                                                            <div class="control">
+                                                                            
+                                                                                    <div class="toggle">
+                                                                                            <input type="radio" name="sizeBy" value="weight" id="sizeWeight" checked="checked" />
+                                                                                            <label for="sizeWeight">Automatic</label>
+                                                                                            <input type="radio" name="sizeBy" value="dimensions" id="sizeDimensions" />
+                                                                                            <label for="sizeDimensions">Static</label>
+                                                                                        </div>
+                                                                                   
+                                                                                    
+                                                                                    
+                                                                            
+                                                                            </div>
+                                                                        </div>
+
+                                                                   
+                                                            </div>
+                                                          </div>
+
+
+
+                                                          <div class="columns">
+                                                            <div class="column  is-3">
+                                                                    <label  class="dropdown" >IP Address:<label>
+                                                                    </div>
+                                                            <div class="column is-half "  >
+                                                                    <input class="input is-minimal is-rounded" type="text" placeholder="">
+                                                            </div>
+                                                          </div>
+
+                                                              <div class="columns">
+                                                                    <div class="column  is-3">
+                                                                            <label  class="dropdown" >Netmask:<label>
+                                                                            </div>
+                                                                    <div class="column is-half "  >
+                                                                            <input class="input is-minimal is-rounded" type="text" placeholder="">
+                                                                    </div>
+                                                                  </div>
+
+                                                                  <div class="columns">
+                                                                        <div class="column  is-3">
+                                                                                <label  class="dropdown" >Gateway:<label>
+                                                                                </div>
+                                                                        <div class="column is-half "  >
+                                                                                <input class="input is-minimal is-rounded" type="text" placeholder="">
+                                                                        </div>
+                                                                      </div>
+
+
+
+                                                                      <div class="columns">
+                                                                           
+                                                                            <div class="column is-half "  >
+                                                                                    <a class="button feather-button is-small secondary-button btn-outlined">Update IP Settings</a>
+                                                                            </div>
+                                                                          </div>
+
+                                                                          
+                                                                    
+
+                                                                      
+        
+    
+    
+    
+    
+    
+        
+                                                                                
+                                                                         
+                                                                         
+                                                                
+                                                                            
+                                                                            
+        
+                                                                                  
+        
+        
+                                                            </div>
+                                                    </div>
+                                                    <div class="column is-4 is-description">
+                                                        <div class="inner">
+                                                            <div class="divider"></div>
+                                                            <h2 class="title is-6 is-light">Empty box for camera or otherwise</h2>
+                                                            <p>Chosen select boxes offer even more flexibility than native selects. They are optimized for huge options list and display a search field when there are 6 ore more options.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    
+                                
+                                
+                                
+                                
+                                </div>
+                                
+                                
+                                
+                                
+                            </div>
+
+                           
+        
+                        </div>
+                    </div>
+
+
+                   
+                </div>
+                <!-- /Container -->
+            </div>
+            <!-- /Main section -->
+        </div>
+        <!-- /Main wrapper -->
+        <!-- Concatenated plugins -->
+        <script src="assets/js/app.js"></script>
+
+
+    
+
+        <script type="text/javascript">
+            
+            var rangeSlider = function(){
+                    var slider = $('.range-slider'),
+                        range = $('.range-slider__range'),
+                        value = $('.range-slider__value');
+                      
+                    slider.each(function(){
+                  
+                      value.each(function(){
+                        var value = $(this).prev().attr('value');
+                        $(this).html(value);
+                      });
+                  
+                      range.on('input', function(){
+                        $(this).next(value).html(this.value);
+                      });
+                    });
+                  };
+                  
+                  rangeSlider();
+
+
+
+
+          </script>
+        <!-- Helios js -->
+
+        </script>
+        <script src="assets/js/nephos.js"></script>    </body>  
+
+</html>

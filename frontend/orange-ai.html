@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+        <!-- Required meta tags always come first -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <title> Orange : OpenCV and Ai processing made easy</title>
+        <link rel="icon" type="image/png" href="assets/images/orange-fav.png" />
+
+        <!--Core CSS -->
+        <link rel="stylesheet" href="assets/css/orange-bulma.css">
+        <link rel="stylesheet" href="assets/css/orange-core.css">
+        
+        <!-- Fonts -->
+        <link href="../fonts.googleapis.com/cssc19e.css?family=Alegreya+Sans+SC:100,400" rel="stylesheet">
+        <link href="../fonts.googleapis.com/csse379.css?family=Raleway:300,400,500" rel="stylesheet">
+        
+        <!-- plugins -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/js/slick/slick.css">
+        <link rel="stylesheet" href="assets/js/slick/slick-theme.css">
+        <link rel="stylesheet" href="assets/js/webuipopover/jquery.webui-popover.min.css">
+        <link rel="stylesheet" href="assets/js/izitoast/css/iziToast.min.css">
+        <link rel="stylesheet" href="assets/js/zoom/zoom.css">
+        <link rel="stylesheet" href="assets/js/jpcard/card.css">
+        <link rel="stylesheet" href="assets/css/chosen/chosen.css">
+        <link rel="stylesheet" href="assets/css/icons.min.css">
+
+    </head>
+    <body>
+        
+        <!-- Pageloader -->
+        <div class="pageloader"></div>
+        <div class="infraloader is-active"></div>
+        <nav class="navbar mobile-navbar is-hidden-desktop is-hidden-tablet" aria-label="main navigation">
+            <!-- Brand -->
+            <div class="navbar-brand">
+                <a class="navbar>-item" href="home.html">
+                    <img src="assets/images/logo/orange-icon.svg" alt="">
+                </a>
+        
+                <!-- Sidebar mode toggler icon -->
+                <a id="sidebar-mode" class="navbar-item is-icon is-sidebar-toggler" href="javascript:void(0);">
+                    <i data-feather="sidebar"></i>
+                </a>
+        
+             
+            </div>
+         
+        </nav>
+        <!-- Main Sidebar-->
+        <div class="main-sidebar">
+            <div class="sidebar-brand">
+                <a href="orange_index.html"><img src="assets/images/logo/orange-icon.svg" alt=""></a>
+            </div>
+            <div class="sidebar-inner">
+                <ul class="icon-menu">
+                    <!-- Shop sidebar trigger -->
+                  
+                    <li>
+                        <a href="orange-cv2.html" ><i data-feather="video" ></i></a>
+                    </li>
+                    
+
+
+
+                    <li>
+                        <a href="orange-ai.html" ><i data-feather="eye"  class="main_color"  ></i></a>
+                    </li>
+                    
+
+                    <li>
+                        <a  id="open-filters" href="orange-settings.html" ><i data-feather="settings"  ></i></a>
+                    </li>
+
+                    
+                    
+                    <!-- Search trigger -->
+                 
+                <!-- User account -->
+                
+            </div>
+        </div>
+        <!-- /Main Sidebar-->
+        
+    
+        
+       
+        
+        <!-- Main wrapper -->
+        <div class="shop-wrapper">
+        
+            <!-- Search overlay -->
+            <div class="search-overlay"></div>
+            
+            <!-- Search input -->
+            <div class="search-input-wrapper is-desktop is-hidden">
+                <div class="field">
+                    <div class="control">
+                        <input type="text" name="search" autofocus required>
+                        <span id="clear-search" role="button"><i data-feather="x"></i></span>
+                        <span class="search-help">Enter a search</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Main section -->
+            <div class="section">
+                <!-- Container -->
+                <div class="container">
+        
+                    <!-- Account Layout -->
+                    <div class="columns account-header">
+                        <div class="column is-11 is-offset-1 is-tablet-landscape-padded">
+                            <!-- Title -->
+                            <div class="account-title">
+                                <h2>AI Pipeline</h2>
+                                <img class="brand-filigrane" src="assets/images/logo/orange-grey.svg" alt="">
+                            </div>
+        
+                             <!-- Account tabs -->
+                             <div class="tabs-wrapper underline-tabs animated-tabs">
+                                <div class="tabs">
+                                    <ul>
+                                        <li class="is-active" data-tab="t1"><a>Set Model</a></li>
+                                        <li data-tab="t2"><a>Thresholding</a></li>
+                                        <li data-tab="t3"><a>Output</a></li>
+                                    </ul>
+                                </div>
+                                <div id="t1" class="navtab-content is-active">
+                                    
+                                
+                                 
+                                        <!-- Chosen select -->
+                                        <div class="flat-card is-auto is-element-details has-overflow">
+                                            <div class="columns is-gapless is-vcentered">
+                                                
+                                                <div class="column is-6 is-component">
+                                                    <div class="inner">
+        
+                                                    <label class="dropdown" >Model Type</label>
+                                                        <div class="control">
+                                                           
+                                                            <select class="chosen-select" data-placeholder="Select">
+                                                                <option label="Payment method"></option>
+                                                                <option value="cash">Image Classification</option>
+                                                                <option value="cash">Object Detection</option>
+                                                                <option value="cash">Posenet</option>
+                                                                <option value="cash">Image Segmentation</option>
+                                                               
+                                                            </select>
+                                                          
+                                                        </div>
+
+                                                        <label  class="dropdown" >Model Path</label>
+                                                        <div class="control">
+                                                              
+                                                                <select class="chosen-select" data-placeholder="Select">
+                                                                    <option label="Payment method"></option>
+                                                                    <option value="cash">list models</option>
+                                                                    <option value="cash">available</option>
+                                                                  
+                                                                </select>
+                                                              
+                                                            </div>
+
+                                                            <label  class="dropdown"  >Resolution</label>
+                                                            <div class="control">
+                                                                    
+                                                                    <select class="chosen-select" data-placeholder="Select">
+                                                                        <option label="Payment method"></option>
+                                                                        <option value="cash">480 by 640</option>
+                                                                        <option value="credit-card">100 by 100</option>
+                                                                       
+                                                                    </select>
+                                                                  
+                                                                </div>
+
+                                                              
+        
+                                                                    <label  class="dropdown" >Exposure (ms)</label>
+                                                                    <div class="control">
+                                                                        
+                                                                            <div class="range-slider">
+                                                                                    <input class="range-slider__range" type="range" value="400" min="0" max="500">
+                                                                                    <span class="range-slider__value">2</span>
+                                                                                  </div> 
+                                                                          
+                                                                        </div>
+                                                                     
+
+
+                                                                        
+                                                                        <label  class="dropdown" >Red Balance</label>
+                                                                    <div class="control">
+                                                                        
+                                                                            <div class="range-slider">
+                                                                                    <input class="range-slider__range" type="range" value="400" min="0" max="500">
+                                                                                    <span class="range-slider__value">0</span>
+                                                                                  </div> 
+                                                                          
+                                                                        </div>
+
+                                                                        <label  class="dropdown" >Blue Balance</label>
+                                                                    <div class="control">
+                                                                        
+                                                                            <div class="range-slider">
+                                                                                    <input class="range-slider__range" type="range" value="400" min="0" max="500">
+                                                                                    <span class="range-slider__value">0</span>
+                                                                                  </div> 
+                                                                          
+                                                                        </div>
+                                                        
+                                                                    
+                                                                    
+
+                                                                          
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="column is-6 is-description topp">
+                                                    <div class="inner">
+                                                        <div class="divider"></div>
+                                                        <h2 class="title is-6 is-light">Empty box to explain stuff or put camera</h2>
+                                                        <p>
+
+                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+
+                                                            
+                                                            
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                
+                                
+                                
+                                
+                                </div>
+                                <div id="t2" class="navtab-content">
+                                   
+
+
+
+
+                                        <!-- Chosen select -->
+                                        <div class="flat-card is-auto is-element-details has-overflow">
+                                            <div class="columns is-gapless is-vcentered">
+                                                <div class="column is-7 is-component">
+                                                    <div class="inner">
+        
+                                                     
+                                        <h3 class="title is-6">Magic Wands</h3>
+                                       
+                                        <a class="button feather-button secondary-button btn-outlined is-bold">Eyedropper</a>
+                                        <a class="button feather-button secondary-button btn-outlined is-bold">Include Pixel</a>
+                                        <a class="button feather-button secondary-button btn-outlined is-bold">Ignore Pixel</a>
+                                       
+
+
+                                        <div class="spacer"></div>
+                                                                         
+
+                                 
+                                          
+
+                                          <div class="columns">
+                                                <div class="column  is-3">
+
+                                                        <label  class="dropdown" >Hue </label>
+
+                                                </div>
+
+                                                <div class="column is-12-percent">
+
+                                                        <span id="hue-value1" class="range-slider__value2"></span>
+
+                                                </div>
+                                                <div class="column is-half " style="padding-top: 22px;" >
+                                                        <div id="hue" ></div>
+                                                </div>
+                                                <div class="column is-12-percent">
+
+                                                        <span id="hue-value2" class="range-slider__value"></span>
+                                                </div>
+                                              </div>
+
+
+
+                                              <div class="columns">
+                                                    <div class="column  is-3">
+    
+                                                            <label  class="dropdown" >Saturation </label>
+    
+                                                    </div>
+    
+                                                    <div class="column is-12-percent">
+    
+                                                            <span id="saturation-value1" class="range-slider__value2"></span>
+    
+                                                    </div>
+                                                    <div class="column is-half " style="padding-top: 22px;" >
+                                                            <div id="saturation" ></div>
+                                                    </div>
+                                                    <div class="column is-12-percent">
+    
+                                                            <span id="saturation-value2" class="range-slider__value"></span>
+                                                    </div>
+                                                  </div>
+
+
+                                                  <div class="columns">
+                                                        <div class="column  is-3">
+        
+                                                                <label  class="dropdown" >Value </label>
+        
+                                                        </div>
+        
+                                                        <div class="column is-12-percent">
+        
+                                                                <span id="value-value1" class="range-slider__value2"></span>
+        
+                                                        </div>
+                                                        <div class="column is-half " style="padding-top: 22px;" >
+                                                                <div id="value" ></div>
+                                                        </div>
+                                                        <div class="column is-12-percent">
+        
+                                                                <span id="value-value2" class="range-slider__value"></span>
+                                                        </div>
+                                                      </div>
+    
+
+
+
+
+
+    
+                                                                            
+                                                                            <label  class="dropdown" >Erosion Steps</label>
+                                                                        <div class="control">
+                                                                            
+                                                                                <div class="range-slider">
+                                                                                        <input class="range-slider__range" type="range" value="400" min="0" max="500">
+                                                                                        <span class="range-slider__value">0</span>
+                                                                                      </div> 
+                                                                              
+                                                                            </div>
+    
+                                                                            <label  class="dropdown" >Dilation Steps</label>
+                                                                        <div class="control">
+                                                                            
+                                                                                <div class="range-slider">
+                                                                                        <input class="range-slider__range" type="range" value="400" min="0" max="500">
+                                                                                        <span class="range-slider__value">0</span>
+                                                                                      </div> 
+                                                                              
+                                                                            </div>
+                                                            
+                                                                        
+                                                                        
+    
+                                                                              
+    
+    
+                                                        </div>
+                                                </div>
+                                                <div class="column is-4 is-description">
+                                                    <div class="inner">
+                                                        <div class="divider"></div>
+                                                        <h2 class="title is-6 is-light">Empty box to explain stuff or put camera</h2>
+                                                        <p>
+
+                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+
+                                                            
+                                                        </p>   
+                                                    
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                
+                                
+                                
+                                
+                                
+                                </div>
+                            
+                                <div id="t3" class="navtab-content">
+                                   
+                                
+                                   <!-- Chosen select -->
+                                   <div class="flat-card is-auto is-element-details has-overflow">
+                                        <div class="columns is-gapless is-vcentered">
+                                            
+                                            <div class="column is-7 is-component">
+                                                <div class="inner">
+    
+                                                <label class="dropdown" >Target Region</label>
+                                                    <div class="control">
+                                                       
+                                                        <select class="chosen-select" data-placeholder="Select">
+                                                            <option label="Payment method"></option>
+                                                            <option value="cash">Center</option>
+                                                           
+                                                        </select>
+                                                      
+                                                    </div>
+
+                                                    <label  class="dropdown"  >Source Image</label>
+                                                    <div class="control">
+                                                          
+                                                            <select class="chosen-select" data-placeholder="Select">
+                                                                <option label="Payment method"></option>
+                                                                <option value="cash">Single Target</option>
+                                                                <option value="cash">Dual Target</option>
+                                                             
+                                                              
+                                                            </select>
+                                                          
+                                                        </div>
+
+                                                        <label  class="dropdown"  >Crosshair Mode</label>
+                                                        <div class="control">
+                                                                
+                                                                <select class="chosen-select" data-placeholder="Select">
+                                                                    <option label="Payment method"></option>
+                                                                    <option value="cash">Single Crosshair</option>
+                                                                    <option value="credit-card">Double Crosshair</option>
+                                                                    <option value="credit-card">Tri Crosshair</option>
+                                                                   
+                                                                </select>
+                                                              
+                                                            </div>
+
+                                                   
+                                                               
+                                                                
+                                                                    
+
+
+                                                            <div class="spacer"></div>
+                                                            <h3 class="title is-6">Crosshair A</h3>
+                                       
+                                                            <a class="button feather-button secondary-button btn-outlined is-bold">Calibrate XY</a>
+                                                            <a class="button feather-button secondary-button btn-outlined is-bold">Only X</a>
+                                                            <a class="button feather-button secondary-button btn-outlined is-bold">Only Y</a>
+
+                                                         
+                                                            <a class="button feather-button accent-button raised is-rounded is-bold">Read XY</a>
+                                                           
+                                                                      
+
+
+                                                </div>
+                                            </div>
+                                            <div class="column is-5 is-description topp">
+                                                <div class="inner">
+                                                    <div class="divider"></div>
+                                                    <h2 class="title is-5 is-light">Empty box to explain stuff or put camera</h2>
+                                                    <p>
+
+                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+
+                                                       
+                                                        
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                </div>
+                                
+                                
+                            </div>
+
+                           
+        
+                        </div>
+                    </div>
+
+
+                   
+                </div>
+                <!-- /Container -->
+            </div>
+            <!-- /Main section -->
+        </div>
+        <!-- /Main wrapper -->
+        <!-- Concatenated plugins -->
+        <script src="assets/js/app.js"></script>
+
+
+    
+
+        <script type="text/javascript">
+            
+            var rangeSlider = function(){
+                    var slider = $('.range-slider'),
+                        range = $('.range-slider__range'),
+                        value = $('.range-slider__value');
+                      
+                    slider.each(function(){
+                  
+                      value.each(function(){
+                        var value = $(this).prev().attr('value');
+                        $(this).html(value);
+                      });
+                  
+                      range.on('input', function(){
+                        $(this).next(value).html(this.value);
+                      });
+                    });
+                  };
+                  
+                  rangeSlider();
+
+
+
+
+          </script>
+        <!-- Helios js -->
+
+        <script src="assets/js/sliderai.js">
+        </script>
+        <script src="assets/js/nephos.js"></script>    </body>  
+
+</html>
