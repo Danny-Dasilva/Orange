@@ -25,7 +25,7 @@ class tapePos:
         self.value = (255,255) #Pixel
         self.erosion = 0 #CHANGE
         self.dilation = 0 #CHANGE
-        self.target_area = 0 #CHANGE
+        self.target_area = 4000
         self.target_fullness = 0 #CHANGE
         self.target_aspect_ratio = 0 #CHANGE
         self.target_region = targetRegion.center
@@ -38,14 +38,19 @@ class tapePos:
             ## convert to hsv
             hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
-            mask = cv2.inRange(hsv, (self.hue[0], self.saturation[0], self.value[0]), (self.hue[1], self.saturation[1],self.value[1])) #130 130 255
+            mask = cv2.inRange(hsv, (self.hue[0], self.saturation[0], self.value[0]), (self.hue[1], self.saturation[1],self.value[1]))
+            
+            contours,hierarchy = cv2.findContours(mask, 1, 2)
+            colorMask = cv2.cvtColor(mask,cv2.COLOR_GRAY2RGB)
+            boxes = []
+            for cnt in contours:
+                rect = cv2.minAreaRect(cnt)
+                box = cv2.boxPoints(rect)
+                box = np.int0(box)
+                if cv2.contourArea(box) > self.target_area:
+                    boxes.append(box)
 
-            ## slice the green
-            imask = mask>0
-            green = np.zeros_like(img, np.uint8)
-            green[imask] = img[imask]
-
-            yield img,hsv,green
+            yield img,colorMask,boxes
             ## save 
     
     def read_pipeline(self):

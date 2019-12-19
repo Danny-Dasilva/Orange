@@ -13,12 +13,12 @@ def on_mouse_click (event, x, y, flags, frame):
     if event == cv2.EVENT_LBUTTONUP:
         CVProcessor.set_eyedropper(frame[y,x].tolist())
 
-for hsv,img,green in CVProcessor.process():
-    
+for img,mask,boxes in CVProcessor.process():
     cv2.setMouseCallback('img', on_mouse_click, img)
+    for box in boxes:
+        cv2.drawContours(mask,[box],0,(0,127,255),2)
     cv2.imshow('img',img)
-    cv2.imshow('hsv',hsv)
-    cv2.imshow('filter',green)
+    cv2.imshow('filter',mask)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
