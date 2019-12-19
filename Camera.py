@@ -16,8 +16,8 @@ class Camera:
         return frame
         
         
-    def change_exposure(exposure_val):
-        cam.set(cv2.CAP_PROP_EXPOSURE, exposure_val)
+    def change_exposure(self,exposure_val):
+        self.cam.set(cv2.CAP_PROP_EXPOSURE, exposure_val)
 
 
     def change_brightness(brightness_val):
