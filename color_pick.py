@@ -26,10 +26,6 @@ def main():
     capture.release()
     cv2.destroyAllWindows()
 
-    # avgb = int(sum(c[0] for c in colors) / len(colors))
-    # avgg = int(sum(c[0] for c in colors) / len(colors))
-    # avgr = int(sum(c[0] for c in colors) / len(colors))
-    # print avgb, avgg, avgr
 
     minb = min(c[0] for c in colors)
     ming = min(c[1] for c in colors)
