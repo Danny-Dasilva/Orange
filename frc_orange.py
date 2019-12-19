@@ -16,27 +16,6 @@ def set_center(event, x, y, flags, param):
         # print(calibration_point)
 
 
-# while(True):
-#     ret, frame = cam.read()
-#     cv2.namedWindow('image')
-#     cv2.setMouseCallback('image', set_center)
-
-#     box = draw_cnts(frame)
-    
-#     cnts_center = target_dist_to_center(box)
-#     if cnts_center is not None:
-#         print("Horizontal Distance: " + str(cnts_center[0]) + ", Vertical Distance: " + str(cnts_center[1]))
-#     target_dist_to_center(box)
-#     # cv2.drawContours(frame, [box], 0, (0, 255, 0), 2)
-    
-#     if cv2.waitKey(1) & 0xFF == ord('q'):
-#         break
-    
-#     cv2.imshow('image', frame)
-
-# cam.release()
-# cv2.destroyAllWindows()
-
 while(1):
     p.display_img()
 
