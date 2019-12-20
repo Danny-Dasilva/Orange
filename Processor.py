@@ -36,7 +36,7 @@ class Processor:
             area = max(cnts, key=cv2.contourArea)
             # print(get_percentage(image, cv2.findNonZero(thresh)))
             rect = cv2.minAreaRect(area)
-            box = cv2.boxPoints(rect)
+            box = cv2.boxPoints(rect)   
             box = np.int0(box)
 
 

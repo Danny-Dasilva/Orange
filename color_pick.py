@@ -17,6 +17,7 @@ def main():
         hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HLS_FULL)
         if colors:
             cv2.putText(hsv, str(colors[-1]), (10, 50), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 0), 2)
+            print(colors[-1])
         cv2.imshow('frame', hsv)
         cv2.setMouseCallback('frame', on_mouse_click, hsv)
 
