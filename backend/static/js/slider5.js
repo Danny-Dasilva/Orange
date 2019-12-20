@@ -3,37 +3,7 @@
                // Requires jQuery
 
 // Initialize slider:
-$(document).ready(function() {
-    $('.noUi-handle').on('click', function() {
-      $(this).width(50);
-    });
-    var rangeSlider = document.getElementById('hue');
-    var moneyFormat = wNumb({
-      decimals: 0,
-      thousand: ',',
-      prefix: ''
-    });
-    noUiSlider.create(rangeSlider, {
-      start: [50, 450],
-      step: 1,
-      range: {
-        'min': [0],
-        'max': [500]
-      },
-      format: moneyFormat,
-      connect: true
-    });
-    
-    // Set visual min and max values and also update value hidden form inputs
-    rangeSlider.noUiSlider.on('update', function(values, handle) {
-      document.getElementById('hue-value1').innerHTML = values[0];
-      document.getElementById('hue-value2').innerHTML = values[1];
-      document.getElementsByName('min-value').value = moneyFormat.from(
-        values[0]);
-      document.getElementsByName('max-value').value = moneyFormat.from(
-        values[1]);
-    });
-  });
+
   
 
 
@@ -41,198 +11,42 @@ $(document).ready(function() {
 
 
 
-  $(document).ready(function() {
-    $('.noUi-handle').on('click', function() {
-      $(this).width(50);
-    });
-    var rangeSlider = document.getElementById('saturation');
-    var moneyFormat = wNumb({
-      decimals: 0,
-      thousand: ',',
-      prefix: ''
-    });
-    noUiSlider.create(rangeSlider, {
-      start: [50, 450],
-      step: 1,
-      range: {
-        'min': [0],
-        'max': [500]
-      },
-      format: moneyFormat,
-      connect: true
-    });
-    
-    // Set visual min and max values and also update value hidden form inputs
-    rangeSlider.noUiSlider.on('update', function(values, handle) {
-      document.getElementById('saturation-value1').innerHTML = values[0];
-      document.getElementById('saturation-value2').innerHTML = values[1];
-      document.getElementsByName('min-value').value = moneyFormat.from(
-        values[0]);
-      document.getElementsByName('max-value').value = moneyFormat.from(
-        values[1]);
-    });
-  });
 
+               // Requires jQuery
 
-
-  $(document).ready(function() {
-    $('.noUi-handle').on('click', function() {
-      $(this).width(50);
-    });
-    var rangeSlider = document.getElementById('value');
-    var moneyFormat = wNumb({
-      decimals: 0,
-      thousand: ',',
-      prefix: ''
-    });
-    noUiSlider.create(rangeSlider, {
-      start: [50, 450],
-      step: 1,
-      range: {
-        'min': [0],
-        'max': [500]
-      },
-      format: moneyFormat,
-      connect: true
-    });
-    
-
-
-    
-    // Set visual min and max values and also update value hidden form inputs
-    rangeSlider.noUiSlider.on('update', function(values, handle) {
-      document.getElementById('value-value1').innerHTML = values[0];
-      document.getElementById('value-value2').innerHTML = values[1];
-      document.getElementsByName('min-value').value = moneyFormat.from(
-        values[0]);
-      document.getElementsByName('max-value').value = moneyFormat.from(
-        values[1]);
-    });
-  });
-
-
-
-
-
-
-
-  $(document).ready(function() {
-    $('.noUi-handle').on('click', function() {
-      $(this).width(50);
-    });
-    var rangeSlider = document.getElementById('target');
-    var moneyFormat = wNumb({
-      decimals: 0,
-      thousand: ',',
-      prefix: ''
-    });
-    noUiSlider.create(rangeSlider, {
-      start: [50, 450],
-      step: 1,
-      range: {
-        'min': [0],
-        'max': [500]
-      },
-      format: moneyFormat,
-      connect: true
-    });
-    
-
-
-    
-    // Set visual min and max values and also update value hidden form inputs
-    rangeSlider.noUiSlider.on('update', function(values, handle) {
-      document.getElementById('target-value1').innerHTML = values[0];
-      document.getElementById('target-value2').innerHTML = values[1];
-      document.getElementsByName('min-value').value = moneyFormat.from(
-        values[0]);
-      document.getElementsByName('max-value').value = moneyFormat.from(
-        values[1]);
-    });
-  });
-
-
-
-
-
-
-
-  $(document).ready(function() {
-    $('.noUi-handle').on('click', function() {
-      $(this).width(50);
-    });
-    var rangeSlider = document.getElementById('Fullness');
-    var moneyFormat = wNumb({
-      decimals: 0,
-      thousand: ',',
-      prefix: ''
-    });
-    noUiSlider.create(rangeSlider, {
-      start: [50, 450],
-      step: 1,
-      range: {
-        'min': [0],
-        'max': [500]
-      },
-      format: moneyFormat,
-      connect: true
-    });
-    
-
-
-    
-    // Set visual min and max values and also update value hidden form inputs
-    rangeSlider.noUiSlider.on('update', function(values, handle) {
-      document.getElementById('Fullness-value1').innerHTML = values[0];
-      document.getElementById('Fullness-value2').innerHTML = values[1];
-      document.getElementsByName('min-value').value = moneyFormat.from(
-        values[0]);
-      document.getElementsByName('max-value').value = moneyFormat.from(
-        values[1]);
-    });
-  });
-
-
-
-
-
-
-
-  $(document).ready(function() {
-    $('.noUi-handle').on('click', function() {
-      $(this).width(50);
-    });
-    var rangeSlider = document.getElementById('Aspect');
-    var moneyFormat = wNumb({
-      decimals: 0,
-      thousand: ',',
-      prefix: ''
-    });
-    noUiSlider.create(rangeSlider, {
-      start: [50, 450],
-      step: 1,
-      range: {
-        'min': [0],
-        'max': [500]
-      },
-      format: moneyFormat,
-      connect: true
-    });
-    
-
-
-    
-    // Set visual min and max values and also update value hidden form inputs
-    rangeSlider.noUiSlider.on('update', function(values, handle) {
-      document.getElementById('Aspect-value1').innerHTML = values[0];
-      document.getElementById('Aspect-value2').innerHTML = values[1];
-      document.getElementsByName('min-value').value = moneyFormat.from(
-        values[0]);
-      document.getElementsByName('max-value').value = moneyFormat.from(
-        values[1]);
-    });
-  });
-
+// // Initialize slider:
+// $(document).ready(function() {
+//   $('.noUi-handle').on('click', function() {
+//     $(this).width(50);
+//   });
+//   var rangeSlider = document.getElementById('hue');
+//   var moneyFormat = wNumb({
+//     decimals: 0,
+//     thousand: ',',
+//     prefix: ''
+//   });
+//   noUiSlider.create(rangeSlider, {
+//     start: [50, 175],
+//     step: 1,
+//     range: {
+//       'min': [0],
+//       'max': [255]
+//     },
+//     format: moneyFormat,
+//     connect: true
+//   });
+  
+//   // Set visual min and max values and also update value hidden form inputs
+//   rangeSlider.noUiSlider.on('update', function(values, handle) {
+//     console.log(values)
+//     document.getElementById('hue-value1').innerHTML = values[0];
+//     document.getElementById('hue-value2').innerHTML = values[1];
+//     document.getElementsByName('min-value').value = moneyFormat.from(
+//       values[0]);
+//     document.getElementsByName('max-value').value = moneyFormat.from(
+//       values[1]);
+//   });
+// });
 
 
 

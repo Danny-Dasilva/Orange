@@ -30,7 +30,6 @@
         <link rel="stylesheet" href="assets/css/icons.min.css">
 
     </head>
-   
     <body>
         
         <!-- Pageloader -->
@@ -62,14 +61,14 @@
                     <!-- Shop sidebar trigger -->
                   
                     <li>
-                        <a href="orange-cv2.html" ><i data-feather="video" class="main_color" ></i></a>
+                        <a href="orange-cv2.html" ><i data-feather="video" ></i></a>
                     </li>
                     
 
 
 
                     <li>
-                        <a href="orange-ai.html" ><i data-feather="eye"  ></i></a>
+                        <a href="orange-ai.html" ><i data-feather="eye"  class="main_color"  ></i></a>
                     </li>
                     
 
@@ -117,7 +116,7 @@
                         <div class="column is-11 is-offset-1 is-tablet-landscape-padded">
                             <!-- Title -->
                             <div class="account-title">
-                                <h2>OpenCV Pipeline</h2>
+                                <h2>AI Pipeline</h2>
                                 <img class="brand-filigrane" src="assets/images/logo/orange-grey.svg" alt="">
                             </div>
         
@@ -125,10 +124,9 @@
                              <div class="tabs-wrapper underline-tabs animated-tabs">
                                 <div class="tabs">
                                     <ul>
-                                        <li class="is-active" data-tab="t1"><a>Input</a></li>
+                                        <li class="is-active" data-tab="t1"><a>Set Model</a></li>
                                         <li data-tab="t2"><a>Thresholding</a></li>
-                                        <li data-tab="t3"><a>Contour filtering</a></li>
-                                        <li data-tab="t4"><a>Output</a></li>
+                                        <li data-tab="t3"><a>Output</a></li>
                                     </ul>
                                 </div>
                                 <div id="t1" class="navtab-content is-active">
@@ -142,51 +140,45 @@
                                                 <div class="column is-6 is-component">
                                                     <div class="inner">
         
-                                                    <label class="dropdown" >Pipeline Type</label>
+                                                    <label class="dropdown" >Model Type</label>
                                                         <div class="control">
                                                            
                                                             <select class="chosen-select" data-placeholder="Select">
                                                                 <option label="Payment method"></option>
-                                                                <option value="cash">Limelight Standard</option>
+                                                                <option value="cash">Image Classification</option>
+                                                                <option value="cash">Object Detection</option>
+                                                                <option value="cash">Posenet</option>
+                                                                <option value="cash">Image Segmentation</option>
                                                                
                                                             </select>
                                                           
                                                         </div>
 
-                                                        <label  class="dropdown"  >Source Image</label>
+                                                        <label  class="dropdown" >Model Path</label>
                                                         <div class="control">
                                                               
                                                                 <select class="chosen-select" data-placeholder="Select">
                                                                     <option label="Payment method"></option>
-                                                                    <option value="cash">Camera</option>
-                                                                    <option value="cash">Snapshot</option>
+                                                                    <option value="cash">list models</option>
+                                                                    <option value="cash">available</option>
                                                                   
                                                                 </select>
                                                               
                                                             </div>
 
-                                                            <label  class="dropdown"  >LEDs</label>
+                                                            <label  class="dropdown"  >Resolution</label>
                                                             <div class="control">
                                                                     
                                                                     <select class="chosen-select" data-placeholder="Select">
                                                                         <option label="Payment method"></option>
-                                                                        <option value="cash">On</option>
-                                                                        <option value="credit-card">Off</option>
+                                                                        <option value="cash">480 by 640</option>
+                                                                        <option value="credit-card">100 by 100</option>
                                                                        
                                                                     </select>
                                                                   
                                                                 </div>
 
-                                                                <label  class="dropdown" >Orientation</label>
-                                                                <div class="control">
-                                                                    
-                                                                        <select class="chosen-select" data-placeholder="Select">
-                                                                            <option label="Payment method"></option>
-                                                                            <option value="cash">Normal</option>
-                                                                            
-                                                                        </select>
-                                                                      
-                                                                    </div>
+                                                              
         
                                                                     <label  class="dropdown" >Exposure (ms)</label>
                                                                     <div class="control">
@@ -201,7 +193,7 @@
 
 
                                                                         
-                                                                        <label  class="dropdown" >White Balance</label>
+                                                                        <label  class="dropdown" >Red Balance</label>
                                                                     <div class="control">
                                                                         
                                                                             <div class="range-slider">
@@ -210,6 +202,23 @@
                                                                                   </div> 
                                                                           
                                                                         </div>
+
+                                                                        <label  class="dropdown" >Blue Balance</label>
+                                                                    <div class="control">
+                                                                        
+                                                                            <div class="range-slider">
+                                                                                    <input class="range-slider__range" type="range" value="400" min="0" max="500">
+                                                                                    <span class="range-slider__value">0</span>
+                                                                                  </div> 
+                                                                          
+                                                                        </div>
+                                                        
+                                                                    
+                                                                    
+
+                                                                          
+
+
                                                     </div>
                                                 </div>
                                                 <div class="column is-6 is-description topp">
@@ -363,8 +372,15 @@
                                                 <div class="column is-4 is-description">
                                                     <div class="inner">
                                                         <div class="divider"></div>
-                                                        <h2 class="title is-6 is-light">Chosen Selects</h2>
-                                                        <p>Chosen select boxes offer even more flexibility than native selects. They are optimized for huge options list and display a search field when there are 6 ore more options.</p>
+                                                        <h2 class="title is-6 is-light">Empty box to explain stuff or put camera</h2>
+                                                        <p>
+
+                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+
+                                                            
+                                                        </p>   
+                                                    
+                                                    
                                                     </div>
                                                 </div>
                                             </div>
@@ -375,149 +391,8 @@
                                 
                                 
                                 </div>
+                            
                                 <div id="t3" class="navtab-content">
-                                    
-
-
-
-
-
-                                        <div class="flat-card is-auto is-element-details has-overflow">
-                                                <div class="columns is-gapless is-vcentered">
-                                                    <div class="column is-7 is-component">
-                                                        <div class="inner">
-            
-                                                         
-                                            <h3 class="title is-6">Configuration</h3>
-                                           
-    
-    
-    
-                                     
-                                            <label  class="dropdown" >Target Area (% of Image) </label>
-                                            <div class="spacer"></div>
-
-    
-                                            <div class="columns">
-                                                <div class="column  is-3">
-                                            
-                                                    
-                                            
-                                                </div>
-                                            
-                                                <div class="column is-12-percent">
-                                            
-                                                    <span id="target-value1" class="range-slider__value2"></span>
-                                            
-                                                </div>
-                                                <div class="column is-half " style="padding-top: 22px;">
-                                                    <div id="target"></div>
-                                                </div>
-                                                <div class="column is-12-percent">
-                                            
-                                                    <span id="target-value2" class="range-slider__value"></span>
-                                                </div>
-                                            </div>
-    
-
-
-                                            <label  class="dropdown" >Target Fullness (% of bounding Rectangle) </label>
-
-                                                <div class="spacer"></div>
-                                                  <div class="columns">
-                                                        <div class="column  is-3">
-        
-                                                               
-        
-                                                        </div>
-        
-                                                        <div class="column is-12-percent">
-        
-                                                                <span id="Fullness-value1" class="range-slider__value2"></span>
-        
-                                                        </div>
-                                                        <div class="column is-half " style="padding-top: 22px;" >
-                                                                <div id="Fullness" ></div>
-                                                        </div>
-                                                        <div class="column is-12-percent">
-        
-                                                                <span id="Fullness-value2" class="range-slider__value"></span>
-                                                        </div>
-                                                      </div>
-    
-    
-
-
-                                                      <label  class="dropdown" >Target Aspect Ratio (W:H) </label>
-
-                                            <div class="spacer"></div>
-
-
-                                                      <div class="columns">
-                                                            <div class="column  is-3">
-            
-                                                                   
-            
-                                                            </div>
-            
-                                                            <div class="column is-12-percent">
-            
-                                                                    <span id="Aspect-value1" class="range-slider__value2"></span>
-            
-                                                            </div>
-                                                            <div class="column is-half " style="padding-top: 22px;" >
-                                                                    <div id="Aspect" ></div>
-                                                            </div>
-                                                            <div class="column is-12-percent">
-            
-                                                                    <span id="Aspect-value2" class="range-slider__value"></span>
-                                                            </div>
-                                                          </div>
-        
-    
-    
-    
-    
-    
-        
-                                                                                
-                                                                          
-                                                                      
-                                                                
-                                                                            
-                                                                            
-        
-                                                                                  
-        
-        
-                                                            </div>
-                                                    </div>
-                                                    <div class="column is-4 is-description">
-                                                        <div class="inner">
-                                                            <div class="divider"></div>
-                                                            <h2 class="title is-6 is-light">Chosen Selects</h2>
-                                                            <p>Chosen select boxes offer even more flexibility than native selects. They are optimized for huge options list and display a search field when there are 6 ore more options.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    
-                                    
-                                    
-
-
-
-                               
-                               
-                               
-                               
-                               
-                               
-                               
-                               
-                               
-                                </div>
-                                <div id="t4" class="navtab-content">
                                    
                                 
                                    <!-- Chosen select -->
@@ -591,7 +466,7 @@
                                                     <h2 class="title is-5 is-light">Empty box to explain stuff or put camera</h2>
                                                     <p>
 
-                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
 
                                                        
                                                         
@@ -672,7 +547,7 @@
           </script>
         <!-- Helios js -->
 
-        <script src="assets/js/slider.js">
+        <script src="assets/js/sliderai.js">
         </script>
         <script src="assets/js/nephos.js"></script>    </body>  
 

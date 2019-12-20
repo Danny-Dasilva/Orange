@@ -8,26 +8,24 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
         <title> Orange : OpenCV and Ai processing made easy</title>
-        <link rel="icon" type="image/png" href="assets/images/orange-fav.png" />
+        <link rel="icon" type="image/png" href="/static/images/orange-fav.png" />
 
         <!--Core CSS -->
-        <link rel="stylesheet" href="assets/css/orange-bulma.css">
-        <link rel="stylesheet" href="assets/css/orange-core.css">
+        <link rel="stylesheet" href="/static/css/orange-bulma.css">
+        <link rel="stylesheet" href="/static/css/orange-core.css">
         
         <!-- Fonts -->
-        <link href="../fonts.googleapis.com/cssc19e.css?family=Alegreya+Sans+SC:100,400" rel="stylesheet">
-        <link href="../fonts.googleapis.com/csse379.css?family=Raleway:300,400,500" rel="stylesheet">
+        <link href="fonts.googleapis.com/cssc19e.css?family=Alegreya+Sans+SC:100,400" rel="stylesheet">
+        <link href="fonts.googleapis.com/csse379.css?family=Raleway:300,400,500" rel="stylesheet">
         
         <!-- plugins -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="assets/js/slick/slick.css">
-        <link rel="stylesheet" href="assets/js/slick/slick-theme.css">
-        <link rel="stylesheet" href="assets/js/webuipopover/jquery.webui-popover.min.css">
-        <link rel="stylesheet" href="assets/js/izitoast/css/iziToast.min.css">
-        <link rel="stylesheet" href="assets/js/zoom/zoom.css">
-        <link rel="stylesheet" href="assets/js/jpcard/card.css">
-        <link rel="stylesheet" href="assets/css/chosen/chosen.css">
-        <link rel="stylesheet" href="assets/css/icons.min.css">
+        <link rel="stylesheet" href="/static/js/slick/slick.css">
+        <link rel="stylesheet" href="/static/js/slick/slick-theme.css">
+        <link rel="stylesheet" href="/static/js/webuipopover/jquery.webui-popover.min.css">
+        <link rel="stylesheet" href="/static/js/zoom/zoom.css">
+        <link rel="stylesheet" href="/static/js/jpcard/card.css">
+        <link rel="stylesheet" href="/static/css/chosen/chosen.css">
 
     </head>
    
@@ -40,7 +38,7 @@
             <!-- Brand -->
             <div class="navbar-brand">
                 <a class="navbar>-item" href="home.html">
-                    <img src="assets/images/logo/orange-icon.svg" alt="">
+                    <img src="/static/images/logo/orange-icon.svg" alt="">
                 </a>
         
                 <!-- Sidebar mode toggler icon -->
@@ -55,7 +53,7 @@
         <!-- Main Sidebar-->
         <div class="main-sidebar">
             <div class="sidebar-brand">
-                <a href="orange_index.html"><img src="assets/images/logo/orange-icon.svg" alt=""></a>
+                <a href="orange_index.html"><img src="/static/images/logo/orange-icon.svg" alt=""></a>
             </div>
             <div class="sidebar-inner">
                 <ul class="icon-menu">
@@ -118,7 +116,7 @@
                             <!-- Title -->
                             <div class="account-title">
                                 <h2>OpenCV Pipeline</h2>
-                                <img class="brand-filigrane" src="assets/images/logo/orange-grey.svg" alt="">
+                                <img class="brand-filigrane" src="/static/images/logo/orange-grey.svg" alt="">
                             </div>
         
                              <!-- Account tabs -->
@@ -192,8 +190,8 @@
                                                                     <div class="control">
                                                                         
                                                                             <div class="range-slider">
-                                                                                    <input class="range-slider__range" type="range" value="400" min="0" max="500">
-                                                                                    <span class="range-slider__value">2</span>
+                                                                                    <input class="slider__range" id="exposure" type="range" value="400" min="0" max="500">
+                                                                                    <span class="slider__value">2</span>
                                                                                   </div> 
                                                                           
                                                                         </div>
@@ -205,8 +203,8 @@
                                                                     <div class="control">
                                                                         
                                                                             <div class="range-slider">
-                                                                                    <input class="range-slider__range" type="range" value="400" min="0" max="500">
-                                                                                    <span class="range-slider__value">0</span>
+                                                                                    <input class="slider__range"  id="white_balance" type="range" value="400" min="0" max="500">
+                                                                                    <span class="slider__value">0</span>
                                                                                   </div> 
                                                                           
                                                                         </div>
@@ -268,15 +266,15 @@
 
                                                 <div class="column is-12-percent">
 
-                                                        <span id="hue-value1" class="range-slider__value2"></span>
+                                                        <span id="hue-value1" class="range-slider__value2 dual_slider"></span>
 
                                                 </div>
                                                 <div class="column is-half " style="padding-top: 22px;" >
-                                                        <div id="hue" ></div>
+                                                        <div class="hue" id="hue" ></div>
                                                 </div>
                                                 <div class="column is-12-percent">
 
-                                                        <span id="hue-value2" class="range-slider__value"></span>
+                                                        <span id="hue-value2" class="range-slider__value dual_slider"></span>
                                                 </div>
                                               </div>
 
@@ -306,21 +304,16 @@
 
                                                   <div class="columns">
                                                         <div class="column  is-3">
-        
                                                                 <label  class="dropdown" >Value </label>
-        
                                                         </div>
         
                                                         <div class="column is-12-percent">
-        
                                                                 <span id="value-value1" class="range-slider__value2"></span>
-        
                                                         </div>
                                                         <div class="column is-half " style="padding-top: 22px;" >
                                                                 <div id="value" ></div>
                                                         </div>
                                                         <div class="column is-12-percent">
-        
                                                                 <span id="value-value2" class="range-slider__value"></span>
                                                         </div>
                                                       </div>
@@ -336,8 +329,8 @@
                                                                         <div class="control">
                                                                             
                                                                                 <div class="range-slider">
-                                                                                        <input class="range-slider__range" type="range" value="400" min="0" max="500">
-                                                                                        <span class="range-slider__value">0</span>
+                                                                                        <input class="slider__range" id="erosion_steps" type="range" value="400" min="0" max="500">
+                                                                                        <span class="slider__value">0</span>
                                                                                       </div> 
                                                                               
                                                                             </div>
@@ -346,8 +339,8 @@
                                                                         <div class="control">
                                                                             
                                                                                 <div class="range-slider">
-                                                                                        <input class="range-slider__range" type="range" value="400" min="0" max="500">
-                                                                                        <span class="range-slider__value">0</span>
+                                                                                        <input class="slider__range" id="dilation_steps" type="range" value="400" min="0" max="500">
+                                                                                        <span class="slider__value">0</span>
                                                                                       </div> 
                                                                               
                                                                             </div>
@@ -424,7 +417,7 @@
                                             <label  class="dropdown" >Target Fullness (% of bounding Rectangle) </label>
 
                                                 <div class="spacer"></div>
-                                                  <div class="columns">
+                                                assets        <div class="columns">
                                                         <div class="column  is-3">
         
                                                                
@@ -639,7 +632,7 @@
         </div>
         <!-- /Main wrapper -->
         <!-- Concatenated plugins -->
-        <script src="assets/js/app.js"></script>
+        <script src="/static/js/app.js"></script>
 
 
     
@@ -648,8 +641,8 @@
             
             var rangeSlider = function(){
                     var slider = $('.range-slider'),
-                        range = $('.range-slider__range'),
-                        value = $('.range-slider__value');
+                        range = $('.slider__range'),
+                        value = $('.slider__value');
                       
                     slider.each(function(){
                   
@@ -666,14 +659,85 @@
                   
                   rangeSlider();
 
+    $(document).ready(function(){
+        $('#dropdown').on('change', function() {
+            var dropdown = this.value
+            $.ajax({
+            type : 'POST',
+            url : "/dropdown",
+            contentType: 'application/json;charset=UTF-8',
+            data: JSON.stringify ({"dropdown" : dropdown}),
+        });
+    
+        });
+    });
+  
+
+    
+    
+    $(document).on('input', '.slider__range', function (e) {
+        var clicked = $(this).val();
+        //var class = $(".subclass", this).css("visibility","visible");
+        var id = e.target.id
+    
+        $.ajax({
+            type : 'POST',
+            url : "/slider",
+            contentType: 'application/json;charset=UTF-8',
+            data: JSON.stringify ({ [id]: clicked }),
+        });
+    });
+    
+    $(function() { $("#mybutton").click(function (event) { $.getJSON('/button', { },
+        function(data) { }); return false; }); });
+    
+
+$(document).ready(function() {
+    $('.noUi-handle').on('click', function() {
+      $(this).width(50);
+    });
+    var rangeSlider = document.getElementById('hue');
+    var moneyFormat = wNumb({
+      decimals: 0,
+      thousand: ',',
+      prefix: ''
+    });
+    noUiSlider.create(rangeSlider, {
+      start: [50, 175],
+      step: 1,
+      range: {
+        'min': [0],
+        'max': [255]
+      },
+      format: moneyFormat,
+      connect: true
+    });
+    
+    // Set visual min and max values and also update value hidden form inputs
+    rangeSlider.noUiSlider.on('update', function(values, handle) {
+      console.log(values)
+      document.getElementById('hue-value1').innerHTML = values[0];
+      document.getElementById('hue-value2').innerHTML = values[1];
+      document.getElementsByName('min-value').value = moneyFormat.from(
+        values[0]);
+      document.getElementsByName('max-value').value = moneyFormat.from(
+        values[1]);
+    });
+  });
 
 
 
           </script>
         <!-- Helios js -->
 
-        <script src="assets/js/slider.js">
+        <script src="/static/js/slider4.js">
         </script>
-        <script src="assets/js/nephos.js"></script>    </body>  
+        <script src="/static/js/nephos.js"></script>    
+    
+
+
+
+
+    </body>  
 
 </html>
