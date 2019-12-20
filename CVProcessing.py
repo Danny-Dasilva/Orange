@@ -3,6 +3,7 @@ from threading import Thread
 import numpy as np
 from time import sleep
 import enum
+import math
 
 class targetRegion(enum.Enum):
     topLeft = 0
@@ -26,11 +27,12 @@ class tapePos:
         self.erosion = 0 #CHANGE
         self.dilation = 0 #CHANGE
         self.target_area = 4000
-        self.target_fullness = 0 #CHANGE
-        self.target_aspect_ratio = 0 #CHANGE
+        self.target_fullness = 0
+        self.target_aspect_ratio = 1
         self.target_region = targetRegion.center
         self.eyedropper_mode = "max"
-
+        self.crosshair_mode = None #CHANGE
+        self.crosshair_type = None #CHANGE
     def process(self):
         while True:
             sleep(0.03)
@@ -43,33 +45,31 @@ class tapePos:
             contours,hierarchy = cv2.findContours(mask, 1, 2)
             colorMask = cv2.cvtColor(mask,cv2.COLOR_GRAY2RGB)
             boxes = []
+            
             for cnt in contours:
+                blankImg = np.zeros_like(mask)
+                pixels = []
                 rect = cv2.minAreaRect(cnt)
                 box = cv2.boxPoints(rect)
                 box = np.int0(box)
                 if cv2.contourArea(box) > self.target_area:
-                    boxes.append(box)
-
+                    cv2.drawContours(blankImg, [box], 0, color=255, thickness=-1)
+                    pixelpoints = np.nonzero(blankImg)
+                    pixel_area = len(pixelpoints[0])
+                    pixels.append(mask[pixelpoints[0],pixelpoints[1]])
+                    mask_area = len(np.nonzero(pixels[0])[0])
+                    fullness = mask_area/pixel_area
+                    if fullness*100 >= self.target_fullness:
+                        dist1 = math.sqrt( ((box[0][0]-box[1][0])**2)+((box[0][1]-box[1][1])**2) )
+                        dist2 = math.sqrt( ((box[1][0]-box[2][0])**2)+((box[1][1]-box[2][1])**2) )
+                        if dist1/dist2 > self.target_aspect_ratio:
+                            print(dist1/dist2)
+                            boxes.append(box)
             yield img,colorMask,boxes
-            ## save 
-    
-    def read_pipeline(self):
-        pass
+            ## save
 
-    def source_image(self):
-        pass
-
-    def set_leds(self):
-        pass
-
-    def set_orientation(self):
-        pass
-
-    def set_exposure(self):
-        pass
-
-    def read_eyedropper(self):
-        pass
+    def set_exposure(self,exposure):
+        self.exposure = exposure
 
     def set_eyedropper(self,hsv_value):
         print(hsv_value)
@@ -114,32 +114,29 @@ class tapePos:
     def set_value(self, value):
         self.value = value
 
-    def set_erosion_steps(self):
-        pass
+    def set_erosion_steps(self, erosion):
+        self.erosion = erosion
 
-    def set_dilation_steps(self):
-        pass
+    def set_dilation_steps(self,dilation):
+        self.dilation = dilation
 
-    def set_target_area(self):
-        pass
+    def set_target_area(self, area):
+        self.target_area = area
 
-    def set_target_fullness(self):
-        pass
+    def set_target_fullness(self, fullness):
+        self.target_fullness = fullness
 
-    def set_target_aspect_ration(self):   
-        pass    
+    def set_target_aspect_ration(self, target_aspect_ratio):   
+        self.target_aspect_ratio = target_aspect_ratio 
 
-    def set_target_region(self):
-        pass
+    def set_target_region(self, target_region):
+        self.target_region = target_region #0-8 see enum
 
-    def set_source_image(self):
-        pass
+    def set_crosshair_mode(self, crosshair_mode):
+        self.crosshair_mode = crosshair_mode
 
-    def set_crosshair_mode(self):
-        pass
-
-    def set_crosshair_type(self):
-        pass     
+    def set_crosshair_type(self, crosshair_type):
+        self.crosshair_type = crosshair_type
 
     def clampHSV(self, hsv_value):
         if hsv_value[0]<0: hsv_value[0] = 0
