@@ -6,7 +6,11 @@ app.config["CACHE_TYPE"] = "null"
 
 @app.route('/')
 def cv2_pipeline():
-    return render_template('orange-cv2.html')
+
+    #range and base values
+    dual_slider = {'hue': [[0, 255], [30, 200]],  'saturation': [[0, 255], [30, 200]], 'value': [[0, 255], [30, 200]], 'target': [[0, 255], [30, 200]], 'fullness': [[0, 255], [30, 200]], 'aspect': [[0, 255], [30, 200]]}
+
+    return render_template('orange-cv2.html', dual_slider = dual_slider)
 
 @app.route('/ai_pipeline')
 def ai_pipeline():
@@ -46,7 +50,7 @@ def dropdown():
     if request.method == "POST":
         data = request.get_json()
         data = json_parse(data)
-        print(data['dropdown'])
+        print(data)
     return "nothing"
 
 @app.route('/button')

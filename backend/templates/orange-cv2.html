@@ -93,9 +93,6 @@
         <div class="shop-wrapper">
         
             <!-- Search overlay -->
-            <div class="search-overlay"></div>
-            
-            <!-- Search input -->
             <div class="search-input-wrapper is-desktop is-hidden">
                 <div class="field">
                     <div class="control">
@@ -143,7 +140,7 @@
                                                     <label class="dropdown" >Pipeline Type</label>
                                                         <div class="control">
                                                            
-                                                            <select class="chosen-select" data-placeholder="Select">
+                                                            <select id="pipeline_type" class="chosen-select" data-placeholder="Select">
                                                                 <option label="Payment method"></option>
                                                                 <option value="cash">Limelight Standard</option>
                                                                
@@ -154,7 +151,7 @@
                                                         <label  class="dropdown"  >Source Image</label>
                                                         <div class="control">
                                                               
-                                                                <select class="chosen-select" data-placeholder="Select">
+                                                                <select id="source_image" class="chosen-select" data-placeholder="Select">
                                                                     <option label="Payment method"></option>
                                                                     <option value="cash">Camera</option>
                                                                     <option value="cash">Snapshot</option>
@@ -166,7 +163,7 @@
                                                             <label  class="dropdown"  >LEDs</label>
                                                             <div class="control">
                                                                     
-                                                                    <select class="chosen-select" data-placeholder="Select">
+                                                                    <select id="leds" class="chosen-select" data-placeholder="Select">
                                                                         <option label="Payment method"></option>
                                                                         <option value="cash">On</option>
                                                                         <option value="credit-card">Off</option>
@@ -178,7 +175,7 @@
                                                                 <label  class="dropdown" >Orientation</label>
                                                                 <div class="control">
                                                                     
-                                                                        <select class="chosen-select" data-placeholder="Select">
+                                                                        <select id="orientation" class="chosen-select" data-placeholder="Select">
                                                                             <option label="Payment method"></option>
                                                                             <option value="cash">Normal</option>
                                                                             
@@ -417,7 +414,7 @@
                                             <label  class="dropdown" >Target Fullness (% of bounding Rectangle) </label>
 
                                                 <div class="spacer"></div>
-                                                assets        <div class="columns">
+                                                 <div class="columns">
                                                         <div class="column  is-3">
         
                                                                
@@ -426,15 +423,15 @@
         
                                                         <div class="column is-12-percent">
         
-                                                                <span id="Fullness-value1" class="range-slider__value2"></span>
+                                                                <span id="fullness-value1" class="range-slider__value2"></span>
         
                                                         </div>
                                                         <div class="column is-half " style="padding-top: 22px;" >
-                                                                <div id="Fullness" ></div>
+                                                                <div id="fullness" ></div>
                                                         </div>
                                                         <div class="column is-12-percent">
         
-                                                                <span id="Fullness-value2" class="range-slider__value"></span>
+                                                                <span id="fullness-value2" class="range-slider__value"></span>
                                                         </div>
                                                       </div>
     
@@ -455,15 +452,15 @@
             
                                                             <div class="column is-12-percent">
             
-                                                                    <span id="Aspect-value1" class="range-slider__value2"></span>
+                                                                    <span id="aspect-value1" class="range-slider__value2"></span>
             
                                                             </div>
                                                             <div class="column is-half " style="padding-top: 22px;" >
-                                                                    <div id="Aspect" ></div>
+                                                                    <div id="aspect" ></div>
                                                             </div>
                                                             <div class="column is-12-percent">
             
-                                                                    <span id="Aspect-value2" class="range-slider__value"></span>
+                                                                    <span id="aspect-value2" class="range-slider__value"></span>
                                                             </div>
                                                           </div>
         
@@ -523,7 +520,7 @@
                                                 <label class="dropdown" >Target Region</label>
                                                     <div class="control">
                                                        
-                                                        <select class="chosen-select" data-placeholder="Select">
+                                                        <select id="target_region" class="chosen-select" data-placeholder="Select">
                                                             <option label="Payment method"></option>
                                                             <option value="cash">Center</option>
                                                            
@@ -534,7 +531,7 @@
                                                     <label  class="dropdown"  >Source Image</label>
                                                     <div class="control">
                                                           
-                                                            <select class="chosen-select" data-placeholder="Select">
+                                                            <select id="source_image" class="chosen-select" data-placeholder="Select">
                                                                 <option label="Payment method"></option>
                                                                 <option value="cash">Single Target</option>
                                                                 <option value="cash">Dual Target</option>
@@ -547,7 +544,7 @@
                                                         <label  class="dropdown"  >Crosshair Mode</label>
                                                         <div class="control">
                                                                 
-                                                                <select class="chosen-select" data-placeholder="Select">
+                                                                <select id="crosshair_mode" class="chosen-select" data-placeholder="Select">
                                                                     <option label="Payment method"></option>
                                                                     <option value="cash">Single Crosshair</option>
                                                                     <option value="credit-card">Double Crosshair</option>
@@ -659,18 +656,24 @@
                   
                   rangeSlider();
 
-    $(document).ready(function(){
-        $('#dropdown').on('change', function() {
-            var dropdown = this.value
-            $.ajax({
-            type : 'POST',
-            url : "/dropdown",
-            contentType: 'application/json;charset=UTF-8',
-            data: JSON.stringify ({"dropdown" : dropdown}),
-        });
+
+                  
     
-        });
-    });
+
+        $(document).on('change','.chosen-select',function(e) {
+            var id = e.target.id
+            
+            var select = $("#" + id).find(":selected").text();
+            console.log(id, select)
+
+            $.ajax({
+                type : 'POST',
+                url : "/dropdown",
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify ({ [id]: select }),
+            });
+
+       });
   
 
     
@@ -691,46 +694,54 @@
     $(function() { $("#mybutton").click(function (event) { $.getJSON('/button', { },
         function(data) { }); return false; }); });
     
-
-$(document).ready(function() {
-    $('.noUi-handle').on('click', function() {
-      $(this).width(50);
-    });
-    var rangeSlider = document.getElementById('hue');
-    var moneyFormat = wNumb({
-      decimals: 0,
-      thousand: ',',
-      prefix: ''
-    });
-    noUiSlider.create(rangeSlider, {
-      start: [50, 175],
-      step: 1,
-      range: {
-        'min': [0],
-        'max': [255]
-      },
-      format: moneyFormat,
-      connect: true
-    });
     
-    // Set visual min and max values and also update value hidden form inputs
-    rangeSlider.noUiSlider.on('update', function(values, handle) {
-      console.log(values)
-      document.getElementById('hue-value1').innerHTML = values[0];
-      document.getElementById('hue-value2').innerHTML = values[1];
-      document.getElementsByName('min-value').value = moneyFormat.from(
-        values[0]);
-      document.getElementsByName('max-value').value = moneyFormat.from(
-        values[1]);
-    });
-  });
+    {% for key, value in dual_slider.items() %}
 
+      $(document).ready(function (e) {
+        var rangeSlider = document.getElementById('{{ key }}');
+        var moneyFormat = wNumb({
+        decimals: 0,
+        thousand: ',',
+        prefix: ''
+        });
+        noUiSlider.create(rangeSlider, {
+        start: [{{ value[1][0] }}, {{ value[1][1] }}],
+        step: 1,
+        range: {
+            'min': {{ value[0][0] }},
+            'max': {{ value[0][1] }},
+        },
+        format: moneyFormat,
+        connect: true
+        });
+        // Set visual min and max values and also update value hidden form inputs
+        rangeSlider.noUiSlider.on('update', function(values, handle) {
+        
+        document.getElementById('{{ key }}-value1').innerHTML = values[0];
+        document.getElementById('{{ key }}-value2').innerHTML = values[1];
+        document.getElementsByName('min-value').value = moneyFormat.from(
+            values[0]);
+        document.getElementsByName('max-value').value = moneyFormat.from(
+            values[1]);
+            
+            $.ajax({
+                type : 'POST',
+                url : "/dual_slider",
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify ({ {{ key }}: values }),
+            });
+
+        });
+    });
+
+   {% endfor %}
+        
 
 
           </script>
-        <!-- Helios js -->
+      
 
-        <script src="/static/js/slider4.js">
+        <script src="/static/js/slider.js">
         </script>
         <script src="/static/js/nephos.js"></script>    
     
