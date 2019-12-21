@@ -1,897 +1,924 @@
 <!DOCTYPE html>
 <html lang="en">
-    
+
 <head>
-        <!-- Required meta tags always come first -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-        <title> Orange : OpenCV and Ai processing made easy</title>
-        <link rel="icon" type="image/png" href="/static/images/orange-fav.png" />
+    <title> Orange : OpenCV and Ai processing made easy</title>
+    <link rel="icon" type="image/png" href="/static/images/orange-fav.png" />
 
-        <!--Core CSS -->
-        <link rel="stylesheet" href="/static/css/orange-bulma.css">
-        <link rel="stylesheet" href="/static/css/orange-core.css">
-        
-        <!-- Fonts -->
-        <link href="fonts.googleapis.com/cssc19e.css?family=Alegreya+Sans+SC:100,400" rel="stylesheet">
-        <link href="fonts.googleapis.com/csse379.css?family=Raleway:300,400,500" rel="stylesheet">
-        
-        <!-- plugins -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/static/js/slick/slick.css">
-        <link rel="stylesheet" href="/static/js/slick/slick-theme.css">
-        <link rel="stylesheet" href="/static/js/webuipopover/jquery.webui-popover.min.css">
-        <link rel="stylesheet" href="/static/js/zoom/zoom.css">
-        <link rel="stylesheet" href="/static/js/jpcard/card.css">
-        <link rel="stylesheet" href="/static/css/chosen/chosen.css">
-
-    </head>
-   
-    <body>
-        
-        <!-- Pageloader -->
-        <div class="pageloader"></div>
-        <div class="infraloader is-active"></div>
-        <nav class="navbar mobile-navbar is-hidden-desktop is-hidden-tablet" aria-label="main navigation">
-            <!-- Brand -->
-            <div class="navbar-brand">
-                <a class="navbar>-item" href="home.html">
-                    <img src="/static/images/logo/orange-icon.svg" alt="">
-                </a>
-        
-                <!-- Sidebar mode toggler icon -->
-                <a id="sidebar-mode" class="navbar-item is-icon is-sidebar-toggler" href="javascript:void(0);">
-                    <i data-feather="sidebar"></i>
-                </a>
-        
-             
-            </div>
-         
-        </nav>
-        <!-- Main Sidebar-->
-        <div class="main-sidebar">
-            <div class="sidebar-brand">
-                <a href="orange_index.html"><img src="/static/images/logo/orange-icon.svg" alt=""></a>
-            </div>
-            <div class="sidebar-inner">
-                <ul class="icon-menu">
-                    <!-- Shop sidebar trigger -->
-                  
-                    <li>
-                        <a href="orange-cv2.html" ><i data-feather="video" class="main_color" ></i></a>
-                    </li>
-                    
+    <!--Core CSS -->
+    <link rel="stylesheet" href="/static/css/orange-bulma.css">
+    <link rel="stylesheet" href="/static/css/orange-core.css">
 
 
+    <!-- plugins -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/chosen/chosen.css">
 
-                    <li>
-                        <a href="orange-ai.html" ><i data-feather="eye"  ></i></a>
-                    </li>
-                    
+</head>
 
-                    <li>
-                        <a  id="open-filters" href="orange-settings.html" ><i data-feather="settings"  ></i></a>
-                    </li>
+<body>
 
-                    
-                    
-                    <!-- Search trigger -->
-                 
-                <!-- User account -->
-                
-            </div>
+    <!-- Pageloader -->
+    <div class="pageloader"></div>
+    <div class="infraloader is-active"></div>
+    <nav class="navbar mobile-navbar is-hidden-desktop is-hidden-tablet" aria-label="main navigation">
+        <!-- Brand -->
+        <div class="navbar-brand">
+            <a class="navbar>-item" href="home.html">
+                <img src="/static/images/logo/orange-icon.svg" alt="">
+            </a>
+
+            <!-- Sidebar mode toggler icon -->
+            <a id="sidebar-mode" class="navbar-item is-icon is-sidebar-toggler" href="javascript:void(0);">
+                <i data-feather="sidebar"></i>
+            </a>
+
+
         </div>
-        <!-- /Main Sidebar-->
-        
-    
-        
-       
-        
-        <!-- Main wrapper -->
-        <div class="shop-wrapper">
-        
-            <!-- Search overlay -->
-            <div class="search-input-wrapper is-desktop is-hidden">
-                <div class="field">
-                    <div class="control">
-                        <input type="text" name="search" autofocus required>
-                        <span id="clear-search" role="button"><i data-feather="x"></i></span>
-                        <span class="search-help">Enter a search</span>
-                    </div>
+
+    </nav>
+    <!-- Main Sidebar-->
+    <div class="main-sidebar">
+        <div class="sidebar-brand">
+            <a href="orange_index.html"><img src="/static/images/logo/orange-icon.svg" alt=""></a>
+        </div>
+        <div class="sidebar-inner">
+            <ul class="icon-menu">
+                <!-- Shop sidebar trigger -->
+
+                <li>
+                    <a href="orange-cv2.html"><i data-feather="video" class="main_color"></i></a>
+                </li>
+
+
+
+
+                <li>
+                    <a href="orange-ai.html"><i data-feather="eye"></i></a>
+                </li>
+
+
+                <li>
+                    <a id="open-filters" href="orange-settings.html"><i data-feather="settings"></i></a>
+                </li>
+
+
+
+                <!-- Search trigger -->
+
+                <!-- User account -->
+
+        </div>
+    </div>
+    <!-- /Main Sidebar-->
+
+
+
+
+
+    <!-- Main wrapper -->
+    <div class="shop-wrapper">
+
+        <!-- Search overlay -->
+        <div class="search-input-wrapper is-desktop is-hidden">
+            <div class="field">
+                <div class="control">
+                    <input type="text" name="search" autofocus required>
+                    <span id="clear-search" role="button"><i data-feather="x"></i></span>
+                    <span class="search-help">Enter a search</span>
                 </div>
             </div>
-            <!-- Main section -->
-            <div class="section">
-                <!-- Container -->
-                <div class="container">
-        
-                    <!-- Account Layout -->
-                    <div class="columns account-header">
-                        <div class="column is-11 is-offset-1 is-tablet-landscape-padded">
-                            <!-- Title -->
-                            <div class="account-title">
-                                <h2>OpenCV Pipeline</h2>
-                                <img class="brand-filigrane" src="/static/images/logo/orange-grey.svg" alt="">
+        </div>
+        <!-- Main section -->
+        <div class="section">
+            <!-- Container -->
+            <div class="container">
+
+                <!-- Account Layout -->
+                <div class="columns account-header">
+                    <div class="column is-11 is-offset-1 is-tablet-landscape-padded">
+                        <!-- Title -->
+                        <div class="account-title">
+                            <h2>OpenCV Pipeline</h2>
+                            <img class="brand-filigrane" src="/static/images/logo/orange-grey.svg" alt="">
+                        </div>
+
+                        <!-- Account tabs -->
+                        <div class="tabs-wrapper underline-tabs animated-tabs">
+                            <div class="tabs">
+                                <ul>
+                                    <li class="is-active" data-tab="t1"><a>Input</a></li>
+                                    <li data-tab="t2"><a>Thresholding</a></li>
+                                    <li data-tab="t3"><a>Contour filtering</a></li>
+                                    <li data-tab="t4"><a>Output</a></li>
+                                </ul>
                             </div>
-        
-                             <!-- Account tabs -->
-                             <div class="tabs-wrapper underline-tabs animated-tabs">
-                                <div class="tabs">
-                                    <ul>
-                                        <li class="is-active" data-tab="t1"><a>Input</a></li>
-                                        <li data-tab="t2"><a>Thresholding</a></li>
-                                        <li data-tab="t3"><a>Contour filtering</a></li>
-                                        <li data-tab="t4"><a>Output</a></li>
-                                    </ul>
-                                </div>
-                                <div id="t1" class="navtab-content is-active">
-                                    
-                                
-                                 
-                                        <!-- Chosen select -->
-                                        <div class="flat-card is-auto is-element-details has-overflow">
-                                            <div class="columns is-gapless is-vcentered">
-                                                
-                                                <div class="column is-6 is-component">
-                                                    <div class="inner">
-        
-                                                    <label class="dropdown" >Pipeline Type</label>
-                                                        <div class="control">
-                                                           
-                                                            <select id="pipeline_type" class="chosen-select" data-placeholder="Select">
-                                                                <option label="Payment method"></option>
-                                                                <option value="cash">Limelight Standard</option>
-                                                               
-                                                            </select>
-                                                          
-                                                        </div>
-
-                                                        <label  class="dropdown"  >Source Image</label>
-                                                        <div class="control">
-                                                              
-                                                                <select id="source_image" class="chosen-select" data-placeholder="Select">
-                                                                    <option label="Payment method"></option>
-                                                                    <option value="cash">Camera</option>
-                                                                    <option value="cash">Snapshot</option>
-                                                                  
-                                                                </select>
-                                                              
-                                                            </div>
-
-                                                            <label  class="dropdown"  >LEDs</label>
-                                                            <div class="control">
-                                                                    
-                                                                    <select id="leds" class="chosen-select" data-placeholder="Select">
-                                                                        <option label="Payment method"></option>
-                                                                        <option value="cash">On</option>
-                                                                        <option value="credit-card">Off</option>
-                                                                       
-                                                                    </select>
-                                                                  
-                                                                </div>
-
-                                                                <label  class="dropdown" >Orientation</label>
-                                                                <div class="control">
-                                                                    
-                                                                        <select id="orientation" class="chosen-select" data-placeholder="Select">
-                                                                            <option label="Payment method"></option>
-                                                                            <option value="cash">Normal</option>
-                                                                            
-                                                                        </select>
-                                                                      
-                                                                    </div>
-        
-                                                                    <label  class="dropdown" >Exposure (ms)</label>
-                                                                    <div class="control">
-                                                                        
-                                                                            <div class="range-slider">
-                                                                                    <input class="slider__range" id="exposure" type="range" value="400" min="0" max="500">
-                                                                                    <span class="slider__value">2</span>
-                                                                                  </div> 
-                                                                          
-                                                                        </div>
-                                                                     
+                            <div id="t1" class="navtab-content is-active">
 
 
-                                                                        
-                                                                        <label  class="dropdown" >White Balance</label>
-                                                                    <div class="control">
-                                                                        
-                                                                            <div class="range-slider">
-                                                                                    <input class="slider__range"  id="white_balance" type="range" value="400" min="0" max="500">
-                                                                                    <span class="slider__value">0</span>
-                                                                                  </div> 
-                                                                          
-                                                                        </div>
-                                                    </div>
+
+                                <!-- Chosen select -->
+                                <div class="flat-card is-auto is-element-details has-overflow">
+                                    <div class="columns is-gapless is-vcentered">
+
+                                        <div class="column is-6 is-component">
+                                            <div class="inner">
+
+                                                <label class="dropdown">Pipeline Type</label>
+                                                <div class="control">
+
+                                                    <select id="pipeline_type" class="chosen-select"
+                                                        data-placeholder="Select">
+                                                        <option label="Payment method"></option>
+                                                        <option value="cash">Limelight Standard</option>
+
+                                                    </select>
+
                                                 </div>
-                                                <div class="column is-6 is-description topp">
-                                                    <div class="inner">
-                                                        <div class="divider"></div>
-                                                        <h2 class="title is-6 is-light">Empty box to explain stuff or put camera</h2>
-                                                        <p>
 
-                                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                                                <label class="dropdown">Source Image</label>
+                                                <div class="control">
 
-                                                            
-                                                            
-                                                        </p>
+                                                    <select id="source_image" class="chosen-select"
+                                                        data-placeholder="Select">
+                                                        <option label="Payment method"></option>
+                                                        <option value="cash">Camera</option>
+                                                        <option value="cash">Snapshot</option>
+
+                                                    </select>
+
+                                                </div>
+
+                                                <label class="dropdown">LEDs</label>
+                                                <div class="control">
+
+                                                    <select id="leds" class="chosen-select" data-placeholder="Select">
+                                                        <option label="Payment method"></option>
+                                                        <option value="cash">On</option>
+                                                        <option value="credit-card">Off</option>
+
+                                                    </select>
+
+                                                </div>
+
+                                                <label class="dropdown">Orientation</label>
+                                                <div class="control">
+
+                                                    <select id="orientation" class="chosen-select"
+                                                        data-placeholder="Select">
+                                                        <option label="Payment method"></option>
+                                                        <option value="cash">Normal</option>
+
+                                                    </select>
+
+                                                </div>
+
+                                                <label class="dropdown">Exposure (ms)</label>
+                                                <div class="control">
+
+                                                    <div class="range-slider">
+                                                        <input class="slider__range" id="exposure" type="range"
+                                                            value="400" min="0" max="500">
+                                                        <span class="slider__value">2</span>
                                                     </div>
+
+                                                </div>
+
+
+
+
+                                                <label class="dropdown">White Balance</label>
+                                                <div class="control">
+
+                                                    <div class="range-slider">
+                                                        <input class="slider__range" id="white_balance" type="range"
+                                                            value="400" min="0" max="500">
+                                                        <span class="slider__value">0</span>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
-                                
-                                
-                                
-                                
-                                </div>
-                                <div id="t2" class="navtab-content">
-                                   
+                                        <div class="column is-6 is-description topp">
+                                            <div class="inner">
+                                                <div class="divider"></div>
+                                                <h2 class="title is-6 is-light">Empty box to explain stuff or put camera
+                                                </h2>
+                                                <p>
+
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry. Lorem Ipsum has been the industry's standard dummy text
+                                                    ever since the 1500s, when an unknown printer took a galley of type
+                                                    and scrambled it to make a type specimen book. It has survived not
+                                                    only five centuries, but also the leap into electronic typesetting,
+                                                    remaining essentially unchanged. It was popularised in the 1960s
+                                                    with the release of Letraset sheets containing Lorem Ipsum passages,
+                                                    and more recently with desktop publishing software like Aldus
+                                                    PageMaker including versions of Lorem Ipsum
 
 
 
-
-                                        <!-- Chosen select -->
-                                        <div class="flat-card is-auto is-element-details has-overflow">
-                                            <div class="columns is-gapless is-vcentered">
-                                                <div class="column is-7 is-component">
-                                                    <div class="inner">
-        
-                                                     
-                                        <h3 class="title is-6">Magic Wands</h3>
-                                       
-                                        <a class="button feather-button secondary-button btn-outlined is-bold" id="eyedropper">Eyedropper</a>
-                                        <a class="button feather-button secondary-button btn-outlined is-bold" id="include_pixel">Include Pixel</a>
-                                        <a class="button feather-button secondary-button btn-outlined is-bold" id="ignore_pixel">Ignore Pixel</a>
-                                       
-
-
-                                        <div class="spacer"></div>
-                                                                         
-
-                                 
-                                          
-
-                                          <div class="columns">
-                                                <div class="column  is-3">
-
-                                                        <label  class="dropdown" >Hue </label>
-
-                                                </div>
-
-                                                <div class="column is-12-percent">
-
-                                                        <span id="hue-value1" class="range-slider__value2 dual_slider"></span>
-
-                                                </div>
-                                                <div class="column is-half " style="padding-top: 22px;" >
-                                                        <div class="hue" id="hue" ></div>
-                                                </div>
-                                                <div class="column is-12-percent">
-
-                                                        <span id="hue-value2" class="range-slider__value dual_slider"></span>
-                                                </div>
-                                              </div>
-
-
-
-                                              <div class="columns">
-                                                    <div class="column  is-3">
-    
-                                                            <label  class="dropdown" >Saturation </label>
-    
-                                                    </div>
-    
-                                                    <div class="column is-12-percent">
-    
-                                                            <span id="saturation-value1" class="range-slider__value2"></span>
-    
-                                                    </div>
-                                                    <div class="column is-half " style="padding-top: 22px;" >
-                                                            <div id="saturation" ></div>
-                                                    </div>
-                                                    <div class="column is-12-percent">
-    
-                                                            <span id="saturation-value2" class="range-slider__value"></span>
-                                                    </div>
-                                                  </div>
-
-
-                                                  <div class="columns">
-                                                        <div class="column  is-3">
-                                                                <label  class="dropdown" >Value </label>
-                                                        </div>
-        
-                                                        <div class="column is-12-percent">
-                                                                <span id="value-value1" class="range-slider__value2"></span>
-                                                        </div>
-                                                        <div class="column is-half " style="padding-top: 22px;" >
-                                                                <div id="value" ></div>
-                                                        </div>
-                                                        <div class="column is-12-percent">
-                                                                <span id="value-value2" class="range-slider__value"></span>
-                                                        </div>
-                                                      </div>
-    
-
-
-
-
-
-    
-                                                                            
-                                                                            <label  class="dropdown" >Erosion Steps</label>
-                                                                        <div class="control">
-                                                                            
-                                                                                <div class="range-slider">
-                                                                                        <input class="slider__range" id="erosion_steps" type="range" value="400" min="0" max="500">
-                                                                                        <span class="slider__value">0</span>
-                                                                                      </div> 
-                                                                              
-                                                                            </div>
-    
-                                                                            <label  class="dropdown" >Dilation Steps</label>
-                                                                        <div class="control">
-                                                                            
-                                                                                <div class="range-slider">
-                                                                                        <input class="slider__range" id="dilation_steps" type="range" value="400" min="0" max="500">
-                                                                                        <span class="slider__value">0</span>
-                                                                                      </div> 
-                                                                              
-                                                                            </div>
-                                                            
-                                                                        
-                                                                        
-    
-                                                                              
-    
-    
-                                                        </div>
-                                                </div>
-                                                <div class="column is-4 is-description">
-                                                    <div class="inner">
-                                                        <img src="{{ url_for('video_feed') }}">
-
-
-                                                   </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                
-                                
-                                
-                                
-                                
-                                </div>
-                                <div id="t3" class="navtab-content">
-                                    
-
-
-
-
-
-                                        <div class="flat-card is-auto is-element-details has-overflow">
-                                                <div class="columns is-gapless is-vcentered">
-                                                    <div class="column is-7 is-component">
-                                                        <div class="inner">
-            
-                                                         
-                                            <h3 class="title is-6">Configuration</h3>
-                                           
-    
-    
-    
-                                     
-                                            <label  class="dropdown" >Target Area (% of Image) </label>
-                                            <div class="spacer"></div>
-
-    
-                                            <div class="columns">
-                                                <div class="column  is-3">
-                                            
-                                                    
-                                            
-                                                </div>
-                                            
-                                                <div class="column is-12-percent">
-                                            
-                                                    <span id="target-value1" class="range-slider__value2"></span>
-                                            
-                                                </div>
-                                                <div class="column is-half " style="padding-top: 22px;">
-                                                    <div id="target"></div>
-                                                </div>
-                                                <div class="column is-12-percent">
-                                            
-                                                    <span id="target-value2" class="range-slider__value"></span>
-                                                </div>
-                                            </div>
-    
-
-
-                                            <label  class="dropdown" >Target Fullness (% of bounding Rectangle) </label>
-
-                                                <div class="spacer"></div>
-                                                 <div class="columns">
-                                                        <div class="column  is-3">
-        
-                                                               
-        
-                                                        </div>
-        
-                                                        <div class="column is-12-percent">
-        
-                                                                <span id="fullness-value1" class="range-slider__value2"></span>
-        
-                                                        </div>
-                                                        <div class="column is-half " style="padding-top: 22px;" >
-                                                                <div id="fullness" ></div>
-                                                        </div>
-                                                        <div class="column is-12-percent">
-        
-                                                                <span id="fullness-value2" class="range-slider__value"></span>
-                                                        </div>
-                                                      </div>
-    
-    
-
-
-                                                      <label  class="dropdown" >Target Aspect Ratio (W:H) </label>
-
-                                            <div class="spacer"></div>
-
-
-                                                      <div class="columns">
-                                                            <div class="column  is-3">
-            
-                                                                   
-            
-                                                            </div>
-            
-                                                            <div class="column is-12-percent">
-            
-                                                                    <span id="aspect-value1" class="range-slider__value2"></span>
-            
-                                                            </div>
-                                                            <div class="column is-half " style="padding-top: 22px;" >
-                                                                    <div id="aspect" ></div>
-                                                            </div>
-                                                            <div class="column is-12-percent">
-            
-                                                                    <span id="aspect-value2" class="range-slider__value"></span>
-                                                            </div>
-                                                          </div>
-        
-    
-    
-    
-    
-    
-        
-                                                                                
-                                                                          
-                                                                      
-                                                                
-                                                                            
-                                                                            
-        
-                                                                                  
-        
-        
-                                                            </div>
-                                                    </div>
-                                                    <div class="column is-4 is-description">
-                                                        <div class="inner">
-                                                            <div class="divider"></div>
-                                                            <h2 class="title is-6 is-light">Chosen Selects</h2>
-                                                            <p>Chosen select boxes offer even more flexibility than native selects. They are optimized for huge options list and display a search field when there are 6 ore more options.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    
-                                    
-                                    
-
-
-
-                               
-                               
-                               
-                               
-                               
-                               
-                               
-                               
-                               
-                                </div>
-                                <div id="t4" class="navtab-content">
-                                   
-                                
-                                   <!-- Chosen select -->
-                                   <div class="flat-card is-auto is-element-details has-overflow">
-                                        <div class="columns is-gapless is-vcentered">
-                                            
-                                            <div class="column is-7 is-component">
-                                                <div class="inner">
-    
-                                                <label class="dropdown" >Target Region</label>
-                                                    <div class="control">
-                                                       
-                                                        <select id="target_region" class="chosen-select" data-placeholder="Select">
-                                                            <option label="Payment method"></option>
-                                                            <option value="cash">Center</option>
-                                                           
-                                                        </select>
-                                                      
-                                                    </div>
-
-                                                    <label  class="dropdown"  >Source Image</label>
-                                                    <div class="control">
-                                                          
-                                                            <select id="source_image" class="chosen-select" data-placeholder="Select">
-                                                                <option label="Payment method"></option>
-                                                                <option value="cash">Single Target</option>
-                                                                <option value="cash">Dual Target</option>
-                                                             
-                                                              
-                                                            </select>
-                                                          
-                                                        </div>
-
-                                                        <label  class="dropdown"  >Crosshair Mode</label>
-                                                        <div class="control">
-                                                                
-                                                                <select id="crosshair_mode" class="chosen-select" data-placeholder="Select">
-                                                                    <option label="Payment method"></option>
-                                                                    <option value="cash">Single Crosshair</option>
-                                                                    <option value="credit-card">Double Crosshair</option>
-                                                                    <option value="credit-card">Tri Crosshair</option>
-                                                                   
-                                                                </select>
-                                                              
-                                                            </div>
-
-                                                   
-                                                               
-                                                                
-                                                                    
-
-
-                                                            <div class="spacer"></div>
-                                                            <h3 class="title is-6">Crosshair A</h3>
-                                       
-                                                            <a class="button feather-button secondary-button btn-outlined is-bold">Calibrate XY</a>
-                                                            <a class="button feather-button secondary-button btn-outlined is-bold">Only X</a>
-                                                            <a class="button feather-button secondary-button btn-outlined is-bold">Only Y</a>
-
-                                                         
-                                                            <a class="button feather-button accent-button raised is-rounded is-bold">Read XY</a>
-                                                           
-                                                                      
-
-
-                                                </div>
-                                            </div>
-                                            <div class="column is-5 is-description topp">
-                                                <div class="inner">
-                                                    <div class="divider"></div>
-                                                    <h2 class="title is-5 is-light">Empty box to explain stuff or put camera</h2>
-                                                    <p>
-
-                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-
-                                                       
-                                                        
-                                                    </p>
-                                                </div>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
-                            
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
                                 </div>
-                                
-                                
+
+
+
+
+                            </div>
+                            <div id="t2" class="navtab-content">
+
+
+
+
+
+                                <!-- Chosen select -->
+                                <div class="flat-card is-auto is-element-details has-overflow">
+                                    <div class="columns is-gapless is-vcentered">
+                                        <div class="column is-7 is-component">
+                                            <div class="inner">
+
+
+                                                <h3 class="title is-6">Magic Wands</h3>
+
+                                                <a class="button feather-button secondary-button btn-outlined is-bold"
+                                                    id="eyedropper">Eyedropper</a>
+                                                <a class="button feather-button secondary-button btn-outlined is-bold"
+                                                    id="include_pixel">Include Pixel</a>
+                                                <a class="button feather-button secondary-button btn-outlined is-bold"
+                                                    id="ignore_pixel">Ignore Pixel</a>
+
+
+
+                                                <div class="spacer"></div>
+
+
+
+
+
+                                                <div class="columns">
+                                                    <div class="column  is-3">
+
+                                                        <label class="dropdown">Hue </label>
+
+                                                    </div>
+
+                                                    <div class="column is-12-percent">
+
+                                                        <span id="hue-value1"
+                                                            class="range-slider__value2 dual_slider"></span>
+
+                                                    </div>
+                                                    <div class="column is-half " style="padding-top: 22px;">
+                                                        <div class="hue" id="hue"></div>
+                                                    </div>
+                                                    <div class="column is-12-percent">
+
+                                                        <span id="hue-value2"
+                                                            class="range-slider__value dual_slider"></span>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="columns">
+                                                    <div class="column  is-3">
+
+                                                        <label class="dropdown">Saturation </label>
+
+                                                    </div>
+
+                                                    <div class="column is-12-percent">
+
+                                                        <span id="saturation-value1"
+                                                            class="range-slider__value2"></span>
+
+                                                    </div>
+                                                    <div class="column is-half " style="padding-top: 22px;">
+                                                        <div id="saturation"></div>
+                                                    </div>
+                                                    <div class="column is-12-percent">
+
+                                                        <span id="saturation-value2" class="range-slider__value"></span>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="columns">
+                                                    <div class="column  is-3">
+                                                        <label class="dropdown">Value </label>
+                                                    </div>
+
+                                                    <div class="column is-12-percent">
+                                                        <span id="value-value1" class="range-slider__value2"></span>
+                                                    </div>
+                                                    <div class="column is-half " style="padding-top: 22px;">
+                                                        <div id="value"></div>
+                                                    </div>
+                                                    <div class="column is-12-percent">
+                                                        <span id="value-value2" class="range-slider__value"></span>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <label class="dropdown">Erosion Steps</label>
+                                                <div class="control">
+
+                                                    <div class="range-slider">
+                                                        <input class="slider__range" id="erosion_steps" type="range"
+                                                            value="400" min="0" max="500">
+                                                        <span class="slider__value">0</span>
+                                                    </div>
+
+                                                </div>
+
+                                                <label class="dropdown">Dilation Steps</label>
+                                                <div class="control">
+
+                                                    <div class="range-slider">
+                                                        <input class="slider__range" id="dilation_steps" type="range"
+                                                            value="400" min="0" max="500">
+                                                        <span class="slider__value">0</span>
+                                                    </div>
+
+                                                </div>
+
+
+
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="column is-4 is-description">
+                                            <div class="inner">
+                                                <img src="{{ url_for('video_feed') }}">
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                            </div>
+                            <div id="t3" class="navtab-content">
+
+
+
+
+
+
+                                <div class="flat-card is-auto is-element-details has-overflow">
+                                    <div class="columns is-gapless is-vcentered">
+                                        <div class="column is-7 is-component">
+                                            <div class="inner">
+
+
+                                                <h3 class="title is-6">Configuration</h3>
+
+                                                target_mode
+
+
+
+                                                <label class="dropdown">Target Area (% of Image) </label>
+                                                <div class="spacer"></div>
+
+
+                                                <div class="columns">
+                                                    <div class="column  is-3">
+
+
+
+                                                    </div>
+
+                                                    <div class="column is-12-percent">
+
+                                                        <span id="target-value1" class="range-slider__value2"></span>
+
+                                                    </div>
+                                                    <div class="column is-half " style="padding-top: 22px;">
+                                                        <div id="target"></div>
+                                                    </div>
+                                                    <div class="column is-12-percent">
+
+                                                        <span id="target-value2" class="range-slider__value"></span>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <label class="dropdown">Target Fullness (% of bounding Rectangle)
+                                                </label>
+
+                                                <div class="spacer"></div>
+                                                <div class="columns">
+                                                    <div class="column  is-3">
+
+
+
+                                                    </div>
+
+                                                    <div class="column is-12-percent">
+
+                                                        <span id="fullness-value1" class="range-slider__value2"></span>
+
+                                                    </div>
+                                                    <div class="column is-half " style="padding-top: 22px;">
+                                                        <div id="fullness"></div>
+                                                    </div>
+                                                    <div class="column is-12-percent">
+
+                                                        <span id="fullness-value2" class="range-slider__value"></span>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <label class="dropdown">Target Aspect Ratio (W:H) </label>
+
+                                                <div class="spacer"></div>
+
+
+                                                <div class="columns">
+                                                    <div class="column  is-3">
+
+
+
+                                                    </div>
+
+                                                    <div class="column is-12-percent">
+
+                                                        <span id="aspect-value1" class="range-slider__value2"></span>
+
+                                                    </div>
+                                                    <div class="column is-half " style="padding-top: 22px;">
+                                                        <div id="aspect"></div>
+                                                    </div>
+                                                    <div class="column is-12-percent">
+
+                                                        <span id="aspect-value2" class="range-slider__value"></span>
+                                                    </div>
+                                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="column is-4 is-description">
+                                            <div class="inner">
+                                                <div class="divider"></div>
+                                                <h2 class="title is-6 is-light">Chosen Selects</h2>
+                                                <p>Chosen select boxes offer even more flexibility than native selects.
+                                                    They are optimized for huge options list and display a search field
+                                                    when there are 6 ore more options.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            <div id="t4" class="navtab-content">
+
+
+                                <!-- Chosen select -->
+                                <div class="flat-card is-auto is-element-details has-overflow">
+                                    <div class="columns is-gapless is-vcentered">
+
+                                        <div class="column is-7 is-component">
+                                            <div class="inner">
+
+                                                <label class="dropdown">Target Region</label>
+                                                <div class="control">
+
+                                                    <select id="target_region" class="chosen-select"
+                                                        data-placeholder="Select">
+                                                        <option label="Payment method"></option>
+                                                        <option value="cash">Center</option>
+
+                                                    </select>
+
+                                                </div>
+
+                                                <label class="dropdown">Target Mode</label>
+                                                <div class="control">
+
+                                                    <select id="target_mode" class="chosen-select"
+                                                        data-placeholder="Select">
+                                                        <option label="Payment method"></option>
+                                                        <option value="cash">Single Target</option>
+                                                        <option value="cash">Dual Target</option>
+
+
+                                                    </select>
+
+                                                </div>
+
+                                                <label class="dropdown">Crosshair Mode</label>
+                                                <div class="control">
+
+                                                    <select id="crosshair_mode" class="chosen-select"
+                                                        data-placeholder="Select">
+                                                        <option label="Payment method"></option>
+                                                        <option value="cash">Single Crosshair</option>
+                                                        <option value="credit-card">Double Crosshair</option>
+                                                        <option value="credit-card">Tri Crosshair</option>
+
+                                                    </select>
+
+                                                </div>
+
+
+
+
+
+
+
+                                                <div class="spacer"></div>
+                                                <h3 class="title is-6">Crosshair A</h3>
+
+                                                <a class="button feather-button secondary-button btn-outlined is-bold">Calibrate
+                                                    XY</a>
+                                                <a class="button feather-button secondary-button btn-outlined is-bold">Only
+                                                    X</a>
+                                                <a class="button feather-button secondary-button btn-outlined is-bold">Only
+                                                    Y</a>
+
+
+                                                <a
+                                                    class="button feather-button accent-button raised is-rounded is-bold">Read
+                                                    XY</a>
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="column is-5 is-description topp">
+                                            <div class="inner">
+                                                <div class="divider"></div>
+                                                <h2 class="title is-5 is-light">Empty box to explain stuff or put camera
+                                                </h2>
+                                                <p>
+
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry. Lorem Ipsum has been the industry's standard dummy text
+                                                    ever since the 1500s, when an unknown printer took a galley of type
+                                                    and scrambled it to make a type specimen book. It has survived not
+                                                    only five centuries, but also the leap into electronic typesetting,
+                                                    remaining essentially unchanged.
+
+
+
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                             </div>
 
-                           
-        
+
                         </div>
+
+
+
                     </div>
-
-
-                   
                 </div>
-                <!-- /Container -->
+
+
+
             </div>
-            <!-- /Main section -->
+            <!-- /Container -->
         </div>
-        <!-- /Main wrapper -->
-        <!-- Concatenated plugins -->
-        <script src="/static/js/app.js"></script>
+        <!-- /Main section -->
+    </div>
+    <!-- /Main wrapper -->
+    <!-- Concatenated plugins -->
+    <script src="/static/js/app.js"></script>
 
 
-    
-
-        <script type="text/javascript">
-            
-            var rangeSlider = function(){
-                    var slider = $('.range-slider'),
-                        range = $('.slider__range'),
-                        value = $('.slider__value');
-                      
-                    slider.each(function(){
-                  
-                      value.each(function(){
-                        var value = $(this).prev().attr('value');
-                        $(this).html(value);
-                      });
-                  
-                      range.on('input', function(){
-                        $(this).next(value).html(this.value);
-                      });
-                    });
-                  };
-                  
-                  rangeSlider();
 
 
-                  
-    
+    <script type="text/javascript">
 
-        $(document).on('change','.chosen-select',function(e) {
+        var rangeSlider = function () {
+            var slider = $('.range-slider'),
+                range = $('.slider__range'),
+                value = $('.slider__value');
+
+            slider.each(function () {
+
+                value.each(function () {
+                    var value = $(this).prev().attr('value');
+                    $(this).html(value);
+                });
+
+                range.on('input', function () {
+                    $(this).next(value).html(this.value);
+                });
+            });
+        };
+
+        rangeSlider();
+
+
+
+
+
+        $(document).on('change', '.chosen-select', function (e) {
             var id = e.target.id
-            
+
             var select = $("#" + id).find(":selected").text();
 
             $.ajax({
-                type : 'POST',
-                url : "/dropdown",
+                type: 'POST',
+                url: "/dropdown",
                 contentType: 'application/json;charset=UTF-8',
-                data: JSON.stringify ({ [id]: select }),
+                data: JSON.stringify({ [id]: select }),
             });
 
-       });
-  
-
-    
-    
-    $(document).on('input', '.slider__range', function (e) {
-        var clicked = $(this).val();
-        //var class = $(".subclass", this).css("visibility","visible");
-        var id = e.target.id
-    
-        $.ajax({
-            type : 'POST',
-            url : "/slider",
-            contentType: 'application/json;charset=UTF-8',
-            data: JSON.stringify ({ [id]: clicked }),
         });
-    });
-    
-    $(function() { 
-        $("#eyedropper").click(function (event) { 
-            console.log("button")
-            $(function() {
-                // crosshair 
-                $('img').css('cursor', 'crosshair');
-                $('img').click(function(e) {
-                var parentOffset = $(this).parent().offset(); 
-                  //or $(this).offset(); if you really just want the current element's offset
-                  var relX = e.pageX - parentOffset.left;
-                  var relY = e.pageY - parentOffset.top;
-                  
-                    
-                    if(!this.canvas) {
-                        this.canvas = $('<canvas />')[0];
-                        this.canvas.width = this.width;
-                        this.canvas.height = this.height;
-                        this.canvas.getContext('2d').drawImage(this, 0, 0, this.width, this.height);
-                    }
-                    var pixelData = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;   
-                    
-                  
-                    $.ajax({
-                        type : 'POST',
-                        url : "/camera",
-                        contentType: 'application/json;charset=UTF-8',
-                        data: JSON.stringify ({ eyedropper : [relX, relY] }),
-                    });
-
-                    $.ajax({
-                        type : 'POST',
-                        url : "/camera",
-                        contentType: 'application/json;charset=UTF-8',
-                        data: JSON.stringify ({ eyedropper : [pixelData[0], pixelData[1], pixelData[2], pixelData[3]] }),
-                    });
 
 
-                });
-                
-                
-                
+
+
+        $(document).on('input', '.slider__range', function (e) {
+            var clicked = $(this).val();
+            //var class = $(".subclass", this).css("visibility","visible");
+            var id = e.target.id
+
+            $.ajax({
+                type: 'POST',
+                url: "/slider",
+                contentType: 'application/json;charset=UTF-8',
+                data: JSON.stringify({ [id]: clicked }),
             });
-            
-        }); 
-    });
-
-
-    $(function() { 
-        $("#include_pixel").click(function (event) { 
-            console.log("include pixel")
-            $(function() {
-                // crosshair 
-                $('img').css('cursor', 'cell');
-                $('img').click(function(e) {
-                var parentOffset = $(this).parent().offset(); 
-                  //or $(this).offset(); if you really just want the current element's offset
-                  var relX = e.pageX - parentOffset.left;
-                  var relY = e.pageY - parentOffset.top;
-                  
-                    
-                    if(!this.canvas) {
-                        this.canvas = $('<canvas />')[0];
-                        this.canvas.width = this.width;
-                        this.canvas.height = this.height;
-                        this.canvas.getContext('2d').drawImage(this, 0, 0, this.width, this.height);
-                    }
-                    var pixelData = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;   
-                    
-                    $.ajax({
-                        type : 'POST',
-                        url : "/camera",
-                        contentType: 'application/json;charset=UTF-8',
-                        data: JSON.stringify ({ include_pixel : [relX, relY] }),
-                    });
-
-                    $.ajax({
-                        type : 'POST',
-                        url : "/camera",
-                        contentType: 'application/json;charset=UTF-8',
-                        data: JSON.stringify ({ include_pixel : [pixelData[0], pixelData[1], pixelData[2], pixelData[3]] }),
-                    });
-                    
-                });
-                
-                
-                
-            });
-            
-        }); 
-    });
-
-
-
-    $(function() { 
-        $("#ignore_pixel").click(function (event) { 
-            console.log("ignore_pixel")
-            $(function() {
-                // crosshair 
-                $('img').css('cursor', 'not-allowed');
-                $('img').click(function(e) {
-                var parentOffset = $(this).parent().offset(); 
-                  //or $(this).offset(); if you really just want the current element's offset
-                  var relX = e.pageX - parentOffset.left;
-                  var relY = e.pageY - parentOffset.top;
-                  
-                    
-                    if(!this.canvas) {
-                        this.canvas = $('<canvas />')[0];
-                        this.canvas.width = this.width;
-                        this.canvas.height = this.height;
-                        this.canvas.getContext('2d').drawImage(this, 0, 0, this.width, this.height);
-                    }
-                    var pixelData = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;   
-                    
-
-                    $.ajax({
-                        type : 'POST',
-                        url : "/camera",
-                        contentType: 'application/json;charset=UTF-8',
-                        data: JSON.stringify ({ ignore_pixel : [relX, relY] }),
-                    });
-
-                    $.ajax({
-                        type : 'POST',
-                        url : "/camera",
-                        contentType: 'application/json;charset=UTF-8',
-                        data: JSON.stringify ({ ignore_pixel : [pixelData[0], pixelData[1], pixelData[2], pixelData[3]] }),
-                    });
-                    
-
-
-                    
-                });
-                
-                
-                
-            });
-            
-        }); 
-    });
-
-
-
-
-
-
-    
-    
-    {% for key, value in dual_slider.items() %}
-
-      $(document).ready(function (e) {
-        var rangeSlider = document.getElementById('{{ key }}');
-        var moneyFormat = wNumb({
-        decimals: 0,
-        thousand: ',',
-        prefix: ''
         });
-        noUiSlider.create(rangeSlider, {
-        start: [{{ value[1][0] }}, {{ value[1][1] }}],
-        step: 1,
-        range: {
+
+        $(function () {
+            $("#eyedropper").click(function (event) {
+                console.log("button")
+                $(function () {
+                    // crosshair 
+                    $('img').css('cursor', 'crosshair');
+                    $('img').click(function (e) {
+                        var parentOffset = $(this).parent().offset();
+                        //or $(this).offset(); if you really just want the current element's offset
+                        var relX = e.pageX - parentOffset.left;
+                        var relY = e.pageY - parentOffset.top;
+
+
+                        if (!this.canvas) {
+                            this.canvas = $('<canvas />')[0];
+                            this.canvas.width = this.width;
+                            this.canvas.height = this.height;
+                            this.canvas.getContext('2d').drawImage(this, 0, 0, this.width, this.height);
+                        }
+                        var pixelData = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;
+
+
+                        $.ajax({
+                            type: 'POST',
+                            url: "/camera",
+                            contentType: 'application/json;charset=UTF-8',
+                            data: JSON.stringify({ eyedropper: [relX, relY] }),
+                        });
+
+                        $.ajax({
+                            type: 'POST',
+                            url: "/camera",
+                            contentType: 'application/json;charset=UTF-8',
+                            data: JSON.stringify({ eyedropper: [pixelData[0], pixelData[1], pixelData[2], pixelData[3]] }),
+                        });
+
+
+                    });
+
+
+
+                });
+
+            });
+        });
+
+
+        $(function () {
+            $("#include_pixel").click(function (event) {
+                console.log("include pixel")
+                $(function () {
+                    // crosshair 
+                    $('img').css('cursor', 'cell');
+                    $('img').click(function (e) {
+                        var parentOffset = $(this).parent().offset();
+                        //or $(this).offset(); if you really just want the current element's offset
+                        var relX = e.pageX - parentOffset.left;
+                        var relY = e.pageY - parentOffset.top;
+
+
+                        if (!this.canvas) {
+                            this.canvas = $('<canvas />')[0];
+                            this.canvas.width = this.width;
+                            this.canvas.height = this.height;
+                            this.canvas.getContext('2d').drawImage(this, 0, 0, this.width, this.height);
+                        }
+                        var pixelData = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;
+
+                        $.ajax({
+                            type: 'POST',
+                            url: "/camera",
+                            contentType: 'application/json;charset=UTF-8',
+                            data: JSON.stringify({ include_pixel: [relX, relY] }),
+                        });
+
+                        $.ajax({
+                            type: 'POST',
+                            url: "/camera",
+                            contentType: 'application/json;charset=UTF-8',
+                            data: JSON.stringify({ include_pixel: [pixelData[0], pixelData[1], pixelData[2], pixelData[3]] }),
+                        });
+
+                    });
+
+
+
+                });
+
+            });
+        });
+
+
+
+        $(function () {
+            $("#ignore_pixel").click(function (event) {
+                console.log("ignore_pixel")
+                $(function () {
+                    // crosshair 
+                    $('img').css('cursor', 'not-allowed');
+                    $('img').click(function (e) {
+                        var parentOffset = $(this).parent().offset();
+                        //or $(this).offset(); if you really just want the current element's offset
+                        var relX = e.pageX - parentOffset.left;
+                        var relY = e.pageY - parentOffset.top;
+
+
+                        if (!this.canvas) {
+                            this.canvas = $('<canvas />')[0];
+                            this.canvas.width = this.width;
+                            this.canvas.height = this.height;
+                            this.canvas.getContext('2d').drawImage(this, 0, 0, this.width, this.height);
+                        }
+                        var pixelData = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;
+
+
+                        $.ajax({
+                            type: 'POST',
+                            url: "/camera",
+                            contentType: 'application/json;charset=UTF-8',
+                            data: JSON.stringify({ ignore_pixel: [relX, relY] }),
+                        });
+
+                        $.ajax({
+                            type: 'POST',
+                            url: "/camera",
+                            contentType: 'application/json;charset=UTF-8',
+                            data: JSON.stringify({ ignore_pixel: [pixelData[0], pixelData[1], pixelData[2], pixelData[3]] }),
+                        });
+
+
+
+
+                    });
+
+
+
+                });
+
+            });
+        });
+
+
+
+
+
+
+
+
+        {% for key, value in dual_slider.items() %}
+
+        $(document).ready(function (e) {
+            var rangeSlider = document.getElementById('{{ key }}');
+            var moneyFormat = wNumb({
+                decimals: 0,
+                thousand: ',',
+                prefix: ''
+            });
+            noUiSlider.create(rangeSlider, {
+                start: [{{ value[1][0] }}, {{ value[1][1] }}],
+            step: 1,
+            range: {
             'min': {{ value[0][0] }},
             'max': {{ value[0][1] }},
         },
-        format: moneyFormat,
-        connect: true
+            format: moneyFormat,
+            connect: true
         });
         // Set visual min and max values and also update value hidden form inputs
-        rangeSlider.noUiSlider.on('update', function(values, handle) {
-        
-        document.getElementById('{{ key }}-value1').innerHTML = values[0];
-        document.getElementById('{{ key }}-value2').innerHTML = values[1];
-        document.getElementsByName('min-value').value = moneyFormat.from(
-            values[0]);
-        document.getElementsByName('max-value').value = moneyFormat.from(
-            values[1]);
-            
+        rangeSlider.noUiSlider.on('update', function (values, handle) {
+
+            document.getElementById('{{ key }}-value1').innerHTML = values[0];
+            document.getElementById('{{ key }}-value2').innerHTML = values[1];
+            document.getElementsByName('min-value').value = moneyFormat.from(
+                values[0]);
+            document.getElementsByName('max-value').value = moneyFormat.from(
+                values[1]);
+
             $.ajax({
-                type : 'POST',
-                url : "/dual_slider",
+                type: 'POST',
+                url: "/dual_slider",
                 contentType: 'application/json;charset=UTF-8',
-                data: JSON.stringify ({ {{ key }}: values }),
+                data: JSON.stringify({ {{ key }}: values }),
             });
 
         });
     });
 
-   {% endfor %}
-        
-
-
-          </script>
-      
-
-        <script src="/static/js/slider.js">
-        </script>
-        <script src="/static/js/nephos.js"></script>    
-    
+        {% endfor %}
 
 
 
+    </script>
 
-    </body>  
+
+    <script src="/static/js/slider.js">
+    </script>
+    <script src="/static/js/nephos.js"></script>
+
+
+
+
+
+</body>
 
 </html>
