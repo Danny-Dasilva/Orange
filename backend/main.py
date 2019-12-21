@@ -7,11 +7,33 @@ app.config["CACHE_TYPE"] = "null"
 
 @app.route('/')
 def cv2_pipeline():
+    # default values being passed in 
+
 
     #range and base values
-    dual_slider = {'hue': [[0, 255], [30, 200]],  'saturation': [[0, 255], [30, 200]], 'value': [[0, 255], [30, 200]], 'target': [[0, 255], [30, 200]], 'fullness': [[0, 255], [30, 200]], 'aspect': [[0, 255], [30, 200]]}
+    dual_slider = {'hue': [[0, 255], [30, 200]],  
+                    'saturation': [[0, 255], [30, 200]], 
+                    'value': [[0, 255], [30, 200]], 
+                    'target': [[0, 255], [30, 200]], 
+                    'fullness': [[0, 255], [30, 200]], 
+                    'aspect': [[0, 255], [30, 200]]}
 
-    return render_template('orange-cv2.html', dual_slider = dual_slider)
+
+    # single sliders default
+    slider = {'exposure': 211,  
+                    'white_balance': 213, 
+                    'erosion_steps': 214, 
+                    'dilation_steps': 215, }
+    
+    
+    # dropdown defaults WIP
+    dropdown = {
+        'orientation' : 'normal'
+
+    }
+
+
+    return render_template('orange-cv2.html', dual_slider = dual_slider, slider=slider)
 
 @app.route('/ai_pipeline')
 def ai_pipeline():

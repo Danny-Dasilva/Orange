@@ -129,7 +129,9 @@
                                         <div class="column is-6 is-component">
                                             <div class="inner">
 
-                                                <label class="dropdown">Pipeline Type</label>
+                                                <label class="dropdown">Pipeline Type </label>
+
+                                                
                                                 <div class="control">
 
                                                     <select id="pipeline_type" class="chosen-select"
@@ -183,7 +185,7 @@
 
                                                     <div class="range-slider">
                                                         <input class="slider__range" id="exposure" type="range"
-                                                            value="400" min="0" max="500">
+                                                            value="{{ slider['exposure'] }} " min="0" max="500">
                                                         <span class="slider__value">2</span>
                                                     </div>
 
@@ -197,7 +199,7 @@
 
                                                     <div class="range-slider">
                                                         <input class="slider__range" id="white_balance" type="range"
-                                                            value="400" min="0" max="500">
+                                                            value="{{ slider['white_balance'] }} " min="0" max="500">
                                                         <span class="slider__value">0</span>
                                                     </div>
 
@@ -335,7 +337,7 @@
 
                                                     <div class="range-slider">
                                                         <input class="slider__range" id="erosion_steps" type="range"
-                                                            value="400" min="0" max="500">
+                                                            value="{{ slider['erosion_steps'] }} " min="0" max="500">
                                                         <span class="slider__value">0</span>
                                                     </div>
 
@@ -346,7 +348,7 @@
 
                                                     <div class="range-slider">
                                                         <input class="slider__range" id="dilation_steps" type="range"
-                                                            value="400" min="0" max="500">
+                                                            value="{{ slider['dilation_steps'] }} " min="0" max="500">
                                                         <span class="slider__value">0</span>
                                                     </div>
 
@@ -390,7 +392,7 @@
 
                                                 <h3 class="title is-6">Configuration</h3>
 
-                                                target_mode
+                    
 
 
 
@@ -859,8 +861,8 @@
         });
 
 
-
-
+        
+        
 
 
 
@@ -884,6 +886,7 @@
             format: moneyFormat,
             connect: true
         });
+        var count1=0;
         // Set visual min and max values and also update value hidden form inputs
         rangeSlider.noUiSlider.on('update', function (values, handle) {
 
@@ -893,19 +896,22 @@
                 values[0]);
             document.getElementsByName('max-value').value = moneyFormat.from(
                 values[1]);
+            count1++;
+            if (count1 > 2)
+            {
+                $.ajax({
+                    type: 'POST',
+                    url: "/dual_slider",
+                    contentType: 'application/json;charset=UTF-8',
+                    data: JSON.stringify({ {{ key }}: values }),
+                });
 
-            $.ajax({
-                type: 'POST',
-                url: "/dual_slider",
-                contentType: 'application/json;charset=UTF-8',
-                data: JSON.stringify({ {{ key }}: values }),
-            });
+            } 
 
         });
     });
 
         {% endfor %}
-
 
 
     </script>
