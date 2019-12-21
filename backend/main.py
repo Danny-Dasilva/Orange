@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Response
+from camera import VideoCamera
 import json
 
 app = Flask(__name__)
@@ -57,6 +58,40 @@ def dropdown():
 def button():
     print('button pressed')
     return "Nothing"
+
+
+
+
+
+@app.route("/camera", methods=["POST"])
+def camera():
+    if request.method == "POST":
+        data = request.get_json()
+        data = json_parse(data)
+        print(data)
+    return "nothing"
+
+
+
+# Camera test
+
+@app.route('/cv')
+def cv():
+    return render_template('cv.html')
+
+
+def gen(camera):
+    while True:
+        frame = camera.get_frame()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(gen(VideoCamera()),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
 
 
 if __name__ == '__main__':

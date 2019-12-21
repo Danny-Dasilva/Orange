@@ -242,9 +242,9 @@
                                                      
                                         <h3 class="title is-6">Magic Wands</h3>
                                        
-                                        <a class="button feather-button secondary-button btn-outlined is-bold">Eyedropper</a>
-                                        <a class="button feather-button secondary-button btn-outlined is-bold">Include Pixel</a>
-                                        <a class="button feather-button secondary-button btn-outlined is-bold">Ignore Pixel</a>
+                                        <a class="button feather-button secondary-button btn-outlined is-bold" id="eyedropper">Eyedropper</a>
+                                        <a class="button feather-button secondary-button btn-outlined is-bold" id="include_pixel">Include Pixel</a>
+                                        <a class="button feather-button secondary-button btn-outlined is-bold" id="ignore_pixel">Ignore Pixel</a>
                                        
 
 
@@ -352,10 +352,10 @@
                                                 </div>
                                                 <div class="column is-4 is-description">
                                                     <div class="inner">
-                                                        <div class="divider"></div>
-                                                        <h2 class="title is-6 is-light">Chosen Selects</h2>
-                                                        <p>Chosen select boxes offer even more flexibility than native selects. They are optimized for huge options list and display a search field when there are 6 ore more options.</p>
-                                                    </div>
+                                                        <img src="{{ url_for('video_feed') }}">
+
+
+                                                   </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -664,7 +664,6 @@
             var id = e.target.id
             
             var select = $("#" + id).find(":selected").text();
-            console.log(id, select)
 
             $.ajax({
                 type : 'POST',
@@ -691,8 +690,152 @@
         });
     });
     
-    $(function() { $("#mybutton").click(function (event) { $.getJSON('/button', { },
-        function(data) { }); return false; }); });
+    $(function() { 
+        $("#eyedropper").click(function (event) { 
+            console.log("button")
+            $(function() {
+                // crosshair 
+                $('img').css('cursor', 'crosshair');
+                $('img').click(function(e) {
+                var parentOffset = $(this).parent().offset(); 
+                  //or $(this).offset(); if you really just want the current element's offset
+                  var relX = e.pageX - parentOffset.left;
+                  var relY = e.pageY - parentOffset.top;
+                  
+                    
+                    if(!this.canvas) {
+                        this.canvas = $('<canvas />')[0];
+                        this.canvas.width = this.width;
+                        this.canvas.height = this.height;
+                        this.canvas.getContext('2d').drawImage(this, 0, 0, this.width, this.height);
+                    }
+                    var pixelData = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;   
+                    
+                  
+                    $.ajax({
+                        type : 'POST',
+                        url : "/camera",
+                        contentType: 'application/json;charset=UTF-8',
+                        data: JSON.stringify ({ eyedropper : [relX, relY] }),
+                    });
+
+                    $.ajax({
+                        type : 'POST',
+                        url : "/camera",
+                        contentType: 'application/json;charset=UTF-8',
+                        data: JSON.stringify ({ eyedropper : [pixelData[0], pixelData[1], pixelData[2], pixelData[3]] }),
+                    });
+
+
+                });
+                
+                
+                
+            });
+            
+        }); 
+    });
+
+
+    $(function() { 
+        $("#include_pixel").click(function (event) { 
+            console.log("include pixel")
+            $(function() {
+                // crosshair 
+                $('img').css('cursor', 'cell');
+                $('img').click(function(e) {
+                var parentOffset = $(this).parent().offset(); 
+                  //or $(this).offset(); if you really just want the current element's offset
+                  var relX = e.pageX - parentOffset.left;
+                  var relY = e.pageY - parentOffset.top;
+                  
+                    
+                    if(!this.canvas) {
+                        this.canvas = $('<canvas />')[0];
+                        this.canvas.width = this.width;
+                        this.canvas.height = this.height;
+                        this.canvas.getContext('2d').drawImage(this, 0, 0, this.width, this.height);
+                    }
+                    var pixelData = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;   
+                    
+                    $.ajax({
+                        type : 'POST',
+                        url : "/camera",
+                        contentType: 'application/json;charset=UTF-8',
+                        data: JSON.stringify ({ include_pixel : [relX, relY] }),
+                    });
+
+                    $.ajax({
+                        type : 'POST',
+                        url : "/camera",
+                        contentType: 'application/json;charset=UTF-8',
+                        data: JSON.stringify ({ include_pixel : [pixelData[0], pixelData[1], pixelData[2], pixelData[3]] }),
+                    });
+                    
+                });
+                
+                
+                
+            });
+            
+        }); 
+    });
+
+
+
+    $(function() { 
+        $("#ignore_pixel").click(function (event) { 
+            console.log("ignore_pixel")
+            $(function() {
+                // crosshair 
+                $('img').css('cursor', 'not-allowed');
+                $('img').click(function(e) {
+                var parentOffset = $(this).parent().offset(); 
+                  //or $(this).offset(); if you really just want the current element's offset
+                  var relX = e.pageX - parentOffset.left;
+                  var relY = e.pageY - parentOffset.top;
+                  
+                    
+                    if(!this.canvas) {
+                        this.canvas = $('<canvas />')[0];
+                        this.canvas.width = this.width;
+                        this.canvas.height = this.height;
+                        this.canvas.getContext('2d').drawImage(this, 0, 0, this.width, this.height);
+                    }
+                    var pixelData = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;   
+                    
+
+                    $.ajax({
+                        type : 'POST',
+                        url : "/camera",
+                        contentType: 'application/json;charset=UTF-8',
+                        data: JSON.stringify ({ ignore_pixel : [relX, relY] }),
+                    });
+
+                    $.ajax({
+                        type : 'POST',
+                        url : "/camera",
+                        contentType: 'application/json;charset=UTF-8',
+                        data: JSON.stringify ({ ignore_pixel : [pixelData[0], pixelData[1], pixelData[2], pixelData[3]] }),
+                    });
+                    
+
+
+                    
+                });
+                
+                
+                
+            });
+            
+        }); 
+    });
+
+
+
+
+
+
     
     
     {% for key, value in dual_slider.items() %}
