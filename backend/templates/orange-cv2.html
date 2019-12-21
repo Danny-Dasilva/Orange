@@ -184,7 +184,7 @@
                                                 <div class="control">
 
                                                     <div class="range-slider">
-                                                        <input class="slider__range" id="exposure" type="range"
+                                                        <input  autocomplete="off" class="slider__range" id="exposure" type="range"
                                                             value="{{ slider['exposure'] }} " min="0" max="500">
                                                         <span class="slider__value">2</span>
                                                     </div>
@@ -669,6 +669,7 @@
             var slider = $('.range-slider'),
                 range = $('.slider__range'),
                 value = $('.slider__value');
+            
 
             slider.each(function () {
 
@@ -765,6 +766,7 @@
             });
         });
 
+       
 
         $(function () {
             $("#include_pixel").click(function (event) {
@@ -810,7 +812,7 @@
             });
         });
 
-
+        
 
         $(function () {
             $("#ignore_pixel").click(function (event) {
@@ -862,9 +864,9 @@
 
 
         
-        
-
-
+        {% for key, value in slider.items() %}
+                 $("#{{key}}").val({{ value }});
+        {% endfor %}
 
 
         {% for key, value in dual_slider.items() %}
@@ -877,11 +879,11 @@
                 prefix: ''
             });
             noUiSlider.create(rangeSlider, {
-                start: [{{ value[1][0] }}, {{ value[1][1] }}],
+                start: [{{ value[0] }}, {{ value[1] }}],
             step: 1,
             range: {
-            'min': {{ value[0][0] }},
-            'max': {{ value[0][1] }},
+            'min': 0,
+            'max': 255,
         },
             format: moneyFormat,
             connect: true

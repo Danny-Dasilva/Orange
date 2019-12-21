@@ -1,0 +1,1 @@
+{"dual_slider": {"hue": [1, 155], "saturation": [30, 200], "value": [30, 200], "target": [30, 200], "fullness": [30, 200], "aspect": [30, 200]}, "slider": {"exposure": "41", "white_balance": "409", "erosion_steps": "423", "dilation_steps": "60"}}

@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, Response
 from camera import VideoCamera
 import json
-
+from read_and_write import read_json, write_json
 app = Flask(__name__)
 app.config["CACHE_TYPE"] = "null"
 
@@ -11,19 +11,11 @@ def cv2_pipeline():
 
 
     #range and base values
-    dual_slider = {'hue': [[0, 255], [30, 200]],  
-                    'saturation': [[0, 255], [30, 200]], 
-                    'value': [[0, 255], [30, 200]], 
-                    'target': [[0, 255], [30, 200]], 
-                    'fullness': [[0, 255], [30, 200]], 
-                    'aspect': [[0, 255], [30, 200]]}
+    dual_slider = read_json('dual_slider')
 
-
+    
     # single sliders default
-    slider = {'exposure': 211,  
-                    'white_balance': 213, 
-                    'erosion_steps': 214, 
-                    'dilation_steps': 215, }
+    slider = read_json('slider')
     
     
     # dropdown defaults WIP
@@ -55,7 +47,11 @@ def slider():
     if request.method == "POST":
         data = request.get_json()
         data = json_parse(data)
-        print(data)
+        for key in data:
+            value = data[key]
+
+            print(key, value)
+            write_json('slider', key, value)
     return "nothing"
 
 @app.route("/dual_slider", methods=["POST"])
@@ -63,6 +59,7 @@ def dual_slider():
     if request.method == "POST":
         data = request.get_json()
         data = json_parse(data)
+
         print(data)
     return "nothing"
 

@@ -32,7 +32,7 @@
 
         <FORM action="test" method="post" id="form">
             <P>
-                <input type="range" id="slider" value="0.5" min="0.0" max="1.0" step="0.01" />
+                <input type="range" autocomplete="off" id="slider" value="10" min="0" max="500" step="1" />
             </FORM>
 
             <select id="dropdown">
@@ -65,6 +65,8 @@ $(document).ready(function(){
 
     });
 });
+
+$("#slider").val(500);
 
 $(document).on('input', '#slider', function() {
     $('#slider_value').html( $(this).val() );
