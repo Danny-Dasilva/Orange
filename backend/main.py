@@ -59,8 +59,12 @@ def dual_slider():
     if request.method == "POST":
         data = request.get_json()
         data = json_parse(data)
+        for key in data:
+            value = data[key]
 
-        print(data)
+            print(key, value)
+            write_json('dual_slider', key, value)
+
     return "nothing"
 
 

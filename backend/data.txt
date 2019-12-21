@@ -1,1 +1,1 @@
-{"dual_slider": {"hue": [1, 155], "saturation": [30, 200], "value": [30, 200], "target": [30, 200], "fullness": [30, 200], "aspect": [30, 200]}, "slider": {"exposure": "41", "white_balance": "409", "erosion_steps": "423", "dilation_steps": "60"}}
+{"dual_slider": {"hue": ["47", "178"], "saturation": ["22", "200"], "value": ["49", "200"], "target": ["30", "208"], "fullness": ["40", "200"], "aspect": ["16", "200"]}, "slider": {"exposure": "57", "white_balance": "409", "erosion_steps": "396", "dilation_steps": "60"}}
