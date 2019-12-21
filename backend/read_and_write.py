@@ -6,7 +6,7 @@ def read_json(selector):
 
         read = json.load(json_file)
         data = read[selector]
-        
+    json_file.close()
     return(data)
         
 
@@ -14,9 +14,10 @@ def write_json(selector, key, new_value):
     with open('data.txt') as json_file:
 
         read = json.load(json_file)
-        
-        read[selector][key] = new_value
-
+        try:
+            read[selector][key] = new_value
+        except:
+            read[selector] = {key : new_value}
     json_file.close()
 
 
@@ -24,4 +25,7 @@ def write_json(selector, key, new_value):
         json.dump(read, outfile)
     json_file.close()
 
-print(read_json('dual_slider'))
+def json_parse(data):
+    data = json.dumps(data)
+    data = json.loads(data)
+    return(data)

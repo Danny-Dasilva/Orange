@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, Response
 from camera import VideoCamera
 import json
-from read_and_write import read_json, write_json
+from read_and_write import read_json, write_json, json_parse
 app = Flask(__name__)
 app.config["CACHE_TYPE"] = "null"
 
@@ -19,11 +19,6 @@ def cv2_pipeline():
     
     
     # dropdown defaults WIP
-    dropdown = {
-        'orientation' : 'normal'
-
-    }
-
 
     return render_template('orange-cv2.html', dual_slider = dual_slider, slider=slider)
 
@@ -37,10 +32,7 @@ def settings():
 
 
 
-def json_parse(data):
-    data = json.dumps(data)
-    data = json.loads(data)
-    return(data)
+
     
 @app.route("/slider", methods=["POST"])
 def slider():
@@ -91,7 +83,11 @@ def camera():
     if request.method == "POST":
         data = request.get_json()
         data = json_parse(data)
-        print(data)
+        for key in data:
+            value = data[key]
+
+            print(key, value)
+            write_json('camera', key, value)
     return "nothing"
 
 

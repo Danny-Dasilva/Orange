@@ -722,39 +722,71 @@
 
         $(function () {
             $("#eyedropper").click(function (event) {
-                console.log("button")
+                $('img').css('cursor', 'crosshair');
+
+            });
+
+            $("#include_pixel").click(function (event) {
+                $('img').css('cursor', 'cell');
+
+            });
+            $("#ignore_pixel").click(function (event) {
+                $('img').css('cursor', 'not-allowed');
+
+            });
+
+        });
+
+
+
+
+            
                 $(function () {
                     // crosshair 
-                    $('img').css('cursor', 'crosshair');
+                    
                     $('img').click(function (e) {
                         var parentOffset = $(this).parent().offset();
                         //or $(this).offset(); if you really just want the current element's offset
                         var relX = e.pageX - parentOffset.left;
                         var relY = e.pageY - parentOffset.top;
+                        var currentCursor = $(this).css('cursor') ;
+
+                        //do what you want here, i.e.
+                        if (currentCursor == 'crosshair') {
+                         
+                            $.ajax({
+                                type: 'POST',
+                                url: "/camera",
+                                contentType: 'application/json;charset=UTF-8',
+                                data: JSON.stringify({ eyedropper : [relY, relX] }),
+                            });
+                            
 
 
-                        if (!this.canvas) {
-                            this.canvas = $('<canvas />')[0];
-                            this.canvas.width = this.width;
-                            this.canvas.height = this.height;
-                            this.canvas.getContext('2d').drawImage(this, 0, 0, this.width, this.height);
-                        }
-                        var pixelData = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;
+                        } else if (currentCursor == 'cell') {
+                            //  block of code to be executed if the condition1 is false and condition2 is true
+
+                            $.ajax({
+                                type: 'POST',
+                                url: "/camera",
+                                contentType: 'application/json;charset=UTF-8',
+                                data: JSON.stringify({ include_pixel: [relY, relX] }),
+                            });
 
 
-                        $.ajax({
-                            type: 'POST',
-                            url: "/camera",
-                            contentType: 'application/json;charset=UTF-8',
-                            data: JSON.stringify({ eyedropper: [relX, relY] }),
-                        });
+                          } else if (currentCursor == 'not-allowed') {
+                            //  block of code to be executed if the condition1 is false and condition2 is false
 
-                        $.ajax({
-                            type: 'POST',
-                            url: "/camera",
-                            contentType: 'application/json;charset=UTF-8',
-                            data: JSON.stringify({ eyedropper: [pixelData[0], pixelData[1], pixelData[2], pixelData[3]] }),
-                        });
+                            $.ajax({
+                                type: 'POST',
+                                url: "/camera",
+                                contentType: 'application/json;charset=UTF-8',
+                                data: JSON.stringify({ ignore_pixel: [relY, relX] }),
+                            });
+
+
+                          }
+
 
 
                     });
@@ -763,105 +795,12 @@
 
                 });
 
-            });
-        });
+          
+      
 
        
 
-        $(function () {
-            $("#include_pixel").click(function (event) {
-                console.log("include pixel")
-                $(function () {
-                    // crosshair 
-                    $('img').css('cursor', 'cell');
-                    $('img').click(function (e) {
-                        var parentOffset = $(this).parent().offset();
-                        //or $(this).offset(); if you really just want the current element's offset
-                        var relX = e.pageX - parentOffset.left;
-                        var relY = e.pageY - parentOffset.top;
-
-
-                        if (!this.canvas) {
-                            this.canvas = $('<canvas />')[0];
-                            this.canvas.width = this.width;
-                            this.canvas.height = this.height;
-                            this.canvas.getContext('2d').drawImage(this, 0, 0, this.width, this.height);
-                        }
-                        var pixelData = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;
-
-                        $.ajax({
-                            type: 'POST',
-                            url: "/camera",
-                            contentType: 'application/json;charset=UTF-8',
-                            data: JSON.stringify({ include_pixel: [relX, relY] }),
-                        });
-
-                        $.ajax({
-                            type: 'POST',
-                            url: "/camera",
-                            contentType: 'application/json;charset=UTF-8',
-                            data: JSON.stringify({ include_pixel: [pixelData[0], pixelData[1], pixelData[2], pixelData[3]] }),
-                        });
-
-                    });
-
-
-
-                });
-
-            });
-        });
-
-        
-
-        $(function () {
-            $("#ignore_pixel").click(function (event) {
-                console.log("ignore_pixel")
-                $(function () {
-                    // crosshair 
-                    $('img').css('cursor', 'not-allowed');
-                    $('img').click(function (e) {
-                        var parentOffset = $(this).parent().offset();
-                        //or $(this).offset(); if you really just want the current element's offset
-                        var relX = e.pageX - parentOffset.left;
-                        var relY = e.pageY - parentOffset.top;
-
-
-                        if (!this.canvas) {
-                            this.canvas = $('<canvas />')[0];
-                            this.canvas.width = this.width;
-                            this.canvas.height = this.height;
-                            this.canvas.getContext('2d').drawImage(this, 0, 0, this.width, this.height);
-                        }
-                        var pixelData = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;
-
-
-                        $.ajax({
-                            type: 'POST',
-                            url: "/camera",
-                            contentType: 'application/json;charset=UTF-8',
-                            data: JSON.stringify({ ignore_pixel: [relX, relY] }),
-                        });
-
-                        $.ajax({
-                            type: 'POST',
-                            url: "/camera",
-                            contentType: 'application/json;charset=UTF-8',
-                            data: JSON.stringify({ ignore_pixel: [pixelData[0], pixelData[1], pixelData[2], pixelData[3]] }),
-                        });
-
-
-
-
-                    });
-
-
-
-                });
-
-            });
-        });
-
+       
 
         
         {% for key, value in slider.items() %}
