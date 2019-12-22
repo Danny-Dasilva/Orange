@@ -205,7 +205,7 @@
                                                             value="{{ slider['white_balance'] }} " min="0" max="500">
                                                         <span class="slider__value">0</span>
                                                     </div>
-                                        
+                                          
 
                                                 </div>
                                             </div>
@@ -279,21 +279,17 @@
                                                     <div class="column is-12-percent">
 
                                                         <span id="hue-value1"
-                                                            class="range-slider__value2 dual_slider">
-                                                            {{ dual_slider['hue'][0] }} 
-                                                        </span>
+                                                            class="range-slider__value2 dual_slider"></span>
 
                                                     </div>
                                                     <div class="column is-half " style="padding-top: 22px;">
                                                         
-                                                        <div id="hue" data-x="{{ dual_slider['hue'][0] }}" data-y="{{ dual_slider['hue'][1] }}"></div>
+                                                        <div id="slider-range" data-price-min="230" data-price-max="1233"></div>
                                                     </div>
                                                     <div class="column is-12-percent">
 
                                                         <span id="hue-value2"
-                                                            class="range-slider__value dual_slider">
-                                                            {{ dual_slider['hue'][1] }} 
-                                                        </span>
+                                                            class="range-slider__value dual_slider"></span>
                                                     </div>
                                                 </div>
 
@@ -309,50 +305,32 @@
                                                     <div class="column is-12-percent">
 
                                                         <span id="saturation-value1"
-                                                            class="range-slider__value2 dual_slider">
-                                                            {{ dual_slider['saturation'][0] }} 
-                                                        </span>
+                                                            class="range-slider__value2"></span>
 
                                                     </div>
                                                     <div class="column is-half " style="padding-top: 22px;">
-                                                        
-                                                        <div id="saturation" data-x="{{ dual_slider['saturation'][0] }}" data-y="{{ dual_slider['saturation'][1] }}"></div>
+                                                        <div id="saturation"></div>
                                                     </div>
                                                     <div class="column is-12-percent">
 
-                                                        <span id="saturation-value2"
-                                                            class="range-slider__value dual_slider">
-                                                            {{ dual_slider['saturation'][1] }} 
-                                                        </span>
+                                                        <span id="saturation-value2" class="range-slider__value"></span>
                                                     </div>
                                                 </div>
 
 
                                                 <div class="columns">
                                                     <div class="column  is-3">
-
                                                         <label class="dropdown">Value </label>
-
                                                     </div>
 
                                                     <div class="column is-12-percent">
-
-                                                        <span id="value-value1"
-                                                            class="range-slider__value2 dual_slider">
-                                                            {{ dual_slider['value'][0] }} 
-                                                        </span>
-
+                                                        <span id="value-value1" class="range-slider__value2"></span>
                                                     </div>
                                                     <div class="column is-half " style="padding-top: 22px;">
-                                                        
-                                                        <div id="value" data-x="{{ dual_slider['value'][0] }}" data-y="{{ dual_slider['value'][1] }}"></div>
+                                                        <div id="value"></div>
                                                     </div>
                                                     <div class="column is-12-percent">
-
-                                                        <span id="value-value2"
-                                                            class="range-slider__value dual_slider">
-                                                            {{ dual_slider['value'][1] }} 
-                                                        </span>
+                                                        <span id="value-value2" class="range-slider__value"></span>
                                                     </div>
                                                 </div>
 
@@ -428,24 +406,23 @@
 
 
                                                 <div class="columns">
+                                                    <div class="column  is-3">
+
+
+
+                                                    </div>
+
                                                     <div class="column is-12-percent">
 
-                                                        <span id="target-value1"
-                                                            class="range-slider__value2 dual_slider">
-                                                            {{ dual_slider['target'][0] }} 
-                                                        </span>
+                                                        <span id="target-value1" class="range-slider__value2"></span>
 
                                                     </div>
                                                     <div class="column is-half " style="padding-top: 22px;">
-                                                        
-                                                        <div id="target" data-x="{{ dual_slider['target'][0] }}" data-y="{{ dual_slider['target'][1] }}"></div>
+                                                        <div id="target"></div>
                                                     </div>
                                                     <div class="column is-12-percent">
 
-                                                        <span id="target-value2"
-                                                            class="range-slider__value dual_slider">
-                                                            {{ dual_slider['target'][1] }} 
-                                                        </span>
+                                                        <span id="target-value2" class="range-slider__value"></span>
                                                     </div>
                                                 </div>
 
@@ -456,24 +433,23 @@
 
                                                 <div class="spacer"></div>
                                                 <div class="columns">
+                                                    <div class="column  is-3">
+
+
+
+                                                    </div>
+
                                                     <div class="column is-12-percent">
 
-                                                        <span id="fullness-value1"
-                                                            class="range-slider__value2 dual_slider">
-                                                            {{ dual_slider['fullness'][0] }} 
-                                                        </span>
+                                                        <span id="fullness-value1" class="range-slider__value2"></span>
 
                                                     </div>
                                                     <div class="column is-half " style="padding-top: 22px;">
-                                                        
-                                                        <div id="fullness" data-x="{{ dual_slider['fullness'][0] }}" data-y="{{ dual_slider['fullness'][1] }}"></div>
+                                                        <div id="fullness"></div>
                                                     </div>
                                                     <div class="column is-12-percent">
 
-                                                        <span id="fullness-value2"
-                                                            class="range-slider__value dual_slider">
-                                                            {{ dual_slider['fullness'][1] }} 
-                                                        </span>
+                                                        <span id="fullness-value2" class="range-slider__value"></span>
                                                     </div>
                                                 </div>
 
@@ -486,26 +462,26 @@
 
 
                                                 <div class="columns">
+                                                    <div class="column  is-3">
+
+
+
+                                                    </div>
+
                                                     <div class="column is-12-percent">
 
-                                                        <span id="aspect-value1"
-                                                            class="range-slider__value2 dual_slider">
-                                                            {{ dual_slider['aspect'][0] }} 
-                                                        </span>
+                                                        <span id="aspect-value1" class="range-slider__value2"></span>
 
                                                     </div>
                                                     <div class="column is-half " style="padding-top: 22px;">
-                                                        
-                                                        <div id="aspect" data-x="{{ dual_slider['aspect'][0] }}" data-y="{{ dual_slider['aspect'][1] }}"></div>
+                                                        <div id="aspect"></div>
                                                     </div>
                                                     <div class="column is-12-percent">
 
-                                                        <span id="aspect-value2"
-                                                            class="range-slider__value dual_slider">
-                                                            {{ dual_slider['aspect'][1] }} 
-                                                        </span>
+                                                        <span id="aspect-value2" class="range-slider__value"></span>
                                                     </div>
                                                 </div>
+
 
 
 
@@ -538,95 +514,136 @@
 
 
 
-                            </div>
 
+
+
+
+
+
+
+
+
+
+
+
+                            </div>
                             <div id="t4" class="navtab-content">
-                                   
-                                
+
+
                                 <!-- Chosen select -->
                                 <div class="flat-card is-auto is-element-details has-overflow">
-                                     <div class="columns is-gapless is-vcentered">
-                                         
-                                         <div class="column is-7 is-component">
-                                             <div class="inner">
- 
-                                             <label class="dropdown" >Target Region</label>
-                                                 <div class="control">
-                                                    
-                                                     <select class="chosen-select" data-placeholder="Select">
-                                                         <option label="Payment method"></option>
-                                                         <option value="cash">Center</option>
-                                                        
-                                                     </select>
-                                                   
-                                                 </div>
+                                    <div class="columns is-gapless is-vcentered">
 
-                                                 <label  class="dropdown"  >Source Image</label>
-                                                 <div class="control">
-                                                       
-                                                         <select class="chosen-select" data-placeholder="Select">
-                                                             <option label="Payment method"></option>
-                                                             <option value="cash">Single Target</option>
-                                                             <option value="cash">Dual Target</option>
-                                                          
-                                                           
-                                                         </select>
-                                                       
-                                                     </div>
+                                        <div class="column is-7 is-component">
+                                            <div class="inner">
 
-                                                     <label  class="dropdown"  >Crosshair Mode</label>
-                                                     <div class="control">
-                                                             
-                                                             <select class="chosen-select" data-placeholder="Select">
-                                                                 <option label="Payment method"></option>
-                                                                 <option value="cash">Single Crosshair</option>
-                                                                 <option value="credit-card">Double Crosshair</option>
-                                                                 <option value="credit-card">Tri Crosshair</option>
-                                                                
-                                                             </select>
-                                                           
-                                                         </div>
+                                                <label class="dropdown">Target Region</label>
+                                                <div class="control">
 
-                                                
-                                                            
-                                                             
-                                                                 
+                                                    <select id="target_region" class="chosen-select"
+                                                        data-placeholder="Select">
+                                                        <option label="Payment method"></option>
+                                                        <option value="cash">Center</option>
+
+                                                    </select>
+
+                                                </div>
+
+                                                <label class="dropdown">Target Mode</label>
+                                                <div class="control">
+
+                                                    <select id="target_mode" class="chosen-select"
+                                                        data-placeholder="Select">
+                                                        <option label="Payment method"></option>
+                                                        <option value="cash">Single Target</option>
+                                                        <option value="cash">Dual Target</option>
 
 
-                                                         <div class="spacer"></div>
-                                                         <h3 class="title is-6">Crosshair A</h3>
-                                    
-                                                         <a class="button feather-button secondary-button btn-outlined is-bold">Calibrate XY</a>
-                                                         <a class="button feather-button secondary-button btn-outlined is-bold">Only X</a>
-                                                         <a class="button feather-button secondary-button btn-outlined is-bold">Only Y</a>
+                                                    </select>
 
-                                                      
-                                                         <a class="button feather-button accent-button raised is-rounded is-bold">Read XY</a>
-                                                        
-                                                                   
+                                                </div>
+
+                                                <label class="dropdown">Crosshair Mode</label>
+                                                <div class="control">
+
+                                                    <select id="crosshair_mode" class="chosen-select"
+                                                        data-placeholder="Select">
+                                                        <option label="Payment method"></option>
+                                                        <option value="cash">Single Crosshair</option>
+                                                        <option value="credit-card">Double Crosshair</option>
+                                                        <option value="credit-card">Tri Crosshair</option>
+
+                                                    </select>
+
+                                                </div>
 
 
-                                             </div>
-                                         </div>
-                                         <div class="column is-5 is-description topp">
-                                             <div class="inner">
-                                                 <div class="divider"></div>
-                                                 <h2 class="title is-5 is-light">Empty box to explain stuff or put camera</h2>
-                                                 <p>
 
-                                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
 
-                                                    
-                                                     
-                                                 </p>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                          
-                             </div>
 
-          
+
+
+                                                <div class="spacer"></div>
+                                                <h3 class="title is-6">Crosshair A</h3>
+
+                                                <a class="button feather-button secondary-button btn-outlined is-bold">Calibrate
+                                                    XY</a>
+                                                <a class="button feather-button secondary-button btn-outlined is-bold">Only
+                                                    X</a>
+                                                <a class="button feather-button secondary-button btn-outlined is-bold">Only
+                                                    Y</a>
+
+
+                                                <a
+                                                    class="button feather-button accent-button raised is-rounded is-bold">Read
+                                                    XY</a>
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="column is-5 is-description topp">
+                                            <div class="inner">
+                                                <div class="divider"></div>
+                                                <h2 class="title is-5 is-light">Empty box to explain stuff or put camera
+                                                </h2>
+                                                <p>
+
+                                                    Lorem Ipsum is simply dummy text of the printing and typesetting
+                                                    industry. Lorem Ipsum has been the industry's standard dummy text
+                                                    ever since the 1500s, when an unknown printer took a galley of type
+                                                    and scrambled it to make a type specimen book. It has survived not
+                                                    only five centuries, but also the leap into electronic typesetting,
+                                                    remaining essentially unchanged.
+
+
+
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                             </div>
 
 
@@ -696,7 +713,7 @@
         });
 
 
-        0
+
 
         $(document).on('input', '.slider__range', function (e) {
             var clicked = $(this).val();
@@ -736,36 +753,23 @@
       
 
        
-        {% for key, value in dual_slider.items() %}
+
        
     $(document).ready(function () {
-        var $slider = $("#{{ key }}");
-        var init_data = $('#{{ key }}').data();
-        var x = init_data.x
-        var y = init_data.y
+            
+        var $slider = $("#slider-range");
         $slider.slider({
             range: true,
             min: 0,
-            max: 255,
-            values: [x, y],
+            max: 1000,
+            values: [100, 150],
             slide: function(event, ui) {
-
-              $("#{{ key }}-value1").html(ui.values[0]);
-             $("#{{ key }}-value2").html(ui.values[1]);
-             $.ajax({
-                type: 'POST',
-                url: "/dual_slider",
-                contentType: 'application/json;charset=UTF-8',
-                data: JSON.stringify({ "{{key}}" : ui.values }),
-            });
-
-               
+                  console.log(ui.values)
+               $("#price-filter-min").val(100);
+               $("#price-filter-max").val(600);
             }
          });
           });
-
-          {% endfor %}
-
 
 
         $(function () {
@@ -795,23 +799,23 @@
                         contentType: 'application/json;charset=UTF-8',
                         data: JSON.stringify({ eyedropper : [offsetX, offsetY] }),
                         success: function(data){
-                            
-                            const entries = Object.entries(data)
-                            for (const [key, value] of entries) {
-                                var $slider = $(`#${key}`);
+                            $("#hue").val();
+
+                            console.log(data.hue[0], data.hue[1])
+                            var $slider = $("#slider-range");
  
-                                $slider.slider({
-                                    values: [value[0], value[1]]
-                                    });
+                        $slider.slider({
+                            values: [150, 500]
+                            });
 
-                                $(`#${key}-value1`).html(value[0]);
-                                $(`#${key}-value2`).html(value[1]);
+                           
 
-                                
-                              }
+                         
+                        }
 
-                        } 
+                        
                     });
+                    
 
 
                 } else if (currentCursor == 'cell') {
@@ -851,7 +855,7 @@
 
       
 
-    </script>0
+    </script>
 
 
     <script src="/static/js/slider.js">

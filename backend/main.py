@@ -1,9 +1,17 @@
-from flask import Flask, render_template, request, Response
-from camera import VideoCamera
+from flask import Flask, render_template, request, Response, jsonify
+from Camera import Camera
+from CVProcessing import tapePos
 import json
+import cv2
 from read_and_write import read_json, write_json, json_parse
 app = Flask(__name__)
 app.config["CACHE_TYPE"] = "null"
+
+
+cam = Camera(0)
+CVProcessor = tapePos(cam)
+
+
 
 @app.route('/')
 def cv2_pipeline():
@@ -53,9 +61,14 @@ def dual_slider():
         data = json_parse(data)
         for key in data:
             value = data[key]
-
             print(key, value)
-            write_json('dual_slider', key, value)
+            
+            if key == 'hue':
+                CVProcessor.set_hue(value)
+            elif key == 'saturation':
+                CVProcessor.set_saturation(value)
+            elif key == 'value':
+                CVProcessor.set_value(value)
 
     return "nothing"
 
@@ -68,6 +81,8 @@ def dropdown():
         data = json_parse(data)
         print(data)
     return "nothing"
+
+    
 
 @app.route('/button')
 def button():
@@ -86,9 +101,13 @@ def camera():
         for key in data:
             value = data[key]
 
-            print(key, value)
+            if key == 'eyedropper':
+                x = value[0]
+                y = value[1]
+                CVProcessor.generate_eyedropper(x, y)
+                
             write_json('camera', key, value)
-    return "nothing"
+    return jsonify({'hue' : CVProcessor.hue, 'saturation' : CVProcessor.saturation, 'value' : CVProcessor.value})
 
 
 
@@ -99,18 +118,25 @@ def cv():
     return render_template('cv.html')
 
 
-def gen(camera):
-    while True:
-        frame = camera.get_frame()
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
 @app.route('/video_feed')
 def video_feed():
-    return Response(gen(VideoCamera()),
+    return Response(VideoCamera(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
+def VideoCamera():
+    for img,mask,boxes in CVProcessor.process():
+        
+        for box in boxes:
+            cv2.drawContours(mask,[box],0,(0,127,255),2)
+        
+        ret, jpeg = cv2.imencode('.jpg', mask)
+        frame = jpeg.tobytes()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
+    
 
 
 if __name__ == '__main__':

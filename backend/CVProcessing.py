@@ -4,7 +4,7 @@ import numpy as np
 from time import sleep
 import enum
 import math
-
+from read_and_write import write_json, read_json
 class targetRegion(enum.Enum):
     topLeft = 0
     top = 1
@@ -19,11 +19,11 @@ class targetRegion(enum.Enum):
 class tapePos:
     def __init__(self,camObject):
         self.cam = camObject
-        self.exposure = 157 #ms #ON CORAL
+        self.exposure = 17 #ms #ON CORAL
         self.white_balance = 100 #CHANGE #ON CORAL
-        self.hue = (0,0) #Pixel
-        self.saturation = (0,0) #Pixel
-        self.value = (255,255) #Pixel
+        self.hue = [0,255] #Pixel
+        self.saturation = [0,255] #Pixel
+        self.value = [155,255] #Pixel
         self.erosion = 0 #CHANGE
         self.dilation = 0 #CHANGE
         self.target_area = 4000
@@ -39,8 +39,7 @@ class tapePos:
             img = self.cam.get_frame()
             ## convert to hsv
             hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-
-            mask = cv2.inRange(hsv, (self.hue[0], self.saturation[0], self.value[0]), (self.hue[1], self.saturation[1],self.value[1]))
+            mask = cv2.inRange(hsv, (int(self.hue[0]), int(self.saturation[0]), int(self.value[0])), (int(self.hue[1]), int(self.saturation[1]),int(self.value[1])))
             
             contours,hierarchy = cv2.findContours(mask, 1, 2)
             colorMask = cv2.cvtColor(mask,cv2.COLOR_GRAY2RGB)
@@ -63,7 +62,8 @@ class tapePos:
                         dist1 = math.sqrt( ((box[0][0]-box[1][0])**2)+((box[0][1]-box[1][1])**2) )
                         dist2 = math.sqrt( ((box[1][0]-box[2][0])**2)+((box[1][1]-box[2][1])**2) )
                         if dist1/dist2 > self.target_aspect_ratio:
-                            print(dist1/dist2)
+                           
+                     
                             boxes.append(box)
             yield img,colorMask,boxes
             ## save
@@ -71,8 +71,16 @@ class tapePos:
     def set_exposure(self,exposure):
         self.exposure = exposure
     
+
+    def generate_eyedropper(self, x, y):
+        frame = self.cam.get_frame()
+        x = int(x)
+        y = int(y)
+        print(x, y)
+        self.set_eyedropper(frame[y,x].tolist())
+
     def set_eyedropper(self,hsv_value):
-        print(hsv_value)
+       
         hue = hsv_value[0]
         saturation = hsv_value[1]
         value = hsv_value[2]
@@ -98,7 +106,7 @@ class tapePos:
         self.set_hue(hueRange)
         self.set_saturation(saturationRange)
         self.set_value(valueRange)
-
+        print(self.hue, self.saturation, self.value)
     def set_min(self):
         self.eyedropper_mode = "min"
 
@@ -107,13 +115,15 @@ class tapePos:
 
     def set_hue(self,hue):
         self.hue = hue
+        write_json('dual_slider', 'hue', hue)
 
     def set_saturation(self,saturation):
         self.saturation = saturation
-        
+        write_json('dual_slider', 'saturation', saturation)
 
     def set_value(self, value):
         self.value = value
+        write_json('dual_slider', 'value', value)
 
     def set_erosion_steps(self, erosion):
         self.erosion = erosion
@@ -140,6 +150,9 @@ class tapePos:
         self.crosshair_type = crosshair_type
 
     def clampHSV(self, hsv_value):
-        if hsv_value[0]<0: hsv_value[0] = 0
-        if hsv_value[1]>255: hsv_value[1] = 255
+        
+        val1 = int(hsv_value[0])
+        val2 = int(hsv_value[1])
+        if val1<0: val1 = 0
+        if val2>255: val2 = 255
     

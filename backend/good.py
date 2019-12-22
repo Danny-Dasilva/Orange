@@ -11,7 +11,8 @@ CVProcessor = tapePos(cam)
 def on_mouse_click (event, x, y, flags, frame):
     global CVProcessor
     if event == cv2.EVENT_LBUTTONUP:
-        print(y, x, frame)
+        print(y, x)
+        print(frame[y,x].tolist())
         CVProcessor.set_eyedropper(frame[y,x].tolist())
 
 for img,mask,boxes in CVProcessor.process():

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/jquery-ui.css" type="text/css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div id="slider-range" data-price-min="230" data-price-max="1233"></div>
+		
+</body>
+<script src="/static/js/app.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    
+
+<script>
+
+
+    $(document).ready(function () {
+        
+        var $slider = $("#slider-range");
+        $slider.slider({
+            range: true,
+            min: 0,
+            max: 1000,
+            values: [100, 150],
+            slide: function(event, ui) {
+                  console.log(ui.values)
+               $("#price-filter-min").val(100);
+               $("#price-filter-max").val(600);
+            }
+         });
+          });
+
+</script>
+
+<script src="/static/js/slider.js">
+</script>
+<script src="/static/js/nephos.js"></script>
+</html>
