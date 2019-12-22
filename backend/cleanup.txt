@@ -1,1 +1,29 @@
+TO_DO.txt
+
+cv2:
+range for target area target fullness and target aspect ratio
+
+incorporate erosion and dilation
+
+flip image orientation
+
+figure out include and removed pixel
+
+crosshair stuff 
+
+
+coral:
+turn on leds with coral
+
+exposure and white balance on coral i.e. change c file for camera
+
+pilepeline setting:
+save to file is done as well as read but differentiation between pipelines is not done
+
+
+network tables and added functionality:
+not part of clone but angle and distance can be added as another form in the pipeline, 
+or we can do it after getting the box in java or python
+
+
 Minify css and js 
