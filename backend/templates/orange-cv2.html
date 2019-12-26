@@ -183,7 +183,7 @@
 
                                                 </div>
 
-                                                <label class="dropdown">Exposure (ms)</label>
+                                                <label class="dropdown">Exposure (ms) {{ slider['exposure'] }} </label>
                                                 <div class="control">
 
                                                     <div class="range-slider">
@@ -657,22 +657,23 @@
     <script type="text/javascript">
 
         var rangeSlider = function () {
-            var slider = $('.range-slider'),
+        var slider = $('.range-slider'),
                 range = $('.slider__range'),
                 value = $('.slider__value');
-            
 
-            slider.each(function () {
-
-                value.each(function () {
-                    var value = $(this).prev().attr('value');
-                    $(this).html(value);
-                });
-
-                range.on('input', function () {
-                    $(this).next(value).html(this.value);
-                });
+        for (var i = 0, length = slider.length; i < length; i++) {
+            value.each(function () {
+                var value = $(this).prev().attr('value');
+                $(this).html(value);
             });
+            range.on('input', function () {
+                $(this).next(value).html(this.value);
+            });
+        }
+
+
+
+            
         };
 
         rangeSlider();
@@ -681,10 +682,11 @@
 
 
 
+
         $(document).on('change', '.chosen-select', function (e) {
             var id = e.target.id
 
-            var select = $("#" + id).find(":selected").text();
+            var select = $(`#${id}`).find(":selected").text();
 
             $.ajax({
                 type: 'POST',
@@ -709,6 +711,8 @@
                 data: JSON.stringify({ [id]: clicked }),
             });
         });
+
+
 
         $(function () {
             $("#eyedropper").click(function (event) {
@@ -742,7 +746,7 @@
             
             var init_data = $(this).data();
             var id = $(this).attr('id');
-            var $slide = $("#"+id);
+            var $slide = $(`#${id}`);
 
             var x = init_data.x
             var y = init_data.y
@@ -754,8 +758,8 @@
             values: [x, y],
             slide: function(event, ui) {
 
-              $("#"+id+"-value1").html(ui.values[0]);
-             $("#"+id+"-value2").html(ui.values[1]);
+              $(`#${id}-value1`).html(ui.values[0]);
+             $(`#${id}-value2`).html(ui.values[1]);
              $.ajax({
                 type: 'POST',
                 url: "/dual_slider",
