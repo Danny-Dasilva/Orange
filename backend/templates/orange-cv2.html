@@ -737,10 +737,7 @@
        
     $(document).ready(function () {
         var $slider = $(".dualSlider");
-        // var init_data = $('.dualSlider').data();
-        // var id = $(this).attr('id');
-        // var x = init_data.x
-        // var y = init_data.y
+        
         $slider.each(function (e) {
             
             var init_data = $(this).data();
@@ -749,7 +746,6 @@
 
             var x = init_data.x
             var y = init_data.y
-            console.log(init_data, id, x, y)
 
             $slide.slider({
             range: true,
@@ -775,7 +771,7 @@
         });
         
         
-          });
+    });
 
 
         $(function () {
