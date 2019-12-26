@@ -27,3 +27,6 @@ or we can do it after getting the box in java or python
 
 
 Minify css and js 
+
+
+https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js

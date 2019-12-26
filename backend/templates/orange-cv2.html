@@ -286,7 +286,7 @@
                                                     </div>
                                                     <div class="column is-half " style="padding-top: 22px;">
                                                         
-                                                        <div id="hue" data-x="{{ dual_slider['hue'][0] }}" data-y="{{ dual_slider['hue'][1] }}"></div>
+                                                        <div id="hue" class="dualSlider" data-x="{{ dual_slider['hue'][0] }}" data-y="{{ dual_slider['hue'][1] }}"></div>
                                                     </div>
                                                     <div class="column is-12-percent">
 
@@ -316,7 +316,7 @@
                                                     </div>
                                                     <div class="column is-half " style="padding-top: 22px;">
                                                         
-                                                        <div id="saturation" data-x="{{ dual_slider['saturation'][0] }}" data-y="{{ dual_slider['saturation'][1] }}"></div>
+                                                        <div id="saturation" class="dualSlider"  data-x="{{ dual_slider['saturation'][0] }}" data-y="{{ dual_slider['saturation'][1] }}"></div>
                                                     </div>
                                                     <div class="column is-12-percent">
 
@@ -345,7 +345,7 @@
                                                     </div>
                                                     <div class="column is-half " style="padding-top: 22px;">
                                                         
-                                                        <div id="value" data-x="{{ dual_slider['value'][0] }}" data-y="{{ dual_slider['value'][1] }}"></div>
+                                                        <div id="value" class="dualSlider"  data-x="{{ dual_slider['value'][0] }}" data-y="{{ dual_slider['value'][1] }}"></div>
                                                     </div>
                                                     <div class="column is-12-percent">
 
@@ -438,7 +438,7 @@
                                                     </div>
                                                     <div class="column is-half " style="padding-top: 22px;">
                                                         
-                                                        <div id="target" data-x="{{ dual_slider['target'][0] }}" data-y="{{ dual_slider['target'][1] }}"></div>
+                                                        <div id="target" class="dualSlider"  data-x="{{ dual_slider['target'][0] }}" data-y="{{ dual_slider['target'][1] }}"></div>
                                                     </div>
                                                     <div class="column is-12-percent">
 
@@ -466,7 +466,7 @@
                                                     </div>
                                                     <div class="column is-half " style="padding-top: 22px;">
                                                         
-                                                        <div id="fullness" data-x="{{ dual_slider['fullness'][0] }}" data-y="{{ dual_slider['fullness'][1] }}"></div>
+                                                        <div id="fullness" class="dualSlider"  data-x="{{ dual_slider['fullness'][0] }}" data-y="{{ dual_slider['fullness'][1] }}"></div>
                                                     </div>
                                                     <div class="column is-12-percent">
 
@@ -496,7 +496,7 @@
                                                     </div>
                                                     <div class="column is-half " style="padding-top: 22px;">
                                                         
-                                                        <div id="aspect" data-x="{{ dual_slider['aspect'][0] }}" data-y="{{ dual_slider['aspect'][1] }}"></div>
+                                                        <div id="aspect" class="dualSlider"  data-x="{{ dual_slider['aspect'][0] }}" data-y="{{ dual_slider['aspect'][1] }}"></div>
                                                     </div>
                                                     <div class="column is-12-percent">
 
@@ -646,9 +646,9 @@
     </div>
     <!-- /Main wrapper -->
     <!-- Concatenated plugins -->
-    <script src="/static/js/app3.js"></script>
+    <script src="/static/js/app.js"></script>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="static/js/jqueryuimin.js"></script>
     
 
 
@@ -735,36 +735,47 @@
       
 
        
-        {% for key, value in dual_slider.items() %}
-       
     $(document).ready(function () {
-        var $slider = $("#{{ key }}");
-        var init_data = $('#{{ key }}').data();
-        var x = init_data.x
-        var y = init_data.y
-        $slider.slider({
+        var $slider = $(".dualSlider");
+        // var init_data = $('.dualSlider').data();
+        // var id = $(this).attr('id');
+        // var x = init_data.x
+        // var y = init_data.y
+        $slider.each(function (e) {
+            
+            var init_data = $(this).data();
+            var id = $(this).attr('id');
+            var $slide = $("#"+id);
+
+            var x = init_data.x
+            var y = init_data.y
+            console.log(init_data, id, x, y)
+
+            $slide.slider({
             range: true,
             min: 0,
             max: 255,
             values: [x, y],
             slide: function(event, ui) {
 
-              $("#{{ key }}-value1").html(ui.values[0]);
-             $("#{{ key }}-value2").html(ui.values[1]);
+              $("#"+id+"-value1").html(ui.values[0]);
+             $("#"+id+"-value2").html(ui.values[1]);
              $.ajax({
                 type: 'POST',
                 url: "/dual_slider",
                 contentType: 'application/json;charset=UTF-8',
-                data: JSON.stringify({ "{{key}}" : ui.values }),
+                data: JSON.stringify({ [id] : ui.values }),
             });
 
                
             }
          });
+        
+
+        });
+        
+        
           });
-
-          {% endfor %}
-
 
 
         $(function () {
