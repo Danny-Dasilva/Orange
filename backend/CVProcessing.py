@@ -65,6 +65,7 @@ class tapePos:
                            
                      
                             boxes.append(box)
+                            
             yield img,colorMask,boxes
             ## save
 

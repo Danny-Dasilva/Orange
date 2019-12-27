@@ -3,10 +3,10 @@ from Camera import Camera
 from CVProcessing import tapePos
 import json
 import cv2
+from process_svg import convert
 from read_and_write import read_json, write_json, json_parse
 app = Flask(__name__)
 app.config["CACHE_TYPE"] = "null"
-
 
 cam = Camera(0)
 CVProcessor = tapePos(cam)
@@ -129,6 +129,7 @@ def VideoCamera():
     for img,mask,boxes in CVProcessor.process():
         
         for box in boxes:
+            convert(box)
             cv2.drawContours(mask,[box],0,(0,127,255),2)
         
         ret, jpeg = cv2.imencode('.jpg', mask)

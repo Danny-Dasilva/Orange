@@ -2,7 +2,7 @@
 import json
 
 def read_json(selector):
-    with open('data.txt') as json_file:
+    with open('data.json') as json_file:
 
         read = json.load(json_file)
         data = read[selector]
@@ -11,7 +11,7 @@ def read_json(selector):
         
 
 def write_json(selector, key, new_value):
-    with open('data.txt') as json_file:
+    with open('data.json') as json_file:
 
         read = json.load(json_file)
         try:
@@ -21,7 +21,7 @@ def write_json(selector, key, new_value):
     json_file.close()
 
 
-    with open('data.txt', 'w') as outfile:
+    with open('data.json', 'w') as outfile:
         json.dump(read, outfile)
     json_file.close()
 
