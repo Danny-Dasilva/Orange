@@ -3,6 +3,8 @@ from Camera import Camera
 from CVProcessing import tapePos
 import json
 import cv2
+import queue
+import itertools
 from process_svg import convert
 from read_and_write import read_json, write_json, json_parse
 app = Flask(__name__)
@@ -24,7 +26,8 @@ def cv2_pipeline():
     
     # single sliders default
     slider = read_json('slider')
-    
+    if request.headers.get('accept') == 'text/event-stream':
+        return Response(svg(), content_type='text/event-stream')
     
     # dropdown defaults WIP
 
@@ -124,12 +127,13 @@ def video_feed():
     return Response(VideoCamera(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
-
+qu = queue.Queue(maxsize=2)
 def VideoCamera():
     for img,mask,boxes in CVProcessor.process():
         
         for box in boxes:
-            convert(box)
+            svg = convert(box)
+            qu.put(svg)
             cv2.drawContours(mask,[box],0,(0,127,255),2)
         
         ret, jpeg = cv2.imencode('.jpg', mask)
@@ -137,6 +141,12 @@ def VideoCamera():
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
+def svg():
+    for i, c in enumerate(itertools.cycle('\|/-')):
+        
+        c = qu.get()
+        
+        yield "data: %s \n\n" % (c)
     
 
 

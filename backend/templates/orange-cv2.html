@@ -392,8 +392,17 @@
                                         <div class="column is-4 is-description">
                                             <div class="inner">
                                                 <img src="{{ url_for('video_feed') }}">
-
-
+                                                <script>
+                                                    if (!!window.EventSource) {
+                                                      var source = new EventSource('/');
+                                                      source.onmessage = function(e) {
+                                                        console.log(e.data)
+                                                        $("#data").html(e.data);
+                                                      }
+                                                    }
+                                                    </script>
+                                                
+                                                 <div id="data">nothing received yet</div>
                                             </div>
                                         </div>
                                     </div>
