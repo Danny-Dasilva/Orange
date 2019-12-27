@@ -49,6 +49,7 @@ def settings():
 def slider():
     if request.method == "POST":
         data = request.get_json()
+        print(data, "data")
         data = json_parse(data)
         for key in data:
             value = data[key]
