@@ -31,7 +31,7 @@ def cv2_pipeline():
     
     # dropdown defaults WIP
 
-    return render_template('orange-cv2.html', dual_slider = dual_slider, slider=slider)
+    return render_template('cv.html', dual_slider = dual_slider, slider=slider)
 
 @app.route('/ai_pipeline')
 def ai_pipeline():
