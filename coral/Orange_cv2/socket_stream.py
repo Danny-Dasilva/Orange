@@ -15,9 +15,10 @@
 import argparse
 
 import logging
-from flask import Flask, render_template, Response
+from flask import Flask, request, render_template, Response
 import signal
 import threading
+from CVProcessing import tapePos
 import queue
 from camera import make_camera
 from streaming.server import StreamingServer
@@ -26,6 +27,12 @@ from gevent.pywsgi import WSGIServer
 from flask_sockets import Sockets
 from detect import Model_Detect as Model
 import PIL
+import itertools
+from process_svg import convert
+
+qu = queue.Queue(maxsize=10)
+CVProcessor = tapePos(qu)
+
 model = Model()
 
 app = Flask(__name__)
@@ -39,6 +46,8 @@ def svg(q):
         yield c
 @app.route('/')
 def init():
+    if request.headers.get('accept') == 'text/event-stream':
+        return Response(svg_gen(), content_type='text/event-stream')
     return render_template('index.html')
 @app.route('/bytestream')
 def byte():
@@ -69,9 +78,18 @@ def stream(socket):
 
 def stupid_overlay(self, tensor, layout, command):
     test = tensor.reshape(480, 640, 3)
-    print(test.shape)
+    
+    CVProcessor.put(tensor)
 
 
+def svg_gen():
+    while True:
+        
+        c = qu.get()
+        
+        # c = convert(c)
+        print(c)
+        yield "data: %s \n\n" % (c)
 
 def run_server(q):
     logging.basicConfig(level=logging.INFO)
