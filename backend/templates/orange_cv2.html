@@ -795,12 +795,14 @@
                 var currentCursor = $(this).css('cursor') ;
                 //do what you want here, i.e.
 
+                // ADD SWITCH CASE INSTEAD OF IF STATEMENTS
 
                 var offsetX = (640 * relX) / width
                 var offsetY = (480 * relY) / height
+                
 
-                if (currentCursor == 'crosshair') {
-                 
+                switch (currentCursor) {
+                    case 'crosshair':
                     $.ajax({
                         type: 'POST',
                         url: "/camera",
@@ -816,9 +818,9 @@
                                     values: [value[0], value[1]]
                                     });
 
+
                                 $(`#${key}-value1`).html(value[0]);
                                 $(`#${key}-value2`).html(value[1]);
-
                                 
                               }
 
@@ -826,29 +828,63 @@
                     });
 
 
-                } else if (currentCursor == 'cell') {
-                    //  block of code to be executed if the condition1 is false and condition2 is true
 
-                    $.ajax({
-                        type: 'POST',
-                        url: "/camera",
-                        contentType: 'application/json;charset=UTF-8',
-                        data: JSON.stringify({ include_pixel: [offsetX, offsetY] }),
-                    });
+                    case 'cell':
+
+                    case 'not-allowed':
+                }
 
 
-                  } else if (currentCursor == 'not-allowed') {
-                    //  block of code to be executed if the condition1 is false and condition2 is false
+                // if (currentCursor == 'crosshair') {
+                 
+                //     $.ajax({
+                //         type: 'POST',
+                //         url: "/camera",
+                //         contentType: 'application/json;charset=UTF-8',
+                //         data: JSON.stringify({ eyedropper : [offsetX, offsetY] }),
+                //         success: function(data){
+                            
+                //             const entries = Object.entries(data)
+                //             for (const [key, value] of entries) {
+                //                 var $slider = $(`#${key}`);
+ 
+                //                 $slider.slider({
+                //                     values: [value[0], value[1]]
+                //                     });
 
-                    $.ajax({
-                        type: 'POST',
-                        url: "/camera",
-                        contentType: 'application/json;charset=UTF-8',
-                        data: JSON.stringify({ ignore_pixel: [offsetX, offsetY]  }),
-                    });
+
+                //                 $(`#${key}-value1`).html(value[0]);
+                //                 $(`#${key}-value2`).html(value[1]);
+                                
+                //               }
+
+                //         } 
+                //     });
 
 
-                  }
+                // } else if (currentCursor == 'cell') {
+                //     //  block of code to be executed if the condition1 is false and condition2 is true
+
+                //     $.ajax({
+                //         type: 'POST',
+                //         url: "/camera",
+                //         contentType: 'application/json;charset=UTF-8',
+                //         data: JSON.stringify({ include_pixel: [offsetX, offsetY] }),
+                //     });
+
+
+                //   } else if (currentCursor == 'not-allowed') {
+                //     //  block of code to be executed if the condition1 is false and condition2 is false
+
+                //     $.ajax({
+                //         type: 'POST',
+                //         url: "/camera",
+                //         contentType: 'application/json;charset=UTF-8',
+                //         data: JSON.stringify({ ignore_pixel: [offsetX, offsetY]  }),
+                //     });
+
+
+                  })
 
 
 
@@ -856,7 +892,7 @@
 
 
 
-        });
+       
 
   
      
