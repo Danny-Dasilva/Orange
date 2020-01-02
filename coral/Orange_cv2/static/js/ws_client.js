@@ -58,6 +58,7 @@ window.onload = function() {
     }
 
     var player = null;
+    
     var socket = new WebSocket("ws://" + window.location.host + "/stream");
     console.log(window.location.host)
     socket.binaryType = "arraybuffer";
@@ -127,5 +128,9 @@ window.onload = function() {
           break;
       }
     };
+
+
+
+    
   });
 };

@@ -16,10 +16,13 @@ import argparse
 
 import logging
 from flask import Flask, request, render_template, Response
+from gevent import monkey; monkey.patch_all()
 import signal
 import threading
+import time
 from CVProcessing import tapePos
 import queue
+
 from camera import make_camera
 from streaming.server import StreamingServer
 from geventwebsocket.handler import WebSocketHandler
@@ -28,9 +31,10 @@ from flask_sockets import Sockets
 from detect import Model_Detect as Model
 import PIL
 import itertools
+from time import sleep
 from process_svg import convert
 
-qu = queue.Queue(maxsize=10)
+qu = queue.Queue(maxsize=100)
 CVProcessor = tapePos(qu)
 
 model = Model()
@@ -46,21 +50,50 @@ def svg(q):
         yield c
 @app.route('/')
 def init():
-    if request.headers.get('accept') == 'text/event-stream':
-        return Response(svg_gen(), content_type='text/event-stream')
+    # if request.headers.get('accept') == 'text/event-stream':
+    #     return Response(svg_gen(), content_type='text/event-stream')
     return render_template('index.html')
+
 @app.route('/bytestream')
 def byte():
         return Response(svg(q), content_type='text/event-stream')
 
 
+
+@app.route('/yeet')
+def eet():
+    # if request.headers.get('accept') == 'text/event-stream':
+    #     return Response(svg_gen(), content_type='text/event-stream')
+    return render_template('yeet.html')
+
+
+
 @sockets.route('/stream')
 def stream(socket):
+    print("stream request")
+    
     t = svg(q)
+    print(t,"ahh" )
     for buffer in t:
         if buffer:
             
             socket.send(buffer)
+
+
+@sockets.route('/test')
+def test(socket):
+    print("test request")
+    while True:
+        sleep(.02)
+        svg = qu.get()
+        
+        for c in svg:
+
+            c = convert(c)
+           
+    
+            socket.send(c)
+
 
 
 # @sockets.route('/stream')
@@ -82,14 +115,8 @@ def stupid_overlay(self, tensor, layout, command):
     CVProcessor.put(tensor)
 
 
-def svg_gen():
-    while True:
+       
         
-        c = qu.get()
-        
-        # c = convert(c)
-        print(c)
-        yield "data: %s \n\n" % (c)
 
 def run_server(q):
     logging.basicConfig(level=logging.INFO)
@@ -128,8 +155,7 @@ def main():
     http_server = WSGIServer(('',5000), app, handler_class=WebSocketHandler)
     http_server.serve_forever()
 
-    #app.run(host="0.0.0.0", debug=False)
-    
+   
     
        
 if __name__ == '__main__':

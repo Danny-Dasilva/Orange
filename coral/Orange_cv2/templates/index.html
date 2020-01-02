@@ -17,19 +17,32 @@
  
 
   <div id="container"></div>
-  <script>
-    if (!!window.EventSource) {
-      var source = new EventSource('/');
-      source.onmessage = function(e) {
-        
-        $("#data").html(e.data);
-      }
-    }
-    </script>
+  
 
  <div id="data">nothing received yet</div>
 
+<script>
+//   var inject = $("#data");
+// var socket1 = new WebSocket("ws://" + window.location.host + "/test");
+    // socket1.binaryType = "arraybuffer";
+    
+            
 
+    // socket1.onopen = function(event) {
+    //   console.log("Socket connected 2");
+    // };
+
+    // socket1.onclose = function(event) {
+    //   console.log("Socket closed.");
+    // };
+
+    // socket1.onmessage = function(event) {
+    //   console.log(event.data)
+    //   //inject.html(event.data);
+
+    // }
+
+</script>
    
 
 </body>

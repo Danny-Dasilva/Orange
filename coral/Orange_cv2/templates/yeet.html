@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <title>Coral Web Panel</title>
+  <script src="/static/js/jquery_min.js" type="text/javascript"></script>
+ 
+</head>
+<body>
+
+ 
+
+  <div id="container"></div>
+  
+
+ <div id="data">nothing received yet</div>
+
+<script>
+  var inject = $("#data");
+var socket1 = new WebSocket("ws://" + window.location.host + "/test");
+    socket1.binaryType = "arraybuffer";
+    
+            
+
+    socket1.onopen = function(event) {
+      console.log("Socket connected 2");
+    };
+
+    socket1.onclose = function(event) {
+      console.log("Socket closed.");
+    };
+
+    socket1.onmessage = function(event) {
+      console.log(event.data)
+      //inject.html(event.data);
+
+    }
+
+</script>
+   
+
+</body>
+</html>

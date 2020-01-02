@@ -3,8 +3,11 @@ from threading import Thread
 import numpy as np
 from time import sleep
 import enum
+import time
 import math
 import threading
+
+print(cv2.useOptimized(), "use optimized")
 
 class targetRegion(enum.Enum):
     topLeft = 0
@@ -25,7 +28,7 @@ class tapePos:
         self.white_balance = 100 #CHANGE #ON CORAL
         self.hue = (20, 255) #Pixel
         self.saturation = (20,255) #Pixel
-        self.value = (40,255) #Pixel
+        self.value = (20,255) #Pixel
         self.erosion = 0 #CHANGE
         self.dilation = 0 #CHANGE
         self.target_area = 4000
@@ -35,61 +38,74 @@ class tapePos:
         self.eyedropper_mode = "max"
         self.crosshair_mode = None #CHANGE
         self.crosshair_type = None #CHANGE
-        self._process= threading.Thread(target=self._process)
+        self.process= threading.Thread(target=self.process)
         self.start()
     def put(self, tensor):
         
-        self.img = tensor.reshape(480, 640, 3)
-        print(tensor.shape)
+        img = tensor.reshape(480, 640, 3)
+        self.img = cv2.resize(img, dsize=(100, 100), interpolation=cv2.INTER_CUBIC)
         
+       
         
         
 
-    def _process(self):
+    def process(self):
         print("started")
         counter = 0
-        sleep(3)
+        sleep(5)
         while True:
-            print("1")
-            sleep(.03)
-            counter +=1
-            self.qu.put(counter)
-            img = self.img
-            #print(img.shape, "img")
-            ## convert to hsv
-            hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-            #print(hsv.shape, "hsv")
-            mask = cv2.inRange(hsv, (int(self.hue[0]), int(self.saturation[0]), int(self.value[0])), (int(self.hue[1]), int(self.saturation[1]),int(self.value[1])))
-            #print(mask.shape, "shape")
-            image, contours, hierarchy= cv2.findContours(mask, 1, 2)
-            # print(len(contours), len(hierarchy))
-            colorMask = cv2.cvtColor(mask,cv2.COLOR_GRAY2RGB)
-            boxes = []
             
-            for cnt in contours:
+            if self.img.any():
+                    
+            # time1 = time.time()
+                img = self.img
+
                 
-                blankImg = np.zeros_like(mask)
-                pixels = []
-                rect = cv2.minAreaRect(cnt)
-                box = cv2.boxPoints(rect)
-                box = np.int0(box)
-                if cv2.contourArea(box) > self.target_area:
-                    cv2.drawContours(blankImg, [box], 0, color=255, thickness=-1)
-                    pixelpoints = np.nonzero(blankImg)
-                    pixel_area = len(pixelpoints[0])
-                    pixels.append(mask[pixelpoints[0],pixelpoints[1]])
-                    mask_area = len(np.nonzero(pixels[0])[0])
-                    fullness = mask_area/pixel_area
-                    if fullness*100 >= self.target_fullness:
-                        dist1 = math.sqrt( ((box[0][0]-box[1][0])**2)+((box[0][1]-box[1][1])**2) )
-                        dist2 = math.sqrt( ((box[1][0]-box[2][0])**2)+((box[1][1]-box[2][1])**2) )
-                        if dist1/dist2 > self.target_aspect_ratio:
-                            pass
-            #                 self.qu.put(box)
-                     
+                ## convert to hsv
+                
+                
+                hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+                #print(hsv.shape, "hsv")
+                mask = cv2.inRange(hsv, (int(self.hue[0]), int(self.saturation[0]), int(self.value[0])), (int(self.hue[1]), int(self.saturation[1]),int(self.value[1])))
+                #print(mask.shape, "shape")
+                image, contours, hierarchy= cv2.findContours(mask, 1, 2)
+                # print(len(contours), len(hierarchy))
+                #colorMask = cv2.cvtColor(mask,cv2.COLOR_GRAY2RGB)
+                boxes = []
+                
+                for cnt in contours:
+                    
+                    blankImg = np.zeros_like(mask)
+                    pixels = []
+                    rect = cv2.minAreaRect(cnt)
+                    box = cv2.boxPoints(rect)
+                    box = np.int0(box)
+                    if cv2.contourArea(box) > self.target_area:
+                        
+                        cv2.drawContours(blankImg, [box], 0, color=255, thickness=-1)
+                        pixelpoints = np.nonzero(blankImg)
+                        pixel_area = len(pixelpoints[0])
+                        pixels.append(mask[pixelpoints[0],pixelpoints[1]])
+                        mask_area = len(np.nonzero(pixels[0])[0])
+                        fullness = mask_area/pixel_area
+                        if fullness*100 >= self.target_fullness:
+                            dist1 = math.sqrt( ((box[0][0]-box[1][0])**2)+((box[0][1]-box[1][1])**2) )
+                            dist2 = math.sqrt( ((box[1][0]-box[2][0])**2)+((box[1][1]-box[2][1])**2) )
+                           # print( dist1/dist2, "dist")
+                            if dist1/dist2 > self.target_aspect_ratio:
+                                
+                                boxes.append(box)
+                if len(boxes) > 0:
+                    self.qu.put(boxes)
+                
+            else:
+                pass
+                    
+               # time2 = time.time()
+               # print('this took', (time2- time1)*1000.0, 'ms')
             
     def start(self):
-        self._process.start()
+        self.process.start()
 
     def set_exposure(self,exposure):
         self.exposure = exposure
