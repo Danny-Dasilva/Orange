@@ -9750,7 +9750,7 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 
 @media screen and (min-width : 100px) and (max-width : 769px) {
     .column.is-8 {
-      width: 66.66667%
+      width: 50%
       
     }
     .column {
@@ -9778,6 +9778,77 @@ input::-moz-focus-inner, input::-moz-focus-outer {
       .columns.slider {
         display: flex;
       }
+      label.dropdown {
+          position: unset;
+          line-height: 10px;
+
+      }
+      .slider__value, .range-slider__value, .range-slider__value2 {
+        top: 5px;
+        display: inline-block;
+        position: relative;
+        width: 30px;
+        color: #fff;
+        line-height: 20px;
+        text-align: center;
+        border-radius: 3px;
+        background: #2c3e50;
+        padding: 0px 0px;
+        font-size: 10px;'
+    }
+    .slider__value:after, .range-slider__value:after {
+        position: absolute;
+        top: 3px;
+        left: -5px;
+        width: 0;
+        height: 0;
+        border-top: 7px solid transparent;
+        border-right: 7px solid #2c3e50;
+        border-bottom: 7px solid transparent;
+        content: '';
+    }
+    .range-slider__value2:after {
+        position: absolute;
+        top: 3px;
+        left: 29px;
+        width: 0;
+        height: 0;
+        border-top: 7px solid transparent;
+        border-left: 7px solid #2c3e50;
+        border-bottom: 7px solid transparent;
+        content: '';
+    }
+    .is-element-details .is-component .inner,
+    .is-element-details .is-description .inner {
+        padding: 10px !important;
+   
+    }
+    .section {
+        padding-top: 3rem;
+        padding-right: 0rem;
+        padding-bottom: 0rem;
+        padding-left: 0rem;
+    }
+    .tabs-wrapper .navtab-content {
+        display: none;
+        padding: 0px !important;
+        min-height: 190px
+    }
+    .brand-filigrane {
+        padding-left: 30px;
+    }
+    .main-sidebar .sidebar-inner .icon-menu .is-sidebar-toggler .feather-minimize-2{
+        stroke: #000;
+        width: 20px;
+        height: 20px
+    }
+    .tabs a {
+        font-size: 3.7vw;
+    }
+    
+
+
+    
   }
  
 
