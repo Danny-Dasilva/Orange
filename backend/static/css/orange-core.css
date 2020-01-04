@@ -6304,12 +6304,8 @@ textarea.textarea.is-button+.textarea-button button {
         -webkit-transform: translateX(calc(-100% - 60px));
         transform: translateX(calc(-100% - 60px))
     }
-    .range-slider {
-        width: 200px !important
-    }
-    .range-slider .input-range {
-        width: 200px !important
-    }
+   
+   
     .product-panel {
         display: block;
         position: relative;

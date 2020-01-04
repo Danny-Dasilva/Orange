@@ -657,7 +657,7 @@ print {
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     .is-size-1-widescreen {
         font-size: 3rem !important
     }
@@ -681,7 +681,8 @@ print {
     }
 }
 
-@media screen and (min-width: 1472px) {
+@media screen and (min-width: 1370px) {
+    
     .is-size-1-fullhd {
         font-size: 3rem !important
     }
@@ -722,6 +723,7 @@ print {
 }
 
 @media screen and (max-width: 768px) {
+    
     .has-text-centered-mobile {
         text-align: center !important
     }
@@ -758,19 +760,19 @@ print {
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     .has-text-centered-widescreen {
         text-align: center !important
     }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1471px) {
+@media screen and (min-width: 1180px) and (max-width: 1370px) {
     .has-text-centered-widescreen-only {
         text-align: center !important
     }
 }
 
-@media screen and (min-width: 1472px) {
+@media screen and (min-width: 1370px) {
     .has-text-centered-fullhd {
         text-align: center !important
     }
@@ -813,19 +815,19 @@ print {
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     .has-text-justified-widescreen {
         text-align: justify !important
     }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1471px) {
+@media screen and (min-width: 1180px) and (max-width: 1370px) {
     .has-text-justified-widescreen-only {
         text-align: justify !important
     }
 }
 
-@media screen and (min-width: 1472px) {
+@media screen and (min-width: 1370px) {
     .has-text-justified-fullhd {
         text-align: justify !important
     }
@@ -868,19 +870,19 @@ print {
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     .has-text-left-widescreen {
         text-align: left !important
     }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1471px) {
+@media screen and (min-width: 1180px) and (max-width: 1370px) {
     .has-text-left-widescreen-only {
         text-align: left !important
     }
 }
 
-@media screen and (min-width: 1472px) {
+@media screen and (min-width: 1370px) {
     .has-text-left-fullhd {
         text-align: left !important
     }
@@ -923,19 +925,19 @@ print {
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     .has-text-right-widescreen {
         text-align: right !important
     }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1471px) {
+@media screen and (min-width: 1180px) and (max-width: 1370px) {
     .has-text-right-widescreen-only {
         text-align: right !important
     }
 }
 
-@media screen and (min-width: 1472px) {
+@media screen and (min-width: 1370px) {
     .has-text-right-fullhd {
         text-align: right !important
     }
@@ -1216,19 +1218,19 @@ print {
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     .is-block-widescreen {
         display: block !important
     }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1471px) {
+@media screen and (min-width: 1180px) and (max-width: 1370px) {
     .is-block-widescreen-only {
         display: block !important
     }
 }
 
-@media screen and (min-width: 1472px) {
+@media screen and (min-width: 1370px) {
     .is-block-fullhd {
         display: block !important
     }
@@ -1282,21 +1284,21 @@ print {
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     .is-flex-widescreen {
         display: -ms-flexbox !important;
         display: flex !important
     }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1471px) {
+@media screen and (min-width: 1180px) and (max-width: 1370px) {
     .is-flex-widescreen-only {
         display: -ms-flexbox !important;
         display: flex !important
     }
 }
 
-@media screen and (min-width: 1472px) {
+@media screen and (min-width: 1370px) {
     .is-flex-fullhd {
         display: -ms-flexbox !important;
         display: flex !important
@@ -1344,19 +1346,19 @@ print {
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     .is-inline-widescreen {
         display: inline !important
     }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1471px) {
+@media screen and (min-width: 1180px) and (max-width: 1370px) {
     .is-inline-widescreen-only {
         display: inline !important
     }
 }
 
-@media screen and (min-width: 1472px) {
+@media screen and (min-width: 1370px) {
     .is-inline-fullhd {
         display: inline !important
     }
@@ -1403,19 +1405,19 @@ print {
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     .is-inline-block-widescreen {
         display: inline-block !important
     }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1471px) {
+@media screen and (min-width: 1180px) and (max-width: 1370px) {
     .is-inline-block-widescreen-only {
         display: inline-block !important
     }
 }
 
-@media screen and (min-width: 1472px) {
+@media screen and (min-width: 1370px) {
     .is-inline-block-fullhd {
         display: inline-block !important
     }
@@ -1469,21 +1471,21 @@ print {
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     .is-inline-flex-widescreen {
         display: -ms-inline-flexbox !important;
         display: inline-flex !important
     }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1471px) {
+@media screen and (min-width: 1180px) and (max-width: 1370px) {
     .is-inline-flex-widescreen-only {
         display: -ms-inline-flexbox !important;
         display: inline-flex !important
     }
 }
 
-@media screen and (min-width: 1472px) {
+@media screen and (min-width: 1370px) {
     .is-inline-flex-fullhd {
         display: -ms-inline-flexbox !important;
         display: inline-flex !important
@@ -1531,19 +1533,19 @@ print {
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     .is-hidden-widescreen {
         display: none !important
     }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1471px) {
+@media screen and (min-width: 1180px) and (max-width: 1370px) {
     .is-hidden-widescreen-only {
         display: none !important
     }
 }
 
-@media screen and (min-width: 1472px) {
+@media screen and (min-width: 1370px) {
     .is-hidden-fullhd {
         display: none !important
     }
@@ -1590,19 +1592,19 @@ print {
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     .is-invisible-widescreen {
         visibility: hidden !important
     }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1471px) {
+@media screen and (min-width: 1180px) and (max-width: 1370px) {
     .is-invisible-widescreen-only {
         visibility: hidden !important
     }
 }
 
-@media screen and (min-width: 1472px) {
+@media screen and (min-width: 1370px) {
     .is-invisible-fullhd {
         visibility: hidden !important
     }
@@ -2890,21 +2892,21 @@ a.box:active {
     }
 }
 
-@media screen and (max-width: 1471px) {
+@media screen and (max-width: 1370px) {
     .container.is-fullhd {
         max-width: 1344px;
         width: auto
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     .container {
         max-width: 1152px;
         width: 1152px
     }
 }
 
-@media screen and (min-width: 1472px) {
+@media screen and (min-width: 1370px) {
     .container {
         max-width: 1344px;
         width: 1344px
@@ -8151,6 +8153,7 @@ label.panel-block:hover {
     width: 16.66667%
 }
 
+
 .columns.is-mobile>.column.is-offset-2 {
     margin-left: 16.66667%
 }
@@ -8160,6 +8163,7 @@ label.panel-block:hover {
     flex: none;
     width: 25%
 }
+
 
 .columns.is-mobile>.column.is-offset-3 {
     margin-left: 25%
@@ -8358,6 +8362,8 @@ label.panel-block:hover {
         flex: none;
         width: 25%
     }
+
+    
     .column.is-offset-3-mobile {
         margin-left: 25%
     }
@@ -8558,12 +8564,16 @@ print {
     .column.is-offset-2-tablet {
         margin-left: 16.66667%
     }
+  
+
     .column.is-3,
     .column.is-3-tablet {
         -ms-flex: none;
         flex: none;
-        width: 25%
+        width: 20%
     }
+   
+
     .column.is-offset-3,
     .column.is-offset-3-tablet {
         margin-left: 25%
@@ -8758,6 +8768,7 @@ print {
         flex: none;
         width: 25%
     }
+  
     .column.is-offset-3-touch {
         margin-left: 25%
     }
@@ -8769,11 +8780,7 @@ print {
     .column.is-offset-4-touch {
         margin-left: 33.33333%
     }
-    .column.is-5-touch {
-        -ms-flex: none;
-        flex: none;
-        width: 41.66667%
-    }
+  
     .column.is-offset-5-touch {
         margin-left: 41.66667%
     }
@@ -8938,6 +8945,7 @@ print {
         flex: none;
         width: 25%
     }
+  
     .column.is-offset-3-desktop {
         margin-left: 25%
     }
@@ -9015,7 +9023,7 @@ print {
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1180px) {
     .column.is-narrow-widescreen {
         -ms-flex: none;
         flex: none
@@ -9118,6 +9126,8 @@ print {
         flex: none;
         width: 25%
     }
+   
+
     .column.is-offset-3-widescreen {
         margin-left: 25%
     }
@@ -9195,7 +9205,7 @@ print {
     }
 }
 
-@media screen and (min-width: 1472px) {
+@media screen and (min-width: 1370px) {
     .column.is-narrow-fullhd {
         -ms-flex: none;
         flex: none
@@ -9298,6 +9308,7 @@ print {
         flex: none;
         width: 25%
     }
+ 
     .column.is-offset-3-fullhd {
         margin-left: 25%
     }
@@ -9457,17 +9468,19 @@ print {
 
 label.dropdown {
     position:absolute;
-    z-index:1;
-    height:40px;
-    line-height:40px;
+    font-size: 14px;
     pointer-events:none;
-    text-indent:10px;
     font-weight:bold;
+    line-height: 30px;
 }
 
-*, *:before, *:after {
-    box-sizing: border-box;
-}
+
+@media screen and (max-width: 1180px) {
+    label.dropdown {
+      font-size: 10px;
+    }
+  }
+
 
 .range-slider {
     margin: 60px 0 0 0%;
@@ -9476,7 +9489,7 @@ label.dropdown {
 }
 .slider__range {
     -webkit-appearance: none;
-    width: calc(100% - (74px));
+    width: 100%;
     height: 10px;
     border-radius: 5px;
     background: #d7dcdf;
@@ -9525,7 +9538,6 @@ label.dropdown {
     border-radius: 3px;
     background: #2c3e50;
     padding: 5px 10px;
-    margin-left: 8px;
 }
 .slider__value:after {
     position: absolute;
@@ -9592,7 +9604,7 @@ input::-moz-focus-inner, input::-moz-focus-outer {
        border-radius: 3px;
        background: #2c3e50;
        padding: 5px 10px;
-       margin-left: 8px;
+
   }
    .range-slider__value:after {
        position: absolute;
@@ -9618,7 +9630,6 @@ input::-moz-focus-inner, input::-moz-focus-outer {
        border-radius: 3px;
        background: #2c3e50;
        padding: 5px 10px;
-       margin-left: 13px;
   }
    .range-slider__value2:after {
        position: absolute;
@@ -9719,6 +9730,55 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 }
 /* STYLING FOR THE STATUS HELPER TEXT FOR THE DEMO */
 
+
+
+
+.slide-column {
+    display: block;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+    padding-top: .75rem;
+}
+
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+
+
+@media screen and (min-width : 100px) and (max-width : 769px) {
+    .column.is-8 {
+      width: 66.66667%
+      
+    }
+    .column {
+        flex-basis: auto;
+
+    }
+    .column.is-6 {
+        width: 50%;
+        
+      }
+
+    .column.is-3 {
+        width: 20%;
+       
+      }
+      .column.is-2 {
+        width: 16.66667%;
+       
+      }
+
+      .column.is-1 {
+        width: 8.33333%;
+     
+      }
+      .columns.slider {
+        display: flex;
+      }
+  }
  
 
 /* cross browser styling */
