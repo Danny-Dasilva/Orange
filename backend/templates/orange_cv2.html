@@ -183,16 +183,28 @@
 
                                                 </div>
 
-                                                <label class="dropdown">Exposure (ms)</label>
-                                                <div class="control">
+                                                <div class="columns">
 
-                                                    <div class="range-slider">
-                                                        <input  autocomplete="off" class="slider__range" id="exposure" type="range"
-                                                          min="0" max="500">
-                                                        <span id= "exposure_slider" class="slider__value">2</span>
+                                               
+                                                    <div class="column">
+                                                        <label class="dropdown">Exposure (ms)</label>
                                                     </div>
-
+    
+                                                    <div class="column is-half">
+    
+                                                        <div class="range-slider">
+                                                            <input  autocomplete="off" class="slider__range" id="exposure" type="range"
+                                                              min="0" max="500">
+                                                        </div>
+    
+                                                    </div>
+                                                    <div class="column">
+                                                        <span id="exposure_slider" class="slider__value">2</span>
+    
+                                                    </div>
+                                                   
                                                 </div>
+
 
 
 
@@ -655,252 +667,241 @@
 
 
 
-
-<script type="text/javascript">
+    <script type="text/javascript">
     
-    $.getJSON('/static/data.json', function(data) {
-     $.each(data.dual_slider, function(id, f) {
-         console.log(id, f)
-          
-          var $slide = $(`#${id}`);
-          
-          var x = f[0]
-          var y = f[1]
-          $(`#${id}-value1`).html(x);
-           $(`#${id}-value2`).html(y);
-          $slide.slider({
-          range: true,
-          min: 0,
-          max: 255,
-          values: [x, y],
-          slide: function(event, ui) {
-            $(`#${id}-value1`).html(ui.values[0]);
-           $(`#${id}-value2`).html(ui.values[1]);
-           $.ajax({
-              type: 'POST',
-              url: "/dual_slider",
-              contentType: 'application/json;charset=UTF-8',
-              data: JSON.stringify({ [id] : ui.values }),
-          });
-             
-          }
-       });
-      
-      
-      
-    });
-    $.each(data.slider, function(i, f) {
-      var test = $(`#${i}`);
-      test.val(f);
-      console.log(f, i)
-     
-          
-      $(`#${i}_slider`).html(f);
-      
-     
-    });
-    });
-
-
-    var rangeSlider = function () {
-        var slider = $('.range-slider'),
-                range = $('.slider__range');
-        for (var i = 0, length = slider.length; i < length; i++) {
-           
-            range.on('input', function () {
-                $(this).next(value).html(this.value);
-            });
-        }     
-        };
-        rangeSlider();
-
-
-
-
-
-
-
-
-        $(document).on('change', '.chosen-select', function (e) {
-            var id = e.target.id
-
-            var select = $(`#${id}`).find(":selected").text();
-
-            $.ajax({
-                type: 'POST',
-                url: "/dropdown",
-                contentType: 'application/json;charset=UTF-8',
-                data: JSON.stringify({ [id]: select }),
-            });
-
-        });
-
-
-
-        $(document).on('input', '.slider__range', function (e) {
-            var clicked = $(this).val();
-            //var class = $(".subclass", this).css("visibility","visible");
-            var id = e.target.id
-
-            $.ajax({
-                type: 'POST',
-                url: "/slider",
-                contentType: 'application/json;charset=UTF-8',
-                data: JSON.stringify({ [id]: clicked }),
-            });
-        });
-
-
-
-        
-
-
-
-        $(function () {
-            $("#eyedropper").click(function (event) {
-                $('img').css('cursor', 'crosshair');
-
-            });
-
-            $("#include_pixel").click(function (event) {
-                $('img').css('cursor', 'cell');
-
-            });
-            $("#ignore_pixel").click(function (event) {
-                $('img').css('cursor', 'not-allowed');
-
-            });
-
-        });
-
-
-
-
-            
-                
-      
-
-        $(function () {
-            // crosshair 
-            
-            $('img').click(function (e) {
-                var parentOffset = $(this).offset();
-                var height = $(this).height();
-                var width = $(this).width();
-
-                
-                //or $(this).offset(); if you really just want the current element's offset
-                var relX = e.pageX - parentOffset.left;
-                var relY = e.pageY - parentOffset.top;
-                var currentCursor = $(this).css('cursor') ;
-                //do what you want here, i.e.
-
-                // ADD SWITCH CASE INSTEAD OF IF STATEMENTS
-
-                var offsetX = (640 * relX) / width
-                var offsetY = (480 * relY) / height
-                
-
-                switch (currentCursor) {
-                    case 'crosshair':
-                    $.ajax({
-                        type: 'POST',
-                        url: "/camera",
-                        contentType: 'application/json;charset=UTF-8',
-                        data: JSON.stringify({ eyedropper : [offsetX, offsetY] }),
-                        success: function(data){
-                            
-                            const entries = Object.entries(data)
-                            for (const [key, value] of entries) {
-                                var $slider = $(`#${key}`);
- 
-                                $slider.slider({
-                                    values: [value[0], value[1]]
-                                    });
-
-
-                                $(`#${key}-value1`).html(value[0]);
-                                $(`#${key}-value2`).html(value[1]);
-                                
-                              }
-
-                        } 
-                    });
-
-
-
-                    case 'cell':
-
-                    case 'not-allowed':
-                }
-
-
-                // if (currentCursor == 'crosshair') {
+        $.getJSON('/static/data.json', function(data) {
+         $.each(data.dual_slider, function(id, f) {
+             console.log(id, f)
+              
+              var $slide = $(`#${id}`);
+              
+              var x = f[0]
+              var y = f[1]
+              $(`#${id}-value1`).html(x);
+               $(`#${id}-value2`).html(y);
+              $slide.slider({
+              range: true,
+              min: 0,
+              max: 255,
+              values: [x, y],
+              slide: function(event, ui) {
+                $(`#${id}-value1`).html(ui.values[0]);
+               $(`#${id}-value2`).html(ui.values[1]);
+               $.ajax({
+                  type: 'POST',
+                  url: "/dual_slider",
+                  contentType: 'application/json;charset=UTF-8',
+                  data: JSON.stringify({ [id] : ui.values }),
+              });
                  
-                //     $.ajax({
-                //         type: 'POST',
-                //         url: "/camera",
-                //         contentType: 'application/json;charset=UTF-8',
-                //         data: JSON.stringify({ eyedropper : [offsetX, offsetY] }),
-                //         success: function(data){
-                            
-                //             const entries = Object.entries(data)
-                //             for (const [key, value] of entries) {
-                //                 var $slider = $(`#${key}`);
- 
-                //                 $slider.slider({
-                //                     values: [value[0], value[1]]
-                //                     });
-
-
-                //                 $(`#${key}-value1`).html(value[0]);
-                //                 $(`#${key}-value2`).html(value[1]);
-                                
-                //               }
-
-                //         } 
-                //     });
-
-
-                // } else if (currentCursor == 'cell') {
-                //     //  block of code to be executed if the condition1 is false and condition2 is true
-
-                //     $.ajax({
-                //         type: 'POST',
-                //         url: "/camera",
-                //         contentType: 'application/json;charset=UTF-8',
-                //         data: JSON.stringify({ include_pixel: [offsetX, offsetY] }),
-                //     });
-
-
-                //   } else if (currentCursor == 'not-allowed') {
-                //     //  block of code to be executed if the condition1 is false and condition2 is false
-
-                //     $.ajax({
-                //         type: 'POST',
-                //         url: "/camera",
-                //         contentType: 'application/json;charset=UTF-8',
-                //         data: JSON.stringify({ ignore_pixel: [offsetX, offsetY]  }),
-                //     });
-
-
-                  })
-
-
-
+              }
+           });
+          
+          
+          
+        });
+        $.each(data.slider, function(i, f) {
+          var test = $(`#${i}`);
+          test.val(f);
+          console.log(f, i)
+         
+              
+          $(`#${i}_slider`).html(f);
+          
+         
+        });
+        });
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+            $(document).on('change', '.chosen-select', function (e) {
+                var id = e.target.id
+    
+                var select = $(`#${id}`).find(":selected").text();
+    
+                $.ajax({
+                    type: 'POST',
+                    url: "/dropdown",
+                    contentType: 'application/json;charset=UTF-8',
+                    data: JSON.stringify({ [id]: select }),
+                });
+    
             });
-
-
-
-       
-
-  
+    
+    
+    
+            $(document).on('input', '.slider__range', function (e) {
+                var clicked = $(this).val();
+                //var class = $(".subclass", this).css("visibility","visible");
+                var id = e.target.id
+                $(`#${id}_slider`).html(clicked);
+    
+                $.ajax({
+                    type: 'POST',
+                    url: "/slider",
+                    contentType: 'application/json;charset=UTF-8',
+                    data: JSON.stringify({ [id]: clicked }),
+                });
+            });
+    
+    
+    
+            
+    
+    
+    
+            $(function () {
+                $("#eyedropper").click(function (event) {
+                    $('img').css('cursor', 'crosshair');
+    
+                });
+    
+                $("#include_pixel").click(function (event) {
+                    $('img').css('cursor', 'cell');
+    
+                });
+                $("#ignore_pixel").click(function (event) {
+                    $('img').css('cursor', 'not-allowed');
+    
+                });
+    
+            });
+    
+    
+    
+    
+                
+                    
+          
+    
+            $(function () {
+                // crosshair 
+                
+                $('img').click(function (e) {
+                    var parentOffset = $(this).offset();
+                    var height = $(this).height();
+                    var width = $(this).width();
+    
+                    
+                    //or $(this).offset(); if you really just want the current element's offset
+                    var relX = e.pageX - parentOffset.left;
+                    var relY = e.pageY - parentOffset.top;
+                    var currentCursor = $(this).css('cursor') ;
+                    //do what you want here, i.e.
+    
+                    // ADD SWITCH CASE INSTEAD OF IF STATEMENTS
+    
+                    var offsetX = (640 * relX) / width
+                    var offsetY = (480 * relY) / height
+                    
+    
+                    switch (currentCursor) {
+                        case 'crosshair':
+                        $.ajax({
+                            type: 'POST',
+                            url: "/camera",
+                            contentType: 'application/json;charset=UTF-8',
+                            data: JSON.stringify({ eyedropper : [offsetX, offsetY] }),
+                            success: function(data){
+                                
+                                const entries = Object.entries(data)
+                                for (const [key, value] of entries) {
+                                    var $slider = $(`#${key}`);
      
-
+                                    $slider.slider({
+                                        values: [value[0], value[1]]
+                                        });
+    
+    
+                                    $(`#${key}-value1`).html(value[0]);
+                                    $(`#${key}-value2`).html(value[1]);
+                                    
+                                  }
+    
+                            } 
+                        });
+    
+    
+    
+                        case 'cell':
+    
+                        case 'not-allowed':
+                    }
+    
+    
+                    // if (currentCursor == 'crosshair') {
+                     
+                    //     $.ajax({
+                    //         type: 'POST',
+                    //         url: "/camera",
+                    //         contentType: 'application/json;charset=UTF-8',
+                    //         data: JSON.stringify({ eyedropper : [offsetX, offsetY] }),
+                    //         success: function(data){
+                                
+                    //             const entries = Object.entries(data)
+                    //             for (const [key, value] of entries) {
+                    //                 var $slider = $(`#${key}`);
+     
+                    //                 $slider.slider({
+                    //                     values: [value[0], value[1]]
+                    //                     });
+    
+    
+                    //                 $(`#${key}-value1`).html(value[0]);
+                    //                 $(`#${key}-value2`).html(value[1]);
+                                    
+                    //               }
+    
+                    //         } 
+                    //     });
+    
+    
+                    // } else if (currentCursor == 'cell') {
+                    //     //  block of code to be executed if the condition1 is false and condition2 is true
+    
+                    //     $.ajax({
+                    //         type: 'POST',
+                    //         url: "/camera",
+                    //         contentType: 'application/json;charset=UTF-8',
+                    //         data: JSON.stringify({ include_pixel: [offsetX, offsetY] }),
+                    //     });
+    
+    
+                    //   } else if (currentCursor == 'not-allowed') {
+                    //     //  block of code to be executed if the condition1 is false and condition2 is false
+    
+                    //     $.ajax({
+                    //         type: 'POST',
+                    //         url: "/camera",
+                    //         contentType: 'application/json;charset=UTF-8',
+                    //         data: JSON.stringify({ ignore_pixel: [offsetX, offsetY]  }),
+                    //     });
+    
+    
+                      })
+    
+    
+    
+                });
+    
+    
+    
+           
+    
       
-
-    </script>
-
+         
+    
+          
+    
+        </script>
 
     
     <script src="/static/js/nephos.js"></script>
